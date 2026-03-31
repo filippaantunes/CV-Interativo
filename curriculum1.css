@@ -1,0 +1,515 @@
+/* =========================================
+    0. RESET E BARRA DE ROLAGEM
+   ========================================= */
+* {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important;  /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* =========================================
+    1. ESTILOS GERAIS E CONTENTOR
+   ========================================= */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+    2. CABEÇALHO E NAVEGAÇÃO
+   ========================================= */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.header-name {
+    color: #58D3F7;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-title {
+    color: #58D3F7;
+    font-size: 1.2em;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Esta é a regra que "manda" o botão para a direita */
+.language-switch {
+    display: flex !important;
+    justify-content: flex-end !important; /* Força a ida para a direita */
+    width: 100% !important;
+    margin-bottom: 15px !important; /* Dá espaço para o título de baixo */
+    padding-right: 20px; /* Alinha com a margem do teu container */
+}
+
+.lang-btn {
+    font-size: 0.85em;
+    color: #084B8A !important;
+    font-weight: bold;
+    border: 2px solid #084B8A; 
+    padding: 10px 18px;
+    border-radius: 25px;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lang-btn:hover {
+    background-color: #ffffff;
+    color: #58D3F7 !important;
+    border: 2px solid #58D3F7;
+    box-shadow: 0 4px 12px rgba(88, 211, 247, 0.3);
+}
+
+.email-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #58D3F7;
+    text-decoration: underline;
+}
+
+/* =========================================
+    3. ESTRUTURA DAS SECÇÕES (LAYOUT)
+   ========================================= */
+.section-container {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #83dbf8; 
+    margin-right: 50px; 
+}
+
+.section-info {
+    width: 25%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;      
+    justify-content: center;   
+    text-align: center;       
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+}
+
+/* SÓ os títulos que têm o atributo data-modal é que viram botões */
+main .section-title[data-modal] {
+    color: #084B8A;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+    display: inline-block;
+    padding: 10px 18px;
+    border: 2px solid #084B8A;
+    border-radius: 25px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 90%;
+    cursor: pointer;
+}
+
+/* Efeito de hover apenas para os títulos-botão */
+main .section-container:hover .section-title[data-modal] {
+    background-color: #ffffff;
+    color: #58D3F7;
+    border: 2px solid #58D3F7;
+    box-shadow: 0 4px 12px rgba(88, 211, 247, 0.3);
+}
+
+/* Títulos sem modal (como o ADICIONAL) ficam como texto simples */
+.section-title:not([data-modal]) {
+    color: #084B8A !important;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    cursor: default !important;
+    box-shadow: none !important;
+    width: auto !important;
+}
+
+.section-content {
+    width: 75%;
+    padding-left: 20px;
+}
+
+/* REFORÇO PARA A LINHA AZUL APARECER SEMPRE */
+.modal-line {
+    display: block !important;
+    height: 2px !important;
+    background-color: #58D3F7 !important;
+    width: 100% !important;
+    margin: 15px 0 25px 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* =========================================
+    4. INFORMAÇÃO PESSOAL E LISTAS
+   ========================================= */
+.personal-info {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.profile-photo {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details h3 {
+    font-size: 1.5em;
+    color: #084B8A;
+    margin: 0 0 15px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.contact-item img {
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
+}
+
+ul {
+    margin: 8px 0 0 20px;
+    padding: 0;
+    list-style-type: square;
+}
+
+li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    text-align: justify;
+}
+
+/* =========================================
+    5. MODAIS (PÁGINA E SOBREPOSIÇÃO)
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6) !important; 
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background: #ffffff !important;
+    padding: 40px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    animation: fadeIn 0.4s ease-out;
+    overflow-y: auto;
+}
+
+.modal-state:checked ~ .modal-overlay {
+    display: flex !important;
+}
+
+.modal-line {
+    height: 2px;
+    background: #58D3F7;
+    width: 100%;
+    margin: 10px 0 25px 0;
+    display: block;
+}
+
+/* =========================================
+    6. GRELHA DE PROJETOS E PORTFÓLIO
+   ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    align-items: stretch;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: #58D3F7;
+}
+
+.project-card img {
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.project-card[data-modal="detalhe-junta"]:hover {
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5) !important;
+    border: 1px solid #FFD700 !important;
+}
+
+/* =========================================
+    7. SUB-MODAIS (PDFS E DETALHES)
+   ========================================= */
+.sub-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4) !important; 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 5000 !important; 
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-content {
+    max-width: 900px !important;
+    max-height: 90vh !important;
+    background: #fff !important;
+    padding: 20px !important;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto !important;
+}
+
+.sub-content iframe {
+    width: 800px !important;
+    height: 80vh !important;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; 
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #084B8A;
+    font-weight: bold;
+    z-index: 5005;
+}
+
+/* =========================================
+    8. RESPONSIVIDADE E ANIMAÇÕES
+   ========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 768px) {
+    .section-container { flex-direction: column; margin-right: 0; }
+    .section-info { width: 100%; border-right: none; border-bottom: 1px solid #ddd; margin-bottom: 15px; }
+    .section-content { width: 100%; padding-left: 0; }
+    .sub-content iframe { width: 100% !important; }
+    .modal-content { width: 95% !important; padding: 20px !important; }
+}
+/* =========================================
+   9. GRELHA DE PROJETOS E PORTFÓLIO
+   ========================================= */
+
+/* Grelha principal que organiza os cartões */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    align-items: stretch; /* Garante que todos os cards da mesma linha tenham a mesma altura */
+}
+
+/* Estilo individual de cada cartão de projeto */
+.project-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+/* Forçar todas as imagens a terem o mesmo tamanho exato */
+.project-card img {
+    width: 100% !important;
+    height: 150px !important; /* Altura fixa para alinhar os títulos */
+    object-fit: cover !important; /* Corta a imagem sem a deformar */
+    object-position: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+}
+
+.project-card h4 {
+    font-size: 1em;
+    margin: 5px 10px;
+    color: #084B8A;
+}
+
+.project-card p {
+    font-size: 0.82em;
+    padding: 0 12px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+/* Efeito de levitar ao passar o rato */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: #58D3F7;
+}
+
+/* --- ESTILOS ESPECÍFICOS --- */
+
+/* Card de Empreendedorismo (Tracejado) */
+.project-card[data-modal="detalhe-empreendedorismo"] {
+    border: 1px dashed #58D3F7 !important;
+    background: #f0fbff !important;
+}
+
+/* Card de Gaming & Web (Brilho Dourado) */
+.project-card[data-modal="detalhe-junta"]:hover {
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5) !important;
+    border: 1px solid #FFD700 !important;
+}
+
+/* =========================================
+   10. RODAPÉ (FOOTER)
+   ========================================= */
+
+.site-footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+    display: block; /* Garante que ele ocupa o espaço todo em baixo */
+}
+
+.site-footer p {
+    color: #084B8A;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.footer-logo {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: 10px auto 0;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   11. página inglês
+   ========================================= */
+
+/* Limitar a expansão vertical dos modais em Inglês */
+.lang-en .sub-content {
+    max-height: 85vh; /* Não deixa o modal ocupar mais de 85% da altura do ecrã */
+    overflow-y: auto; /* Se o texto crescer, aparece uma barra de scroll interna em vez de esticar a página */
+}
+
+/* Reduzir ligeiramente o tamanho da fonte apenas no Inglês para compensar o volume */
+.lang-en p, .lang-en li {
+    font-size: 0.92em !important; 
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+/* Ajustar as colunas para que o texto não "empurre" a imagem para fora do ecrã */
+.lang-en .modal-content div[style*="display: flex"] {
+    align-items: stretch; 
+}
+
+/* Títulos mais compactos */
+.lang-en h3 {
+    margin-bottom: 10px !important;
+}
+
+.modal-overlay.active {
+    display: flex !important; 
+}
+
+/* Força a exibição de QUALQUER modal ou sub-modal que receba a classe active via JS */
+.modal-overlay.active, 
+.sub-modal.active {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Garante que o conteúdo do certificado seja visível */
+.sub-modal.active .sub-content {
+    display: flex !important;
+}
