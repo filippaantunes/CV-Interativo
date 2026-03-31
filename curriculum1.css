@@ -352,7 +352,7 @@ li {
 }
 
 /* =========================================
-    8. RESPONSIVIDADE E ANIMAÇÕES
+    8. RESPONSIVIDADE E ANIMAÇÕES (AJUSTADA)
    ========================================= */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-30px); }
@@ -360,9 +360,50 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-    .section-container { flex-direction: column; margin-right: 0; }
-    .section-info { width: 100%; border-right: none; border-bottom: 1px solid #ddd; margin-bottom: 15px; }
-    .section-content { width: 100%; padding-left: 0; }
+    /* Corrige o cabeçalho no telemóvel */
+    .header { 
+        flex-direction: column !important; /* Coloca nome e botão em fila */
+        align-items: center !important; 
+        text-align: center;
+        gap: 15px;
+    }
+
+    .language-switch {
+        justify-content: center !important; /* Centra o botão no telemóvel */
+        padding-right: 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Ajusta as secções */
+    .section-container { 
+        flex-direction: column; 
+        margin-right: 0; 
+    }
+    
+    .section-info { 
+        width: 100%; 
+        border-right: none; 
+        border-bottom: 1px solid #ddd; 
+        margin-bottom: 15px; 
+        padding-right: 0;
+    }
+    
+    .section-content { 
+        width: 100%; 
+        padding-left: 0; 
+    }
+
+    /* Foto de perfil centrada no telemóvel */
+    .personal-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 15px;
+    }
+
     .sub-content iframe { width: 100% !important; }
     .modal-content { width: 95% !important; padding: 20px !important; }
 }
