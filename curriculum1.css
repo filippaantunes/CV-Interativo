@@ -43,17 +43,20 @@ body {
 }
 
 .header-name {
-    color: #58D3F7;
-    font-size: 1.5em;
+    color: #084B8A; /* Azul escuro (o mesmo dos botões) */
+    font-size: 1.8em;
     font-weight: bold;
-    margin: 0;
+    letter-spacing: 1px; /* Dá um toque de design mais "premium" */
+    text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
 .header-title {
-    color: #58D3F7;
-    font-size: 1.2em;
+    color: #666; /* Um cinza elegante para o subtítulo */
+    font-size: 1.1em;
     font-weight: normal;
-    margin: 0;
+    font-style: italic; /* Opcional: para diferenciar bem do nome */
+    margin-top: 0;
 }
 
 /* Esta é a regra que "manda" o botão para a direita */
@@ -76,13 +79,20 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
+    background-color: #ffffff; /* Fundo branco para destacar a sombra */
+    
+    /* Adicionamos a sombra para o efeito saliente inicial */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.263);
 }
 
 .lang-btn:hover {
     background-color: #ffffff;
-    color: #58D3F7 !important;
-    border: 2px solid #58D3F7;
-    box-shadow: 0 4px 12px rgba(88, 211, 247, 0.3);
+    color: #084B8A !important;
+    border: 2px solid #dfe3e4;
+    /* Fazemos o botão "subir" um pouco como os outros */
+    transform: translateY(-1px);
+    /* Sombra mais intensa e colorida no hover */
+    box-shadow: 0 6px 15px rgba(166, 171, 172, 0.551);
 }
 
 .email-link {
@@ -92,7 +102,7 @@ body {
 }
 
 .email-link:hover {
-    color: #58D3F7;
+    color: #084B8A;
     text-decoration: underline;
 }
 
@@ -103,7 +113,7 @@ body {
     display: flex;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #83dbf8; 
+    border-bottom: 1px solid #084B8A; 
     margin-right: 50px; 
 }
 
@@ -129,19 +139,23 @@ main .section-title[data-modal] {
     padding: 10px 18px;
     border: 2px solid #084B8A;
     border-radius: 25px;
-    background-color: transparent;
+    background-color: #ffffff; /* Definir fundo branco para a sombra realçar */
     transition: all 0.3s ease;
     text-align: center;
     width: 90%;
     cursor: pointer;
+    
+    /*sombra suave (efeito saliente) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.263); 
 }
 
 /* Efeito de hover apenas para os títulos-botão */
 main .section-container:hover .section-title[data-modal] {
     background-color: #ffffff;
-    color: #58D3F7;
-    border: 2px solid #58D3F7;
-    box-shadow: 0 4px 12px rgba(88, 211, 247, 0.3);
+    color:#084B8A;
+    border: 2px solid#084B8AF7;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(88, 211, 247, 0.4);
 }
 
 /* Títulos sem modal (como o ADICIONAL) ficam como texto simples */
@@ -166,7 +180,7 @@ main .section-container:hover .section-title[data-modal] {
 .modal-line {
     display: block !important;
     height: 2px !important;
-    background-color: #58D3F7 !important;
+    background-color: #abacad !important;
     width: 100% !important;
     margin: 15px 0 25px 0 !important;
     opacity: 1 !important;
@@ -256,7 +270,7 @@ li {
 
 .modal-line {
     height: 2px;
-    background: #58D3F7;
+    background: #084B8A;
     width: 100%;
     margin: 10px 0 25px 0;
     display: block;
@@ -288,7 +302,7 @@ li {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-color: #58D3F7;
+    border-color: #084B8A;
 }
 
 .project-card img {
@@ -383,7 +397,7 @@ li {
     .section-info { 
         width: 100%; 
         border-right: none; 
-        border-bottom: 1px solid #ddd; 
+        border-bottom: 1px solid transparent !important;
         margin-bottom: 15px; 
         padding-right: 0;
     }
@@ -463,15 +477,16 @@ li {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-color: #58D3F7;
+    border-color: #084B8A;
 }
 
 /* --- ESTILOS ESPECÍFICOS --- */
 
 /* Card de Empreendedorismo (Tracejado) */
 .project-card[data-modal="detalhe-empreendedorismo"] {
-    border: 1px dashed #58D3F7 !important;
-    background: #f0fbff !important;
+    border: 1px dashed #084B8A !important;
+    box-shadow: 0 5px 20px rgba(124, 122, 109, 0.407) !important;
+    
 }
 
 /* Card de Gaming & Web (Brilho Dourado) */
