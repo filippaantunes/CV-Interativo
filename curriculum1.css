@@ -88,11 +88,11 @@ body {
 .lang-btn:hover {
     background-color: #ffffff;
     color: #084B8A !important;
-    border: 2px solid #dfe3e4;
+    border: 2px solid #084B8A;
     /* Fazemos o botão "subir" um pouco como os outros */
     transform: translateY(-1px);
     /* Sombra mais intensa e colorida no hover */
-    box-shadow: 0 6px 15px rgba(166, 171, 172, 0.551);
+    box-shadow: 0 6px 15px rgba(88, 211, 247, 0.4);
 }
 
 .email-link {
