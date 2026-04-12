@@ -70,7 +70,7 @@ body {
 
 .lang-btn {
     font-size: 0.85em;
-    color: #084B8A !important;
+    color: #ffffff !important;
     font-weight: bold;
     border: 2px solid #084B8A; 
     padding: 10px 18px;
@@ -79,7 +79,7 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
-    background-color: #ffffff; /* Fundo branco para destacar a sombra */
+    background-color: #084B8A; /* Fundo branco para destacar a sombra */
     
     /* Adicionamos a sombra para o efeito saliente inicial */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.263);
@@ -130,7 +130,7 @@ body {
 
 /* SÓ os títulos que têm o atributo data-modal é que viram botões */
 main .section-title[data-modal] {
-    color: #084B8A;
+    color: #ffffff;
     font-size: 0.85em;
     font-weight: bold;
     margin: 0;
@@ -139,7 +139,7 @@ main .section-title[data-modal] {
     padding: 10px 18px;
     border: 2px solid #084B8A;
     border-radius: 25px;
-    background-color: #ffffff; /* Definir fundo branco para a sombra realçar */
+    background-color: #084B8A; /* Definir fundo branco para a sombra realçar */
     transition: all 0.3s ease;
     text-align: center;
     width: 90%;
