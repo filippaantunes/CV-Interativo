@@ -25,7 +25,7 @@
         .sub-modal { z-index: 2000; }
         .section-title { cursor: pointer; }
         
-        /* Adjustment for certificate images to fit the modal */
+        /* Prevent certificate images from overflowing modal */
         .modal-content img {
             max-width: 100%;
             height: auto;
@@ -34,24 +34,130 @@
         }
     </style>
 </head>
+
+<!-- WELCOME MODAL - NEW -->
+<div id="welcome-modal" class="modal-overlay active" style="z-index: 9999;">
+    <div class="modal-content" style="max-width: 500px; text-align: center;">
+        <span class="close-btn" onclick="closeWelcome()" style="position:absolute;top:15px;right:20px;font-size:28px;cursor:pointer;color:#084B8A;font-weight:bold;z-index:5005;">&times;</span>
+        <h2 style="color: #084B8A; margin-bottom: 20px;">👋 Welcome to my Interactive CV!</h2>
+        <div class="modal-line"></div>
+        <p style="font-size: 1.1em; line-height: 1.6; margin: 20px 0;">
+            This is <strong>not a PDF</strong> — it's an interactive experience!<br><br>
+            👉 <strong>Click the blue buttons</strong> to explore my journey<br>
+            👉 <strong>Explore the projects</strong> at the end<br>
+            👉 <strong>Download the PDF</strong> if you prefer a traditional version
+        </p>
+        <button onclick="closeWelcome()" style="
+            background: #084B8A;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        ">Got it! Let's explore 🚀</button>
+    </div>
+</div>
+
+<script>
+// === ADDITIONAL INTERACTIVE FEATURES ===
+
+// Close welcome modal and save to localStorage
+function closeWelcome() {
+    const modal = document.getElementById('welcome-modal');
+    if (modal) modal.classList.remove('active');
+    localStorage.setItem('cv-welcome-seen', 'true');
+}
+
+// Show welcome modal only on first visit
+window.addEventListener('load', function() {
+    // Welcome modal
+    if (!localStorage.getItem('cv-welcome-seen')) {
+        const welcome = document.getElementById('welcome-modal');
+        if (welcome) welcome.classList.add('active');
+    }
+    
+    // Tooltip hint on first button (after 3 seconds, only if never interacted)
+    setTimeout(function() {
+        const firstBtn = document.querySelector('.section-title.first-button-hint[data-modal]');
+        if (firstBtn && !localStorage.getItem('cv-interacted')) {
+            // Ensure relative position for tooltip
+            firstBtn.style.position = 'relative';
+            
+            const tooltip = document.createElement('div');
+            tooltip.textContent = '👈 Click here!';
+            tooltip.style.cssText = `
+                position: absolute;
+                right: -110px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #084B8A;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 8px;
+                font-size: 0.85em;
+                white-space: nowrap;
+                animation: fadeIn 0.5s;
+                pointer-events: none;
+                z-index: 100;
+                box-shadow: 0 4px 12px rgba(8,75,138,0.3);
+            `;
+            firstBtn.appendChild(tooltip);
+            
+            // Remove tooltip after click and save interaction
+            firstBtn.addEventListener('click', function() {
+                if (tooltip.parentNode) tooltip.remove();
+                localStorage.setItem('cv-interacted', 'true');
+            }, { once: true });
+        }
+    }, 3000);
+});
+</script>
+
 <body>
     <div class="container">
         <nav class="language-switch">
-            <a href="index.html" class="lang-btn">Versão Portuguesa 🇵🇹</a>
+            <a href="index.html" class="lang-btn">Versão Português 🇵🇹</a>
         </nav>
 
         <header class="header">
             <h1 class="header-name">VERA ANTUNES</h1>
-            <h2 class="header-title">CV/Interactive</h2>
         </header>
+
+        <!-- INTERACTIVE BANNER - NEW -->
+        <div style="
+            background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 0 auto 30px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 12px rgba(8,75,138,0.3);
+            animation: pulse-border 2s infinite;
+        ">
+            <p style="margin: 0; font-size: 0.95em;">
+                <strong>✨ INTERACTIVE CV:</strong> Click the blue buttons below to explore •  
+                <span style="color: #FFD700;">
+                    📥 
+                    <span onclick="window.print()" style="text-decoration: underline; cursor: pointer;">
+                        Save as PDF
+                    </span>
+                    <span style="opacity: 0.7; font-size: 0.9em;">
+                        <a href="CV_VeraAntunes.pdf" download style="color: #FFD700; text-decoration: none;">(download static version)</a>
+                    </span>
+                </span>
+            </p>
+        </div>
 
         <main>
             <section class="section-container">
                 <div class="section-info">
-                    <h2 class="section-title" data-modal="modal-perfil">PERSONAL INFORMATION</h2>
+                    <h2 class="section-title first-button-hint" data-modal="modal-perfil">PERSONAL INFORMATION</h2>
                 </div>
                 <div class="section-content personal-info">
-                    <img src="fotos/veraA.jpg" alt="Vera Antunes Photo" class="profile-photo">
+                    <img src="fotos/veraA.jpg" alt="Photo of Vera Antunes" class="profile-photo">
                     <div class="contact-details">
                         <h3>Vera Antunes</h3>
                         <div class="contact-item">
@@ -60,7 +166,7 @@
                         </div>
                         <div class="contact-item">
                             <img src="fotos/lo3.png" alt="Phone icon">
-                            <p>Information request</p>
+                            <p>Available upon request</p>
                         </div>
                         <div class="contact-item">
                             <img src="fotos/lo2.png" alt="Email icon">
@@ -80,7 +186,7 @@
                         <h3 style="color: #084B8A; margin-bottom: 20px;">Professional Profile</h3>
                         <div class="modal-line"></div>
                         <p class="profile-text" style="text-align: justify;">
-                            My name is <strong>Vera Filipa De Melo Antunes</strong>. After two decades of creating unique pieces in the jewelry sector, I am now focusing my creative energy on the digital field.<br>
+                            My name is <strong>Vera Filipa De Melo Antunes</strong>. After two decades creating unique pieces in the jewelry sector, I now focus my creative energy on the digital field.<br>
                             I am a professional passionate about challenges, collaboration, and building solutions that make a difference.
                         </p>
                     </div>
@@ -98,34 +204,34 @@
                     </div>
                     <div class="experience-item">
                         <span class="experience-date">2007 – 2023</span>
-                        <p><strong>Bespoke Jewelry Designer & Independent Artist</strong></p>
+                        <p><strong>Independent Jewelry Designer & Artist</strong></p>
                     </div>
                     <div class="experience-item">
                         <span class="experience-date">2001 – 2007</span>
-                        <p><strong>Path in Technical Jewelry and Consultancy</strong></p>
+                        <p><strong>Technical Jewelry & Consulting Experience</strong></p>
                     </div>
                 </div>
 
                 <div id="modal-experiencia" class="modal-overlay">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
-                        <h3 style="color: #084B8A; margin-bottom: 20px;">Detailed Professional Background</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 20px;">Detailed Professional Journey</h3>
                         <div class="modal-line"></div>
                         <div class="experience-desc" style="text-align: justify; font-size: 0.95em;">
                             <p><strong>Distance Learning (FAD) - IEFP (2024 - 2026)</strong><br>
-                            Training carried out in a distance learning modality, demonstrating high autonomy and organization.</p>
+                            Training completed in distance learning modality, demonstrating high autonomy and organization.</p>
 
-                            <p><strong>Jewelry Designer & Independent Artist (2007 – 2023)</strong><br>
+                            <p><strong>Independent Jewelry Designer & Artist (2007 – 2023)</strong><br>
                             Focus on artistic creation and production. Full management of the creative and commercial process.</p>
 
-                            <p><strong>Consultancy and Stock Management | Cesar’s Jewelry (2005 – 2007)</strong><br>
-                            Specialized sales, inventory management, and Visual Merchandising.</p>
+                            <p><strong>Consulting & Stock Management | Cesar's Goldsmith (2005 – 2007)</strong><br>
+                            Specialized sales, inventory management, and Window Display.</p>
 
                             <p><strong>Aesthetics Technician | Gragel (2004 – 2005)</strong><br>
                             Application of precision techniques and customer service.</p>
 
                             <p><strong>Jewelry Workshop | Reverso Gallery (2001 – 2004)</strong><br>
-                            Technical execution of fine jewelry. Mastery of casting, chasing, and welding.</p>
+                            Technical execution of high jewelry. Mastery of casting, engraving, and soldering.</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +239,7 @@
 
             <section class="section-container">
                 <div class="section-info">
-                    <h2 class="section-title" data-modal="modal-educacao">EDUCATION AND TRAINING</h2>
+                    <h2 class="section-title" data-modal="modal-educacao">EDUCATION & TRAINING</h2>
                 </div>
                 
                 <div class="section-content education">
@@ -147,7 +253,7 @@
                     </div>
                     <div class="education-item">
                         <span class="experience-date">07/2024 – 12/2024</span>
-                        <p><strong>IT Programmer</strong></p>
+                        <p><strong>Computer Programmer</strong></p>
                     </div>
                     <div class="education-item">
                         <span class="experience-date">1996 – 2001</span>
@@ -162,7 +268,7 @@
                 <div id="modal-educacao" class="modal-overlay">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
-                        <h3 style="color: #084B8A; margin-bottom: 20px;">Training and Certifications</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 20px;">Training & Certifications</h3>
                         <div class="modal-line"></div>
                         
                         <div class="experience-desc" style="text-align: left;">
@@ -181,7 +287,7 @@
                                 <li>DBMS and Network Administration.</li>
                             </ul>
 
-                            <p><strong>IT Programmer (2024)</strong>
+                            <p><strong>Computer Programmer (2024)</strong>
                                 <span class="open-sub" data-modal="cert-programador" style="cursor:pointer; margin-left:8px;">🔍</span>
                             </p>
                             <ul>
@@ -257,7 +363,7 @@
                     </div>
                     <div class="skills-item">
                         <h4>IT & Digital</h4>
-                        <p>Click on the title to see my <strong>Project Portfolio</strong> featuring practical work in Multimedia, C++, and Networking.</p>
+                        <p>Click the title to view my <strong>Project Portfolio</strong> with practical work in Multimedia, C++, and Networks.</p>
                     </div>
                 </div>
             </section>
@@ -282,21 +388,21 @@
                         </div>
 
                         <div class="project-card" data-modal="detalhe-junta" style="cursor: pointer;">
-                            <img src="fotos/Gemini_Generated_Image_d6ku5cd6ku5cd6ku.png" alt="UI Game Scenario" style="object-fit: cover !important;">
-                            <h4>Gaming & Web Design</h4>
+                            <img src="fotos/Gemini_Generated_Image_d6ku5cd6ku5cd6ku.png" alt="Game UI Scenario" style="object-fit: cover !important;">
+                            <h4>Game Design & Strategy</h4>
                             <p>Creation of interactive interfaces for the global gaming community.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-redes" style="cursor: pointer;">
                             <img src="fotos/LAN1.png" alt="LAN Project">
                             <h4>LAN Networks</h4>
-                            <p>Infrastructure assessment and planning.</p>
+                            <p>Infrastructure survey and planning.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-gaming" style="cursor: pointer;">
                             <img src="fotos/padeirinha.png" alt="Gaming and Animation">
                             <h4>Animation & 2D Storytelling</h4>
-                            <p>Short film "A Padeirinha" – Design and Movement.</p>
+                            <p>Short film "The Little Baker" – Design & Motion.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-empreendedorismo" style="cursor: pointer; border: 1px dashed #58D3F7; background: #f0fbff;">
@@ -311,7 +417,7 @@
             <div id="detalhe-cpp" class="modal-overlay sub-modal">
                 <div class="modal-content sub-content">
                     <span class="close-btn">&times;</span>
-                    <h3 style="color: #084B8A; margin-bottom: 20px;">C++ Logic & Programming</h3>
+                    <h3 style="color: #084B8A; margin-bottom: 20px;">Logic & C++ Programming</h3>
                     <div class="modal-line"></div>
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; text-align: left; align-items: flex-start;">
                         <div style="flex: 1; min-width: 280px;">
@@ -322,7 +428,7 @@
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Key Points:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
                                 <li>Matrix algebra and advanced trigonometry.</li>
-                                <li>Conversion between Binary, Decimal, and Roman systems.</li>
+                                <li>Conversion between Binary, Decimal, and Roman numeral systems.</li>
                                 <li>Condominium Management Module with file handling (I/O).</li>
                             </ul>
                         </div>
@@ -342,11 +448,11 @@
                         </div>
                         <div style="flex: 1; min-width: 280px; font-size: 0.95em; line-height: 1.6;">
                             <h3 style="color: #084B8A; margin-bottom: 8px;">Digital Portfolio "Flutuar em Ideias"</h3>
-                            <p>Authorial platform created on <strong>Google Sites</strong> to materialize creative projects, joining digital design with manual construction.</p>
+                            <p>Authorial platform created in <strong>Google Sites</strong> to materialize creative projects, uniting digital design with handmade construction.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Project Highlights:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
-                                <li><strong>Storytelling:</strong> Narrative about career change and personal overcoming through technology.</li>
-                                <li><strong>Multimedia:</strong> Integration of video and photography of own projects.</li>
+                                <li><strong>Storytelling:</strong> Narrative about career change and personal growth through technology.</li>
+                                <li><strong>Multimedia:</strong> Integration of video and photography of personal projects.</li>
                             </ul>
                             <div style="margin-top: 15px;">
                                 <a href="https://sites.google.com/view/flutuaremideias/home" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visit Site 🌐</a>
@@ -358,18 +464,18 @@
 
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; text-align: left; margin-top: 20px;">
                         <div style="flex: 1; min-width: 280px;">
-                            <img src="fotos/web.png" alt="Parish Council Page" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+                            <img src="fotos/web.png" alt="Parish Council Website" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
                         </div>
                         <div style="flex: 1; min-width: 280px;">
-                            <h3 style="color: #084B8A; margin-bottom: 15px;">Project: Local Government Web Design</h3>
-                            <p>Full development of a web interface for a local authority, applying web editing and design skills.</p>
+                            <h3 style="color: #084B8A; margin-bottom: 15px;">Project: Municipal Web Design</h3>
+                            <p>Complete development of a web interface for a local municipality, applying web editing and design skills.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Applied Skills:</h3>
                             <ul style="margin-left: 20px; list-style-type: square; font-size: 0.9em;">
-                                <li><strong>Design and Identity:</strong> Responsive layout with personalized iconography.</li>
+                                <li><strong>Design & Identity:</strong> Responsive layout with custom iconography.</li>
                                 <li><strong>Technologies:</strong> Advanced HTML5 and CSS3.</li>
                             </ul>
-                            <div style="text-align: center; margin-top: 20px;">
-                                <a href="https://filippaantunes.github.io/freguesia/" target="_blank" style="background-color: #084B8A; color: white; padding: 10px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 0.9em;">View Site Online 🌐</a>
+                            <div style="text-align: left; margin-top: 20px;">
+                                <a href="https://filippaantunes.github.io/freguesia/" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visit Site 🌐</a>
                             </div>
                         </div>
                     </div>
@@ -386,11 +492,11 @@
                             <div style="flex: 1; min-width: 280px;">
                                 <img src="fotos/Adamastor The Sea Giant.png" alt="Evony Interface" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
                             </div>
-                            <div style="flex: 1; min-width: 280px; text-align: left;">
-                                <h3 style="color: #084B8A; margin-bottom: 8px;">Project Evony: UI/UX & Design</h3>
+                            <div style="text-align: left; margin-top: 20px;">
+                                <h3 style="color: #084B8A; margin-bottom: 8px;">Evony Project: UI/UX & Design</h3>
                                 <p>Creation of visual elements and interface prototyping (Auto-Hunting Pass) for the global gaming community.</p>
                                 <div style="text-align: center; margin-top: 25px;">
-                                    <a href="https://filippaantunes.github.io/gaming/" target="_blank" style="background-color: #084B8A; color: white; padding: 10px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 0.9em;">View Site Online 🌐</a>
+                                    <a href="https://filippaantunes.github.io/gaming/" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visit Site 🌐</a>
                                 </div>
                             </div>
                         </div>
@@ -409,7 +515,7 @@
                             <img src="fotos/fol2.png" alt="Networks Folder Page 2" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
                         </div>
                         <div style="flex: 1; min-width: 300px; font-size: 0.95em; line-height: 1.6;">
-                            <p>Development of a detailed technical guide on Local Area Network (LAN) installation and configuration.</p>
+                            <p>Development of a detailed technical guide on the installation and configuration of Local Area Networks (LAN).</p>
                             <h3 style="color: #084B8A; margin: 20px 0 10px;">Technical Content Covered:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
                                 <li><strong>Network Topologies:</strong> Study of Star, Bus, Ring, and Mesh architectures.</li>
@@ -427,7 +533,7 @@
                 <div class="modal-content sub-content">
                     <span class="close-btn">&times;</span>
                     <div style="text-align: center; padding: 10px;">
-                        <h3 style="color: #084B8A; margin-bottom: 10px;">2D Animation: A Padeirinha</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 10px;">2D Animation: The Little Baker</h3>
                         <div class="modal-line"></div>
                         <video width="80%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                             <source src="videos/0141_08_VeraAntunes.mp4" type="video/mp4">
@@ -468,7 +574,7 @@
                             <p>This project was born from the belief that life is made of moments that fulfill us. We created a concept where every route is a flavor and every sunset a memory.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Project Highlights:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
-                                <li><strong>Gastronomic Experience:</strong> Guided routes with wine tastings and typical local flavors.</li>
+                                <li><strong>Gastronomic Experience:</strong> Guided routes with wine tastings and typical regional flavors.</li>
                                 <li><strong>Unique Moments:</strong> Strategic stops for cultural visits and sunset contemplation.</li>
                             </ul>
                         </div>
@@ -481,7 +587,7 @@
                     <h2 class="section-title titulo-limpo">ADDITIONAL</h2>
                 </div>
                 <div class="section-content">
-                    <p><strong>Driving License:</strong> Category B</p>
+                    <p><strong>Driver's License:</strong> Category B</p>
                 </div>
             </section>
         </main> 
