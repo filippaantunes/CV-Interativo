@@ -76,41 +76,6 @@ window.addEventListener('load', function() {
         const welcome = document.getElementById('welcome-modal');
         if (welcome) welcome.classList.add('active');
     }
-    
-    // Tooltip hint no primeiro botão (após 3 segundos, só se nunca interagiu)
-    setTimeout(function() {
-        const firstBtn = document.querySelector('.section-title.first-button-hint[data-modal]');
-        if (firstBtn && !localStorage.getItem('cv-interacted')) {
-            // Garante posição relativa para o tooltip
-            firstBtn.style.position = 'relative';
-            
-            const tooltip = document.createElement('div');
-            tooltip.textContent = 'Clica';
-            tooltip.style.cssText = `
-                position: absolute;
-                right: -110px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: #084B8A;
-                color: white;
-                padding: 8px 12px;
-                border-radius: 8px;
-                font-size: 0.85em;
-                white-space: nowrap;
-                animation: fadeIn 0.5s;
-                pointer-events: none;
-                z-index: 100;
-                box-shadow: 0 4px 12px rgba(8,75,138,0.3);
-            `;
-            firstBtn.appendChild(tooltip);
-            
-            // Remove tooltip após clique e guarda interação
-            firstBtn.addEventListener('click', function() {
-                if (tooltip.parentNode) tooltip.remove();
-                localStorage.setItem('cv-interacted', 'true');
-            }, { once: true });
-        }
-    }, 3000);
 });
 </script>
 <body>
