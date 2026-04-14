@@ -2,12 +2,13 @@
     0. RESET E BARRA DE ROLAGEM
    ========================================= */
 * {
-    scrollbar-width: none !important; /* Firefox */
-    -ms-overflow-style: none !important;  /* IE/Edge */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    box-sizing: border-box;
 }
 
 *::-webkit-scrollbar {
-    display: none !important; /* Chrome, Safari, Opera */
+    display: none !important;
     width: 0 !important;
     height: 0 !important;
 }
@@ -33,7 +34,7 @@ body {
 }
 
 /* =========================================
-    2. CABEÇALHO E NAVEGAÇÃO
+    2. CABEÇALHO E NAVEGAÇÃO (BOTÃO IDIOMA)
    ========================================= */
 .header {
     display: flex;
@@ -43,29 +44,30 @@ body {
 }
 
 .header-name {
-    color: #084B8A; /* Azul escuro (o mesmo dos botões) */
+    color: #084B8A;
     font-size: 1.8em;
     font-weight: bold;
-    letter-spacing: 1px; /* Dá um toque de design mais "premium" */
+    letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin: 0;
 }
 
 .header-title {
-    color: #666; /* Um cinza elegante para o subtítulo */
+    color: #666;
     font-size: 1.1em;
     font-weight: normal;
-    font-style: italic; /* Opcional: para diferenciar bem do nome */
-    margin-top: 0;
+    font-style: italic;
+    margin: 0;
 }
 
-/* Esta é a regra que "manda" o botão para a direita */
 .language-switch {
     display: flex !important;
-    justify-content: flex-end !important; /* Força a ida para a direita */
+    justify-content: flex-end !important;
     width: 100% !important;
-    margin-bottom: 15px !important; /* Dá espaço para o título de baixo */
-    padding-right: 20px; /* Alinha com a margem do teu container */
+    margin-bottom: 15px !important;
+    padding-right: 20px;
+    position: relative;
+    z-index: 20; /* Garante que fica acima de outros elementos */
 }
 
 .lang-btn {
@@ -79,20 +81,23 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
-    background-color: #084B8A; /* Fundo branco para destacar a sombra */
-    
-    /* Adicionamos a sombra para o efeito saliente inicial */
+    background-color: #084B8A;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.263);
+    pointer-events: auto !important; /* Força a interatividade */
+    z-index: 25 !important;
 }
 
 .lang-btn:hover {
     background-color: #ffffff;
     color: #084B8A !important;
     border: 2px solid #084B8A;
-    /* Fazemos o botão "subir" um pouco como os outros */
     transform: translateY(-1px);
-    /* Sombra mais intensa e colorida no hover */
-    box-shadow: 0 6px 15px rgba(88, 211, 247, 0.4);
+    box-shadow: 0 4px 12px rgba(8, 75, 138, 0.3);
+}
+
+.lang-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(8, 75, 138, 0.2);
 }
 
 .email-link {
@@ -128,7 +133,6 @@ body {
     border-right: 1px solid #ddd;
 }
 
-/* SÓ os títulos que têm o atributo data-modal é que viram botões */
 main .section-title[data-modal] {
     color: #ffffff;
     font-size: 0.85em;
@@ -139,26 +143,27 @@ main .section-title[data-modal] {
     padding: 10px 18px;
     border: 2px solid #084B8A;
     border-radius: 25px;
-    background-color: #084B8A; /* Definir fundo branco para a sombra realçar */
+    background-color: #084B8A;
     transition: all 0.3s ease;
     text-align: center;
     width: 90%;
     cursor: pointer;
-    
-    /*sombra suave (efeito saliente) */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.263); 
+    box-shadow: 0 5px 12px rgba(8, 75, 138, 0.3);
 }
 
-/* Efeito de hover apenas para os títulos-botão */
 main .section-container:hover .section-title[data-modal] {
     background-color: #ffffff;
-    color:#084B8A;
-    border: 2px solid#084B8AF7;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(88, 211, 247, 0.4);
+    color: #084B8A;
+    border: 2px solid #084B8A;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(8, 75, 138, 0.3);
 }
 
-/* Títulos sem modal (como o ADICIONAL) ficam como texto simples */
+main .section-title[data-modal]:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(8, 75, 138, 0.2);
+}
+
 .section-title:not([data-modal]) {
     color: #084B8A !important;
     font-size: 1.1em !important;
@@ -176,15 +181,28 @@ main .section-container:hover .section-title[data-modal] {
     padding-left: 20px;
 }
 
-/* REFORÇO PARA A LINHA AZUL APARECER SEMPRE */
+/* =========================================
+    LINHA SEPARADORA PARA MODAIS (UNIFICADA)
+   ========================================= */
 .modal-line {
     display: block !important;
     height: 2px !important;
-    background-color: #abacad !important;
+    min-height: 2px !important;
+    background: linear-gradient(to right, transparent, #abacad, transparent) !important;
     width: 100% !important;
+    max-width: 100% !important;
     margin: 15px 0 25px 0 !important;
+    padding: 0 !important;
+    border: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+    flex-shrink: 0 !important;
+    flex-basis: 100% !important;
+    order: 0 !important;
+}
+
+.modal-line[style*="opacity: 0.3"] {
+    background: linear-gradient(to right, transparent, #999, transparent) !important;
 }
 
 /* =========================================
@@ -251,6 +269,10 @@ li {
     -webkit-backdrop-filter: blur(10px);
 }
 
+.modal-overlay.active {
+    display: flex !important;
+}
+
 .modal-content {
     background: #ffffff !important;
     padding: 40px;
@@ -264,63 +286,6 @@ li {
     overflow-y: auto;
 }
 
-.modal-state:checked ~ .modal-overlay {
-    display: flex !important;
-}
-
-.modal-line {
-    height: 2px;
-    background: #084B8A;
-    width: 100%;
-    margin: 10px 0 25px 0;
-    display: block;
-}
-
-/* =========================================
-    6. GRELHA DE PROJETOS E PORTFÓLIO
-   ========================================= */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-    align-items: stretch;
-}
-
-.project-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    text-align: center;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-color: #084B8A;
-}
-
-.project-card img {
-    width: 100% !important;
-    height: 150px !important;
-    object-fit: cover !important;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
-}
-
-.project-card[data-modal="detalhe-junta"]:hover {
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5) !important;
-    border: 1px solid #FFD700 !important;
-}
-
-/* =========================================
-    7. SUB-MODAIS (PDFS E DETALHES)
-   ========================================= */
 .sub-modal {
     position: fixed;
     top: 0;
@@ -334,6 +299,12 @@ li {
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.sub-modal.active {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .sub-content {
@@ -366,75 +337,16 @@ li {
 }
 
 /* =========================================
-    8. RESPONSIVIDADE E ANIMAÇÕES (AJUSTADA)
+    6. GRELHA DE PROJETOS E PORTFÓLIO (UNIFICADO)
    ========================================= */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media screen and (max-width: 768px) {
-    /* Corrige o cabeçalho no telemóvel */
-    .header { 
-        flex-direction: column !important; /* Coloca nome e botão em fila */
-        align-items: center !important; 
-        text-align: center;
-        gap: 15px;
-    }
-
-    .language-switch {
-        justify-content: center !important; /* Centra o botão no telemóvel */
-        padding-right: 0 !important;
-        margin-bottom: 20px !important;
-    }
-
-    /* Ajusta as secções */
-    .section-container { 
-        flex-direction: column; 
-        margin-right: 0; 
-    }
-    
-    .section-info { 
-        width: 100%; 
-        border-right: none; 
-        border-bottom: 1px solid transparent !important;
-        margin-bottom: 15px; 
-        padding-right: 0;
-    }
-    
-    .section-content { 
-        width: 100%; 
-        padding-left: 0; 
-    }
-
-    /* Foto de perfil centrada no telemóvel */
-    .personal-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-photo {
-        margin-bottom: 15px;
-    }
-
-    .sub-content iframe { width: 100% !important; }
-    .modal-content { width: 95% !important; padding: 20px !important; }
-}
-/* =========================================
-   9. GRELHA DE PROJETOS E PORTFÓLIO
-   ========================================= */
-
-/* Grelha principal que organiza os cartões */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-top: 20px;
-    align-items: stretch; /* Garante que todos os cards da mesma linha tenham a mesma altura */
+    align-items: stretch;
 }
 
-/* Estilo individual de cada cartão de projeto */
 .project-card {
     background: #fff;
     border: 1px solid #ddd;
@@ -449,11 +361,10 @@ li {
     cursor: pointer;
 }
 
-/* Forçar todas as imagens a terem o mesmo tamanho exato */
 .project-card img {
     width: 100% !important;
-    height: 150px !important; /* Altura fixa para alinhar os títulos */
-    object-fit: cover !important; /* Corta a imagem sem a deformar */
+    height: 150px !important;
+    object-fit: cover !important;
     object-position: center;
     border-bottom: 1px solid #eee;
     margin-bottom: 12px;
@@ -473,26 +384,126 @@ li {
     margin-bottom: 5px;
 }
 
-/* Efeito de levitar ao passar o rato */
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     border-color: #084B8A;
 }
 
-/* --- ESTILOS ESPECÍFICOS --- */
-
-/* Card de Empreendedorismo (Tracejado) */
 .project-card[data-modal="detalhe-empreendedorismo"] {
     border: 1px dashed #084B8A !important;
     box-shadow: 0 5px 20px rgba(124, 122, 109, 0.407) !important;
-    
 }
 
-/* Card de Gaming & Web (Brilho Dourado) */
 .project-card[data-modal="detalhe-junta"]:hover {
     box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5) !important;
     border: 1px solid #FFD700 !important;
+}
+
+/* =========================================
+    7. RESPONSIVIDADE E ANIMAÇÕES
+   ========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 768px) {
+    .header { 
+        flex-direction: column !important;
+        align-items: center !important; 
+        text-align: center;
+        gap: 15px;
+    }
+
+    .language-switch {
+        justify-content: center !important;
+        padding-right: 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .section-container { 
+        flex-direction: column; 
+        margin-right: 0; 
+    }
+    
+    .section-info { 
+        width: 100%; 
+        border-right: none; 
+        border-bottom: 1px solid transparent !important;
+        margin-bottom: 15px; 
+        padding-right: 0;
+    }
+    
+    .section-content { 
+        width: 100%; 
+        padding-left: 0; 
+    }
+
+    .personal-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-bottom: 15px;
+    }
+
+    .sub-content iframe { width: 100% !important; }
+    .modal-content { width: 95% !important; padding: 20px !important; }
+}
+
+/* =========================================
+    8. RODAPÉ (FOOTER)
+   ========================================= */
+.site-footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+    display: block;
+}
+
+.site-footer p {
+    color: #084B8A;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.footer-logo {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: 10px auto 0;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================
+    9. AJUSTES PARA PÁGINA EM INGLÊS
+   ========================================= */
+.lang-en .sub-content {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.lang-en p, .lang-en li {
+    font-size: 0.92em !important; 
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.lang-en .modal-content div[style*="display: flex"] {
+    align-items: stretch; 
+}
+
+.lang-en h3 {
+    margin-bottom: 10px !important;
 }
 
 /* =========================================
@@ -568,4 +579,140 @@ li {
 /* Garante que o conteúdo do certificado seja visível */
 .sub-modal.active .sub-content {
     display: flex !important;
+}
+
+/* =========================================
+    12. FUNCIONALIDADES INTERATIVAS ADICIONAIS
+   ========================================= */
+
+/* Setinha indicadora nos títulos com modal */
+.section-title[data-modal] {
+    position: relative;
+    padding-right: 40px !important;
+}
+
+.section-title[data-modal]::after {
+    content: "▶";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75em;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.section-title[data-modal]:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(3px);
+    color: #084B8A;
+}
+
+/* Animação "bounce" para o primeiro botão */
+.first-button-hint {
+    animation: bounce-hint 2s infinite;
+}
+
+@keyframes bounce-hint {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Animação do banner */
+@keyframes pulse-border {
+    0%, 100% { box-shadow: 0 4px 12px rgba(8,75,138,0.3); }
+    50% { box-shadow: 0 4px 20px rgba(8,75,138,0.6); }
+}
+
+/* Ajuste responsive para o tooltip */
+@media screen and (max-width: 768px) {
+    .section-title[data-modal]::after {
+        right: 10px;
+        font-size: 0.7em;
+    }
+    
+    .first-button-hint {
+        animation: none !important; /* Desativa bounce em mobile para não atrapalhar */
+    }
+}
+
+/* =========================================
+    13. ESTILOS PARA IMPRESSÃO / PDF
+   ========================================= */
+@media print {
+    /* Esconde elementos interativos desnecessários */
+    .language-switch,
+    #welcome-modal,
+    .modal-overlay,
+    .section-title[data-modal]::after,
+    .first-button-hint,
+    .site-footer img.footer-logo {
+        display: none !important;
+    }
+
+    /* Remove sombras, animações e efeitos visuais pesados */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Ajusta o layout para uma coluna (mais legível em PDF) */
+    .section-container {
+        flex-direction: column !important;
+        margin-right: 0 !important;
+        border-bottom: 1px solid #084B8A;
+        padding-bottom: 15px;
+    }
+
+    .section-info {
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px dashed #ddd !important;
+        padding-right: 0 !important;
+        margin-bottom: 10px;
+    }
+
+    .section-content {
+        width: 100% !important;
+        padding-left: 0 !important;
+    }
+
+    /* Títulos de secção em modo "estático" para PDF */
+    .section-title[data-modal] {
+        background: #084B8A !important;
+        color: white !important;
+        padding: 10px 18px !important;
+        border-radius: 25px !important;
+        cursor: default !important;
+        width: auto !important;
+        display: inline-block !important;
+    }
+
+    /* Garante quebras de página limpas entre secções */
+    .section-container {
+        page-break-inside: avoid;
+    }
+
+    /* Otimiza a foto de perfil */
+    .profile-photo {
+        width: 120px !important;
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* Links mantêm cor mas sem sublinhado excessivo */
+    a {
+        color: #084B8A !important;
+        text-decoration: none !important;
+    }
+
+    /* Força cores de fundo a aparecerem no PDF */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
 }
