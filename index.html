@@ -38,13 +38,13 @@
 <div id="welcome-modal" class="modal-overlay active" style="z-index: 9999;">
     <div class="modal-content" style="max-width: 500px; text-align: center;">
         <span class="close-btn" onclick="closeWelcome()" style="position:absolute;top:15px;right:20px;font-size:28px;cursor:pointer;color:#084B8A;font-weight:bold;z-index:5005;">&times;</span>
-        <h2 style="color: #084B8A; margin-bottom: 20px;">👋 Bem-vinda ao meu CV Interativo!</h2>
+        <h2 style="color: #084B8A; margin-bottom: 20px;">Bem-vinda ao meu CV Interativo!</h2>
         <div class="modal-line"></div>
         <p style="font-size: 1.1em; line-height: 1.6; margin: 20px 0;">
             Este <strong>não é um PDF</strong> — é uma experiência interativa!<br><br>
-            👉 <strong>Clica nos botões azuis</strong> para explorar o meu percurso<br>
-            👉 <strong>Explora os projetos</strong> no final<br>
-            👉 <strong>Descarrega o PDF</strong> se preferires versão tradicional
+             <strong>Clica nos botões azuis</strong> para explorar o meu percurso<br>
+             <strong>Explora os projetos</strong> no final<br>
+             <strong>Descarrega o PDF</strong> se preferires versão tradicional
         </p>
         <button onclick="closeWelcome()" style="
             background: #084B8A;
@@ -85,7 +85,7 @@ window.addEventListener('load', function() {
             firstBtn.style.position = 'relative';
             
             const tooltip = document.createElement('div');
-            tooltip.textContent = '👈 Clica aqui!';
+            tooltip.textContent = 'Clica';
             tooltip.style.cssText = `
                 position: absolute;
                 right: -110px;
