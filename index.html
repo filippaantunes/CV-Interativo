@@ -34,6 +34,85 @@
         }
     </style>
 </head>
+<!-- WELCOME MODAL - NOVO -->
+<div id="welcome-modal" class="modal-overlay active" style="z-index: 9999;">
+    <div class="modal-content" style="max-width: 500px; text-align: center;">
+        <span class="close-btn" onclick="closeWelcome()" style="position:absolute;top:15px;right:20px;font-size:28px;cursor:pointer;color:#084B8A;font-weight:bold;z-index:5005;">&times;</span>
+        <h2 style="color: #084B8A; margin-bottom: 20px;">👋 Bem-vinda ao meu CV Interativo!</h2>
+        <div class="modal-line"></div>
+        <p style="font-size: 1.1em; line-height: 1.6; margin: 20px 0;">
+            Este <strong>não é um PDF</strong> — é uma experiência interativa!<br><br>
+            👉 <strong>Clica nos botões azuis</strong> para explorar o meu percurso<br>
+            👉 <strong>Explora os projetos</strong> no final<br>
+            👉 <strong>Descarrega o PDF</strong> se preferires versão tradicional
+        </p>
+        <button onclick="closeWelcome()" style="
+            background: #084B8A;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        ">Entendido! Vamos explorar 🚀</button>
+    </div>
+</div>
+
+<script>
+// === FUNCIONALIDADES INTERATIVAS ADICIONAIS ===
+
+// Fecha o welcome modal e guarda no localStorage
+function closeWelcome() {
+    const modal = document.getElementById('welcome-modal');
+    if (modal) modal.classList.remove('active');
+    localStorage.setItem('cv-welcome-seen', 'true');
+}
+
+// Abre welcome modal só na primeira visita
+window.addEventListener('load', function() {
+    // Welcome modal
+    if (!localStorage.getItem('cv-welcome-seen')) {
+        const welcome = document.getElementById('welcome-modal');
+        if (welcome) welcome.classList.add('active');
+    }
+    
+    // Tooltip hint no primeiro botão (após 3 segundos, só se nunca interagiu)
+    setTimeout(function() {
+        const firstBtn = document.querySelector('.section-title.first-button-hint[data-modal]');
+        if (firstBtn && !localStorage.getItem('cv-interacted')) {
+            // Garante posição relativa para o tooltip
+            firstBtn.style.position = 'relative';
+            
+            const tooltip = document.createElement('div');
+            tooltip.textContent = '👈 Clica aqui!';
+            tooltip.style.cssText = `
+                position: absolute;
+                right: -110px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #084B8A;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 8px;
+                font-size: 0.85em;
+                white-space: nowrap;
+                animation: fadeIn 0.5s;
+                pointer-events: none;
+                z-index: 100;
+                box-shadow: 0 4px 12px rgba(8,75,138,0.3);
+            `;
+            firstBtn.appendChild(tooltip);
+            
+            // Remove tooltip após clique e guarda interação
+            firstBtn.addEventListener('click', function() {
+                if (tooltip.parentNode) tooltip.remove();
+                localStorage.setItem('cv-interacted', 'true');
+            }, { once: true });
+        }
+    }, 3000);
+});
+</script>
 <body>
     <div class="container">
         <nav class="language-switch">
@@ -42,13 +121,36 @@
 
         <header class="header">
             <h1 class="header-name">VERA ANTUNES</h1>
-            <h2 class="header-title">CV/Interativo</h2>
         </header>
-
+        <!-- BANNER INTERATIVO - NOVO -->
+        <div style="
+            background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 0 auto 30px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 12px rgba(8,75,138,0.3);
+            animation: pulse-border 2s infinite;
+        ">
+            <p style="margin: 0; font-size: 0.95em;">
+                <strong>CV INTERATIVO:</strong> Clica nos botões azuis abaixo para explorar •  
+                <span style="color: #FFD700;">
+                    📥 
+                    <span onclick="window.print()" style="text-decoration: underline; cursor: pointer;">
+                        Guardar como PDF
+                    </span>
+                    <span style="opacity: 0.7; font-size: 0.9em;">
+                        <a href="CV_VeraAntunes.pdf" download style="color: #FFD700; text-decoration: none;">(baixar versão estática)</a>
+                    </span>
+                </span>
+            </p>
+        </div>
         <main>
             <section class="section-container">
                 <div class="section-info">
-                    <h2 class="section-title" data-modal="modal-perfil">INFORMAÇÃO PESSOAL</h2>
+                    <h2 class="section-title first-button-hint" data-modal="modal-perfil">INFORMAÇÃO PESSOAL</h2>
                 </div>
                 <div class="section-content personal-info">
                     <img src="fotos/veraA.jpg" alt="Foto de Vera Antunes" class="profile-photo">
@@ -368,8 +470,8 @@
                                 <li><strong>Design e Identidade:</strong> Layout responsivo com iconografia personalizada.</li>
                                 <li><strong>Tecnologias:</strong> HTML5 e CSS3 avançado.</li>
                             </ul>
-                            <div style="text-align: center; margin-top: 20px;">
-                                <a href="https://filippaantunes.github.io/freguesia/" target="_blank" style="background-color: #084B8A; color: white; padding: 10px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 0.9em;">Ver Site Online 🌐</a>
+                            <div style="text-align: left; margin-top: 20px;">
+                                <a href="https://filippaantunes.github.io/freguesia/" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visitar Site 🌐</a>
                             </div>
                         </div>
                     </div>
@@ -386,11 +488,11 @@
                             <div style="flex: 1; min-width: 280px;">
                                 <img src="fotos/Adamastor The Sea Giant.png" alt="Interface Evony" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
                             </div>
-                            <div style="flex: 1; min-width: 280px; text-align: left;">
+                            <div style="text-align: left; margin-top: 20px;">
                                 <h3 style="color: #084B8A; margin-bottom: 8px;">Projeto Evony: UI/UX & Design</h3>
                                 <p>Criação de elementos visuais e prototipagem de interfaces (Auto-Hunting Pass) para a comunidade global de gaming.</p>
                                 <div style="text-align: center; margin-top: 25px;">
-                                    <a href="https://filippaantunes.github.io/gaming/" target="_blank" style="background-color: #084B8A; color: white; padding: 10px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 0.9em;">Ver Site Online 🌐</a>
+                                    <a href="https://filippaantunes.github.io/gaming/" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visitar Site 🌐</a>
                                 </div>
                             </div>
                         </div>
