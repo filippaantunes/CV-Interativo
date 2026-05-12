@@ -25,7 +25,7 @@
         .sub-modal { z-index: 2000; }
         .section-title { cursor: pointer; }
         
-        /* Prevent certificate images from overflowing modal */
+        /* Adjustment to prevent certificate images from overflowing modal */
         .modal-content img {
             max-width: 100%;
             height: auto;
@@ -34,7 +34,6 @@
         }
     </style>
 </head>
-
 <!-- WELCOME MODAL - NEW -->
 <div id="welcome-modal" class="modal-overlay active" style="z-index: 9999;">
     <div class="modal-content" style="max-width: 500px; text-align: center;">
@@ -42,9 +41,9 @@
         <h2 style="color: #084B8A; margin-bottom: 20px;">Interactive CV!</h2>
         <div class="modal-line"></div>
         <p style="font-size: 1.1em; line-height: 1.6; margin: 20px 0;">
-            This is <strong>not a PDF</strong> — it is an interactive experience!<br><br>
-            <strong>Click the blue buttons</strong> to explore my journey.<br>
-            <strong>Explore</strong> and download.<br>
+            This <strong>is not a PDF</strong> — it's an interactive experience!<br><br>
+             <strong>Click the blue buttons</strong> to explore my journey.<br>
+             <strong>Explore</strong> and download.<br>
         </p>
         <button onclick="closeWelcome()" style="
             background: #084B8A;
@@ -58,6 +57,7 @@
         "> OK </button>
     </div>
 </div>
+
 <script>
 // === ADDITIONAL INTERACTIVE FEATURES ===
 
@@ -68,26 +68,24 @@ function closeWelcome() {
     localStorage.setItem('cv-welcome-seen', 'true');
 }
 
-// Show welcome modal only on first visit
+// Open welcome modal only on first visit
 window.addEventListener('load', function() {
     // Welcome modal
     if (!localStorage.getItem('cv-welcome-seen')) {
         const welcome = document.getElementById('welcome-modal');
         if (welcome) welcome.classList.add('active');
-    }    
+    }
 });
 </script>
-
 <body>
     <div class="container">
         <nav class="language-switch">
-            <a href="index.html" class="lang-btn">Versão Português 🇵🇹</a>
+            <a href="index.html" class="lang-btn">Versão Portuguesa 🇵🇹</a>
         </nav>
 
         <header class="header">
             <h1 class="header-name">VERA ANTUNES</h1>
         </header>
-
         <!-- INTERACTIVE BANNER - NEW -->
         <div style="
             background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%);
@@ -101,7 +99,7 @@ window.addEventListener('load', function() {
             animation: pulse-border 2s infinite;
         ">
             <p style="margin: 0; font-size: 0.95em;">
-                <strong>✨ INTERACTIVE CV:</strong> Click the blue buttons below to explore •  
+                <strong>INTERACTIVE CV:</strong> Click the blue buttons below to explore •  
                 <span style="color: #FFD700;">
                     📥 
                     <span onclick="window.print()" style="text-decoration: underline; cursor: pointer;">
@@ -113,7 +111,6 @@ window.addEventListener('load', function() {
                 </span>
             </p>
         </div>
-
         <main>
             <section class="section-container">
                 <div class="section-info">
@@ -129,7 +126,7 @@ window.addEventListener('load', function() {
                         </div>
                         <div class="contact-item">
                             <img src="fotos/lo3.png" alt="Phone icon">
-                            <p>Available upon request</p>
+                            <p>Information upon request</p>
                         </div>
                         <div class="contact-item">
                             <img src="fotos/lo2.png" alt="Email icon">
@@ -167,34 +164,34 @@ window.addEventListener('load', function() {
                     </div>
                     <div class="experience-item">
                         <span class="experience-date">2007 – 2023</span>
-                        <p><strong>Independent Jewelry Designer & Artist</strong></p>
+                        <p><strong>Author Jewelry Designer & Independent Artist</strong></p>
                     </div>
                     <div class="experience-item">
                         <span class="experience-date">2001 – 2007</span>
-                        <p><strong>Technical Jewelry & Consulting Experience</strong></p>
+                        <p><strong>Technical Jewelry and Consulting Path</strong></p>
                     </div>
                 </div>
 
                 <div id="modal-experiencia" class="modal-overlay">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
-                        <h3 style="color: #084B8A; margin-bottom: 20px;">Detailed Professional Journey</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 20px;">Detailed Professional Trajectory</h3>
                         <div class="modal-line"></div>
                         <div class="experience-desc" style="text-align: justify; font-size: 0.95em;">
                             <p><strong>Distance Learning (FAD) - IEFP (2024 - 2026)</strong><br>
-                            Training completed in distance learning modality, demonstrating high autonomy and organization.</p>
+                            Training conducted in distance learning modality, demonstrating high autonomy and organization.</p>
 
-                            <p><strong>Independent Jewelry Designer & Artist (2007 – 2023)</strong><br>
-                            Focus on artistic creation and production. Full management of the creative and commercial process.</p>
+                            <p><strong>Jewelry Designer & Independent Artist (2007 – 2023)</strong><br>
+                            Focus on artistic creation and production. Integral management of the creative and commercial process.</p>
 
-                            <p><strong>Consulting & Stock Management | Cesar's Goldsmith (2005 – 2007)</strong><br>
+                            <p><strong>Consulting and Stock Management | Cesar's Goldsmith (2005 – 2007)</strong><br>
                             Specialized sales, inventory management, and Window Display.</p>
 
                             <p><strong>Aesthetics Technician | Gragel (2004 – 2005)</strong><br>
-                            Application of precision techniques and customer service.</p>
+                            Application of precision techniques and public service.</p>
 
                             <p><strong>Jewelry Workshop | Reverso Gallery (2001 – 2004)</strong><br>
-                            Technical execution of high jewelry. Mastery of casting, engraving, and soldering.</p>
+                            Technical execution of high jewelry. Mastery of casting, chiseling, and soldering.</p>
                         </div>
                     </div>
                 </div>
@@ -202,17 +199,22 @@ window.addEventListener('load', function() {
 
             <section class="section-container">
                 <div class="section-info">
-                    <h2 class="section-title" data-modal="modal-educacao">EDUCATION & TRAINING</h2>
+                    <h2 class="section-title" data-modal="modal-educacao">EDUCATION AND TRAINING</h2>
                 </div>
                 
                 <div class="section-content education">
+                    <div class="education-item">
+                        <span class="experience-date"> 01/2026</span>
+                        <p><strong>12th Grade Diploma</strong></p>
+                    </div>
+
                     <div class="education-item">
                         <span class="education-date">06/2025 – 05/2026</span>
                         <p><strong>Multimedia Technician</strong></p>
                     </div>
                     <div class="education-item">
                         <span class="education-date">02/2025 – 04/2025</span>
-                        <p><strong>IT Operator</strong></p>
+                        <p><strong>Computer Operator</strong></p>
                     </div>
                     <div class="education-item">
                         <span class="experience-date">07/2024 – 12/2024</span>
@@ -222,28 +224,29 @@ window.addEventListener('load', function() {
                         <span class="experience-date">1996 – 2001</span>
                         <p><strong>António Arroio Artistic School</strong></p>
                     </div>
-                    <div class="education-item">
-                        <span class="experience-date">1995 – 1996</span>
-                        <p><strong>9th Grade Diploma</strong></p>
-                    </div>
+                    
                 </div>
 
                 <div id="modal-educacao" class="modal-overlay">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
-                        <h3 style="color: #084B8A; margin-bottom: 20px;">Training & Certifications</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 20px;">Training and Certifications</h3>
                         <div class="modal-line"></div>
                         
                         <div class="experience-desc" style="text-align: left;">
+                            <p><strong>12th Grade Diploma (2026)</strong>
+                                <span class="open-sub" data-modal="cert_12ano_page-0001" style="cursor:pointer; margin-left:8px;">🔍</span>
+                            </p>
+
                             <p><strong>Multimedia Technician (2024 - 2026)</strong>
                                 <span class="open-sub" data-modal="cert-multi-1" style="cursor:pointer; margin-left:8px;">🔍</span>
                                 <span class="open-sub" data-modal="cert-multi-2" style="cursor:pointer; margin-left:8px;">🔍</span>
                             </p>
                             <ul>
-                                <li>Web programming, Photography, Digital Imaging, and 2D Animation.</li>
+                                <li>Web programming, Photography, Digital Image and 2D Animation.</li>
                             </ul>
 
-                            <p><strong>IT Operator (2025)</strong>
+                            <p><strong>Computer Operator (2025)</strong>
                                 <span class="open-sub" data-modal="cert-operador" style="cursor:pointer; margin-left:8px;">🔍</span>
                             </p>
                             <ul>
@@ -265,10 +268,15 @@ window.addEventListener('load', function() {
                                 <li>Professional formatting of documents and presentations.</li>
                             </ul>
                         
-                            <p><strong>9th Grade Diploma</strong>
-                                <span class="open-sub" data-modal="cert-9ano" style="cursor:pointer; margin-left:8px;">🔍</span>
-                            </p>
+                            
                         </div>
+                    </div>
+                </div>
+
+                <div id="cert_12ano_page-0001" class="modal-overlay sub-modal">
+                    <div class="modal-content sub-content">
+                        <span class="close-btn">&times;</span>
+                        <img src="fotos/cert_12ano_page-0001.jpg" alt="12th Grade Diploma">
                     </div>
                 </div>
 
@@ -307,12 +315,7 @@ window.addEventListener('load', function() {
                     </div>
                 </div>
 
-                <div id="cert-9ano" class="modal-overlay sub-modal">
-                    <div class="modal-content sub-content">
-                        <span class="close-btn">&times;</span>
-                        <img src="fotos/9anocertificado.jpg" alt="9th Grade Certificate">
-                    </div>
-                </div>
+                
             </section>
 
             <section class="section-container">
@@ -325,7 +328,7 @@ window.addEventListener('load', function() {
                         <p><strong>Native:</strong> Portuguese | <strong>English:</strong> A2</p>
                     </div>
                     <div class="skills-item">
-                        <h4>IT & Digital</h4>
+                        <h4>Computer & Digital</h4>
                     </div>
                 </div>
             </section>
@@ -340,13 +343,13 @@ window.addEventListener('load', function() {
                         <div class="project-card" data-modal="detalhe-cpp" style="cursor: pointer;">
                             <img src="fotos/logicaec.jpg" alt="C++ Scientific Machine">
                             <h4>Logic & C++</h4>
-                            <p>Creation of a structured scientific calculation program.</p>
+                            <p>Creation of structured scientific calculation program.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-sites" style="cursor: pointer;">
                             <img src="fotos/flutuar.png" alt="Google Sites">
                             <h4>Google Sites</h4>
-                            <p>Development of an ecosystem for content management.</p>
+                            <p>Development of ecosystem for content management.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-junta" style="cursor: pointer;">
@@ -358,13 +361,13 @@ window.addEventListener('load', function() {
                         <div class="project-card" data-modal="detalhe-redes" style="cursor: pointer;">
                             <img src="fotos/LAN1.png" alt="LAN Project">
                             <h4>LAN Networks</h4>
-                            <p>Infrastructure survey and planning.</p>
+                            <p>Survey and infrastructure planning.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-gaming" style="cursor: pointer;">
                             <img src="fotos/padeirinha.png" alt="Gaming and Animation">
-                            <h4>Animation & 2D Storytelling</h4>
-                            <p>Short film "The Little Baker" – Design & Motion.</p>
+                            <h4>2D Animation & Storytelling</h4>
+                            <p>Short film "A Padeirinha" – Design and Movement.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-empreendedorismo" style="cursor: pointer; border: 1px dashed #58D3F7; background: #f0fbff;">
@@ -390,8 +393,8 @@ window.addEventListener('load', function() {
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Key Points:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
                                 <li>Matrix algebra and advanced trigonometry.</li>
-                                <li>Conversion between Binary, Decimal, and Roman numeral systems.</li>
-                                <li>Condominium Management Module with file handling (I/O).</li>
+                                <li>Conversion between Binary, Decimal and Roman systems.</li>
+                                <li>Condominium Management Module with file manipulation (I/O).</li>
                             </ul>
                         </div>
                     </div>
@@ -410,11 +413,11 @@ window.addEventListener('load', function() {
                         </div>
                         <div style="flex: 1; min-width: 280px; font-size: 0.95em; line-height: 1.6;">
                             <h3 style="color: #084B8A; margin-bottom: 8px;">Digital Portfolio "Flutuar em Ideias"</h3>
-                            <p>Authorial platform created in <strong>Google Sites</strong> to materialize creative projects, uniting digital design with handmade construction.</p>
+                            <p>Author platform created in <strong>Google Sites</strong> to materialize creative projects, uniting digital design with manual construction.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Project Highlights:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
-                                <li><strong>Storytelling:</strong> Narrative about career change and personal growth through technology.</li>
-                                <li><strong>Multimedia:</strong> Integration of video and photography of personal projects.</li>
+                                <li><strong>Storytelling:</strong> Narrative about career change and personal overcoming through technology.</li>
+                                <li><strong>Multimedia:</strong> Integration of video and photography of own projects.</li>
                             </ul>
                             <div style="margin-top: 15px;">
                                 <a href="https://sites.google.com/view/flutuaremideias/home" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visit Site 🌐</a>
@@ -426,14 +429,14 @@ window.addEventListener('load', function() {
 
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; text-align: left; margin-top: 20px;">
                         <div style="flex: 1; min-width: 280px;">
-                            <img src="fotos/web.png" alt="Parish Council Website" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+                            <img src="fotos/web.png" alt="Parish Council Page" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
                         </div>
                         <div style="flex: 1; min-width: 280px;">
                             <h3 style="color: #084B8A; margin-bottom: 15px;">Project: Municipal Web Design</h3>
-                            <p>Complete development of a web interface for a local municipality, applying web editing and design skills.</p>
+                            <p>Complete development of web interface for a local municipality, applying web editing and design skills.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Applied Skills:</h3>
                             <ul style="margin-left: 20px; list-style-type: square; font-size: 0.9em;">
-                                <li><strong>Design & Identity:</strong> Responsive layout with custom iconography.</li>
+                                <li><strong>Design and Identity:</strong> Responsive layout with personalized iconography.</li>
                                 <li><strong>Technologies:</strong> Advanced HTML5 and CSS3.</li>
                             </ul>
                             <div style="text-align: left; margin-top: 20px;">
@@ -473,15 +476,15 @@ window.addEventListener('load', function() {
                     <div class="modal-line"></div>
                     <div style="display: flex; flex-wrap: wrap; gap: 25px; text-align: left; align-items: flex-start;">
                         <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 15px;">
-                            <img src="fotos/fol1.png" alt="Networks Folder Page 1" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-                            <img src="fotos/fol2.png" alt="Networks Folder Page 2" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                            <img src="fotos/fol1.png" alt="Network Folder Page 1" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                            <img src="fotos/fol2.png" alt="Network Folder Page 2" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
                         </div>
                         <div style="flex: 1; min-width: 300px; font-size: 0.95em; line-height: 1.6;">
                             <p>Development of a detailed technical guide on the installation and configuration of Local Area Networks (LAN).</p>
-                            <h3 style="color: #084B8A; margin: 20px 0 10px;">Technical Content Covered:</h3>
+                            <h3 style="color: #084B8A; margin: 20px 0 10px;">Technical Contents Covered:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
-                                <li><strong>Network Topologies:</strong> Study of Star, Bus, Ring, and Mesh architectures.</li>
-                                <li><strong>Hardware:</strong> Switches, Routers, and PoE technology.</li>
+                                <li><strong>Network Topologies:</strong> Study of Star, Bus, Ring and Mesh architectures.</li>
+                                <li><strong>Hardware:</strong> Switches, Routers and PoE technology.</li>
                             </ul>
                             <h3 style="color: #084B8A; margin: 20px 0 10px;">Technical Documentation:</h3>
                             <p><strong>Needs Assessment</strong> <span class="open-sub" data-modal="pdf-levantamento" style="cursor:pointer; margin-left:8px;">🔍</span></p>
@@ -495,14 +498,14 @@ window.addEventListener('load', function() {
                 <div class="modal-content sub-content">
                     <span class="close-btn">&times;</span>
                     <div style="text-align: center; padding: 10px;">
-                        <h3 style="color: #084B8A; margin-bottom: 10px;">2D Animation: The Little Baker</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 10px;">2D Animation: A Padeirinha</h3>
                         <div class="modal-line"></div>
                         <video width="80%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                             <source src="videos/0141_08_VeraAntunes.mp4" type="video/mp4">
                             Your browser does not support videos.
                         </video>
                         <div style="text-align: left; padding: 0 15px; line-height: 1.6; font-size: 0.95em; color: #333;">
-                            <p>Full development of an animated short film, from character creation in <strong>Adobe Illustrator</strong> to finalization and animation in <strong>Adobe Animate.</strong></p>
+                            <p>Integral development of an animated short film, from character creation in <strong>Adobe Illustrator</strong> to finalization and animation in <strong>Adobe Animate.</strong></p>
                             <p style="font-size: 0.85em; color: #666; margin-top: 10px;">Developed for unit <strong>UFCD 0141</strong>.</p>
                         </div>
                     </div>
@@ -533,7 +536,7 @@ window.addEventListener('load', function() {
                             <source src="videos/Apresentação final UFCD-9953.mp4" type="video/mp4">
                         </video>
                         <div style="text-align: left; padding: 0 15px; line-height: 1.6; font-size: 0.95em; color: #333;">
-                            <p>This project was born from the belief that life is made of moments that fulfill us. We created a concept where every route is a flavor and every sunset a memory.</p>
+                            <p>This project was born from the belief that life is made of moments that fulfill us. We created a concept where each route is a flavor and each sunset a memory.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Project Highlights:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
                                 <li><strong>Gastronomic Experience:</strong> Guided routes with wine tastings and typical regional flavors.</li>
