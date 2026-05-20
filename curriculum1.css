@@ -455,6 +455,57 @@ li {
 }
 
 /* =========================================
+   8. RODAPÉ (FOOTER) ✅ CORRIGIDO E CENTRADO
+  ========================================= */
+
+.site-footer {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    border-top: 1px solid #e0e0e0;
+    margin-top: 50px;
+    padding: 30px 20px !important;
+    
+    width: 100% !important;
+    max-width: 900px; 
+    margin-left: auto !important; 
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+}
+
+.site-footer p {
+    color: #084B8A;
+    font-size: 0.9em;
+    margin: 0 0 10px 0 !important;
+    line-height: 1.4;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.footer-logo {
+    display: block !important;
+    margin: 15px auto 0 auto !important;
+    
+    width: 180px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    
+    /* Garante centramento absoluto */
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05) !important;
+}
+
+/* =========================================
    8.1 AJUSTE ESPECÍFICO PARA TELEMÓVEL
   ========================================= */
 @media screen and (max-width: 768px) {
