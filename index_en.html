@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon padrão -->
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    
+    <!-- Para dispositivos móveis (maior) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
     <title>Curriculum Vitae - Vera Antunes</title>
     <link rel="stylesheet" href="curriculum1.css">
     <style>
@@ -241,6 +248,7 @@ window.addEventListener('load', function() {
                             <p><strong>Multimedia Technician (2024 - 2026)</strong>
                                 <span class="open-sub" data-modal="cert-multi-1" style="cursor:pointer; margin-left:8px;">🔍</span>
                                 <span class="open-sub" data-modal="cert-multi-2" style="cursor:pointer; margin-left:8px;">🔍</span>
+                                <span class="open-sub" data-modal="cert-multi-3" style="cursor:pointer; margin-left:8px;">🔍</span>
                             </p>
                             <ul>
                                 <li>Web programming, Photography, Digital Image and 2D Animation.</li>
@@ -291,6 +299,13 @@ window.addEventListener('load', function() {
                     <div class="modal-content sub-content">
                         <span class="close-btn">&times;</span>
                         <img src="fotos/certificado_multimedia_page-0001.jpg" alt="Multimedia Certificate">
+                    </div>
+                </div>
+
+                <div id="cert-multi-3" class="modal-overlay sub-modal">
+                    <div class="modal-content sub-content">
+                        <span class="close-btn">&times;</span>
+                        <img src="fotos/certificado_multi2026_page-0001.jpg" alt="Multimedia Certificate">
                     </div>
                 </div>
 
@@ -561,7 +576,11 @@ window.addEventListener('load', function() {
             <div class="footer-content">
                 <p>&copy; 2026 | Designed & Developed by <strong>Vera Antunes</strong></p>
                 <p style="font-style: italic; font-size: 0.85em;">Page constantly updated.</p>
-                <img src="fotos/VA Cinza transparente .png" alt="Vera Antunes Logo" class="footer-logo">
+                <!-- LOGO COM MEDIDAS ESPECÍFICAS -->
+                <img src="logo-VA-maste2.png" 
+                    alt="Logo Vera Antunes" 
+                    class="footer-logo"
+                    style="width: 200px; height: auto; display: block; margin: 20px auto 0 auto;">
             </div>
         </footer>
 
