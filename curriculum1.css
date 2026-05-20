@@ -455,19 +455,21 @@ li {
 }
 
 /* =========================================
-    8. RODAPÉ (FOOTER) ✅ CORRIGIDO E RESPONSIVO
-   ========================================= */
-
+   8. RODAPÉ (FOOTER) ✅ CENTRAGEM MATEMÁTICA
+  ========================================= */
 .site-footer {
     text-align: center;
     border-top: 1px solid #e0e0e0;
     margin-top: 50px;
-    padding: 30px 20px; /* Um pouco de espaço nas laterais para o mobile não colar */
+    padding: 30px 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
     
-    /* O SEGREDO DO ALINHAMENTO: */
-    max-width: 900px;   /* Igual à largura da tua .container */
-    margin-left: auto;  /* Centra o bloco à esquerda */
-    margin-right: auto; /* Centra o bloco à direita */
+    /* FLEXBOX: Garante alinhamento perfeito no eixo vertical e horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .site-footer p {
@@ -478,14 +480,10 @@ li {
 }
 
 .footer-logo {
-    /* Configurações para ficar perfeitamente centrado */
-    display: block;     
-    margin: 20px auto 0 auto; /* A margem 'auto' nas laterais é o que centraliza a imagem */
-    
-    /* Tamanho no Computador */
-    width: 150px;   
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 150px;
     height: auto;
-    
     transition: transform 0.3s ease;
 }
 
@@ -494,19 +492,24 @@ li {
 }
 
 /* =========================================
-   8.1 AJUSTES ESPECÍFICOS PARA TELEMÓVEL (MOBILE)
+   8.1 MOBILE - AJUSTE FINO DE CENTRAGEM
   ========================================= */
 @media screen and (max-width: 768px) {
     .site-footer {
-        max-width: 100%; /* No telemóvel, usa a largura toda disponível */
-        margin-top: 30px;
+        max-width: 100%;
         padding: 20px 10px;
+        margin-top: 30px;
     }
 
     .footer-logo {
-        /* Reduz o logo no telemóvel para não "empurrar" o texto */
-        width: 100px; 
-        margin-top: 15px;
+        width: 110px; /* Tamanho ideal para telemóvel */
+        margin: 15px auto 0 auto;
+        
+        /* AJUSTE ÓTICO: 
+           Como o teu logo inclina para a esquerda, 
+           desloca-lo 3px para a direita equilibra visualmente. 
+           Se achares que ficou perfeito sem isto, podes apagar esta linha. */
+        transform: translateX(3px); 
     }
 }
 
