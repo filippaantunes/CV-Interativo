@@ -455,33 +455,59 @@ li {
 }
 
 /* =========================================
-    8. RODAPÉ (FOOTER)
+    8. RODAPÉ (FOOTER) ✅ CORRIGIDO E RESPONSIVO
    ========================================= */
+
 .site-footer {
     text-align: center;
-    padding: 30px 0;
-    margin-top: 50px;
     border-top: 1px solid #e0e0e0;
-    width: 100%;
-    display: block;
+    margin-top: 50px;
+    padding: 30px 20px; /* Um pouco de espaço nas laterais para o mobile não colar */
+    
+    /* O SEGREDO DO ALINHAMENTO: */
+    max-width: 900px;   /* Igual à largura da tua .container */
+    margin-left: auto;  /* Centra o bloco à esquerda */
+    margin-right: auto; /* Centra o bloco à direita */
 }
 
 .site-footer p {
     color: #084B8A;
     font-size: 0.9em;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    line-height: 1.4;
 }
 
 .footer-logo {
-    width: 60px;
+    /* Configurações para ficar perfeitamente centrado */
+    display: block;     
+    margin: 20px auto 0 auto; /* A margem 'auto' nas laterais é o que centraliza a imagem */
+    
+    /* Tamanho no Computador */
+    width: 150px;   
     height: auto;
-    display: block;
-    margin: 10px auto 0;
+    
     transition: transform 0.3s ease;
 }
 
 .footer-logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+/* =========================================
+   8.1 AJUSTES ESPECÍFICOS PARA TELEMÓVEL (MOBILE)
+  ========================================= */
+@media screen and (max-width: 768px) {
+    .site-footer {
+        max-width: 100%; /* No telemóvel, usa a largura toda disponível */
+        margin-top: 30px;
+        padding: 20px 10px;
+    }
+
+    .footer-logo {
+        /* Reduz o logo no telemóvel para não "empurrar" o texto */
+        width: 100px; 
+        margin-top: 15px;
+    }
 }
 
 /* =========================================
