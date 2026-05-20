@@ -455,35 +455,46 @@ li {
 }
 
 /* =========================================
-   8. RODAPÉ (FOOTER) ✅ CENTRAGEM MATEMÁTICA
+   8. RODAPÉ (FOOTER) 
   ========================================= */
+
 .site-footer {
+    /* Alinhamento do texto e flexbox para controlar o layout interno */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Isto centra tudo (texto e imagem) horizontalmente */
+    justify-content: center;
+    
+    /* Espaçamento e Limites */
     border-top: 1px solid #e0e0e0;
     margin-top: 50px;
     padding: 30px 20px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
     
-    /* FLEXBOX: Garante alinhamento perfeito no eixo vertical e horizontal */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+    /* O SEGREDO: Limitar a largura para alinhar com o container principal */
+    width: 100%;
+    max-width: 900px; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 .site-footer p {
     color: #084B8A;
     font-size: 0.9em;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Aumentei um pouco o espaço entre as linhas */
     line-height: 1.4;
+    width: 100%; /* Garante que o texto ocupa a largura disponível */
 }
 
 .footer-logo {
+    /* Centralização da imagem */
     display: block;
-    margin: 20px auto 0 auto;
-    width: 150px;
+    margin: 0 auto; /* O 'auto' nas laterais centra a imagem automaticamente */
+    
+    /* Tamanho no Computador */
+    width: 180px; 
     height: auto;
+    
     transition: transform 0.3s ease;
 }
 
@@ -492,24 +503,20 @@ li {
 }
 
 /* =========================================
-   8.1 MOBILE - AJUSTE FINO DE CENTRAGEM
+   8.1 AJUSTE ESPECÍFICO PARA TELEMÓVEL
   ========================================= */
 @media screen and (max-width: 768px) {
     .site-footer {
-        max-width: 100%;
+        max-width: 100%; /* No telemóvel usa a largura toda */
         padding: 20px 10px;
-        margin-top: 30px;
     }
 
     .footer-logo {
-        width: 110px; /* Tamanho ideal para telemóvel */
-        margin: 15px auto 0 auto;
+        /* Reduz o logo no telemóvel para não desequilibrar o ecrã */
+        width: 120px; 
         
-        /* AJUSTE ÓTICO: 
-           Como o teu logo inclina para a esquerda, 
-           desloca-lo 3px para a direita equilibra visualmente. 
-           Se achares que ficou perfeito sem isto, podes apagar esta linha. */
-        transform: translateX(3px); 
+        /* Força o centro absoluto no telemóvel */
+        margin: 20px auto 0 auto;
     }
 }
 
