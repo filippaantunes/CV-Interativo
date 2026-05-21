@@ -782,3 +782,112 @@ li {
         print-color-adjust: exact !important;
     }
 }
+
+/* =========================================
+   CORREÇÃO CIRÚRGICA: Z-INDEX E FECHAR
+   (Mantém 100% do layout original)
+   ========================================= */
+
+/* 1. Define uma camada base para o modal principal */
+#modal-competencias,
+#detalhe-empreendedorismo {
+    z-index: 2000 !important;
+}
+
+/* 2. Força os PDFs a abrirem SEMPRE por cima de qualquer outro modal */
+#pdf-levantamento,
+#pdf-orcamento {
+    z-index: 6000 !important;
+}
+
+/* 3. Truque moderno: o fundo do modal ignora cliques, 
+   deixando apenas o conteúdo e o X clicáveis */
+.modal-overlay.active,
+.sub-modal.active {
+    pointer-events: none;
+}
+.modal-overlay.active .modal-content,
+.sub-modal.active .sub-content {
+    pointer-events: auto;
+}
+
+/* 4. Garante que o X está no topo absoluto e sempre responde ao clique */
+.close-btn {
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* =========================================
+    14. CORREÇÕES CIRÚRGICAS: MODAIS GAMING
+    (Apenas para z-index e imagens de execução)
+   ========================================= */
+
+/* Garante que os sub-modais do portefólio gaming ficam SEMPRE no topo */
+#modal-capa-video.sub-modal.active,
+#img-capa-final.sub-modal.active,
+#pdf-storyboard-padeirinha.sub-modal.active {
+    z-index: 7000 !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Garante que o conteúdo destes modais é rolável e bem dimensionado */
+#modal-capa-video .sub-content,
+#img-capa-final .sub-content {
+    max-width: 950px !important;
+    padding: 25px !important;
+}
+
+/* Estilo específico para o grid de imagens de execução da capa */
+#img-capa-final .sub-content img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(8, 75, 138, 0.15);
+    border: 1px solid #eee;
+    transition: transform 0.2s ease;
+}
+
+#img-capa-final .sub-content img:hover {
+    transform: scale(1.02);
+}
+
+/* Garante que o botão de fechar está sempre clicável nestes modais */
+#modal-capa-video .close-btn,
+#img-capa-final .close-btn {
+    z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.9);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Ajuste para ecrãs menores nos modais de execução */
+@media screen and (max-width: 768px) {
+    #modal-capa-video .sub-content,
+    #img-capa-final .sub-content {
+        width: 95% !important;
+        padding: 20px !important;
+    }
+    
+    #img-capa-final .sub-content img {
+        max-width: 100%;
+    }
+}
+
+/* =========================================
+    15. CORREÇÃO: PDF DOSSIÊ ABRE POR CIMA
+   ========================================= */
+
+/* Garante que o PDF abre SEMPRE por cima do modal-capa-video */
+#pdf-dossie-tecnico {
+    z-index: 8000 !important;
+}
+
+#pdf-dossie-tecnico .modal-content {
+    z-index: 8001 !important;
+}
