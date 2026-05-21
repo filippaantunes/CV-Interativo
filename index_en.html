@@ -10,10 +10,11 @@
     <!-- Para dispositivos móveis (maior) -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+
     <title>Curriculum Vitae - Vera Antunes</title>
     <link rel="stylesheet" href="curriculum1.css">
     <style>
-        /* Ensure modals work with JS */
+        /* Garantir que os modais funcionem com o JS */
         .modal-overlay {
             display: none; 
             position: fixed;
@@ -32,7 +33,7 @@
         .sub-modal { z-index: 2000; }
         .section-title { cursor: pointer; }
         
-        /* Adjustment to prevent certificate images from overflowing modal */
+        /* Ajuste para as imagens dos certificados não estourarem o modal */
         .modal-content img {
             max-width: 100%;
             height: auto;
@@ -41,16 +42,16 @@
         }
     </style>
 </head>
-<!-- WELCOME MODAL - NEW -->
+<!-- WELCOME MODAL - ENGLISH -->
 <div id="welcome-modal" class="modal-overlay active" style="z-index: 9999;">
     <div class="modal-content" style="max-width: 500px; text-align: center;">
         <span class="close-btn" onclick="closeWelcome()" style="position:absolute;top:15px;right:20px;font-size:28px;cursor:pointer;color:#084B8A;font-weight:bold;z-index:5005;">&times;</span>
         <h2 style="color: #084B8A; margin-bottom: 20px;">Interactive CV!</h2>
         <div class="modal-line"></div>
         <p style="font-size: 1.1em; line-height: 1.6; margin: 20px 0;">
-            This <strong>is not a PDF</strong> — it's an interactive experience!<br><br>
-             <strong>Click the blue buttons</strong> to explore my journey.<br>
-             <strong>Explore</strong> and download.<br>
+            This is <strong>not a PDF</strong> — it's an interactive experience!<br><br>
+            <strong>Click the blue buttons</strong> to explore my journey.<br>
+            <strong>Explore</strong> and download.<br>
         </p>
         <button onclick="closeWelcome()" style="
             background: #084B8A;
@@ -66,7 +67,7 @@
 </div>
 
 <script>
-// === ADDITIONAL INTERACTIVE FEATURES ===
+// === INTERACTIVE FEATURES ===
 
 // Close welcome modal and save to localStorage
 function closeWelcome() {
@@ -75,9 +76,8 @@ function closeWelcome() {
     localStorage.setItem('cv-welcome-seen', 'true');
 }
 
-// Open welcome modal only on first visit
+// Show welcome modal only on first visit
 window.addEventListener('load', function() {
-    // Welcome modal
     if (!localStorage.getItem('cv-welcome-seen')) {
         const welcome = document.getElementById('welcome-modal');
         if (welcome) welcome.classList.add('active');
@@ -87,13 +87,13 @@ window.addEventListener('load', function() {
 <body>
     <div class="container">
         <nav class="language-switch">
-            <a href="index.html" class="lang-btn">Versão Portuguesa 🇵🇹</a>
+            <a href="index.html" class="lang-btn">Portuguese Version 🇵🇹</a>
         </nav>
 
         <header class="header">
             <h1 class="header-name">VERA ANTUNES</h1>
         </header>
-        <!-- INTERACTIVE BANNER - NEW -->
+        <!-- INTERACTIVE BANNER -->
         <div style="
             background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%);
             color: white;
@@ -133,7 +133,7 @@ window.addEventListener('load', function() {
                         </div>
                         <div class="contact-item">
                             <img src="fotos/lo3.png" alt="Phone icon">
-                            <p>Information upon request</p>
+                            <p>Information on request</p>
                         </div>
                         <div class="contact-item">
                             <img src="fotos/lo2.png" alt="Email icon">
@@ -175,30 +175,30 @@ window.addEventListener('load', function() {
                     </div>
                     <div class="experience-item">
                         <span class="experience-date">2001 – 2007</span>
-                        <p><strong>Technical Jewelry and Consulting Path</strong></p>
+                        <p><strong>Technical Jewelry & Consulting Career</strong></p>
                     </div>
                 </div>
 
                 <div id="modal-experiencia" class="modal-overlay">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
-                        <h3 style="color: #084B8A; margin-bottom: 20px;">Detailed Professional Trajectory</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 20px;">Detailed Professional Journey</h3>
                         <div class="modal-line"></div>
                         <div class="experience-desc" style="text-align: justify; font-size: 0.95em;">
                             <p><strong>Distance Learning (FAD) - IEFP (2024 - 2026)</strong><br>
-                            Training conducted in distance learning modality, demonstrating high autonomy and organization.</p>
+                            Training completed in distance learning mode, demonstrating high autonomy and organization.</p>
 
                             <p><strong>Jewelry Designer & Independent Artist (2007 – 2023)</strong><br>
-                            Focus on artistic creation and production. Integral management of the creative and commercial process.</p>
+                            Focus on artistic creation and production. Full management of the creative and commercial process.</p>
 
-                            <p><strong>Consulting and Stock Management | Cesar's Goldsmith (2005 – 2007)</strong><br>
-                            Specialized sales, inventory management, and Window Display.</p>
+                            <p><strong>Consulting & Stock Management | Cesar's Goldsmith (2005 – 2007)</strong><br>
+                            Specialized sales, inventory management, and window display.</p>
 
                             <p><strong>Aesthetics Technician | Gragel (2004 – 2005)</strong><br>
-                            Application of precision techniques and public service.</p>
+                            Application of precision techniques and customer service.</p>
 
                             <p><strong>Jewelry Workshop | Reverso Gallery (2001 – 2004)</strong><br>
-                            Technical execution of high jewelry. Mastery of casting, chiseling, and soldering.</p>
+                            Technical execution of high jewelry. Mastery of casting, engraving, and soldering.</p>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@ window.addEventListener('load', function() {
 
             <section class="section-container">
                 <div class="section-info">
-                    <h2 class="section-title" data-modal="modal-educacao">EDUCATION AND TRAINING</h2>
+                    <h2 class="section-title" data-modal="modal-educacao">EDUCATION & TRAINING</h2>
                 </div>
                 
                 <div class="section-content education">
@@ -221,7 +221,7 @@ window.addEventListener('load', function() {
                     </div>
                     <div class="education-item">
                         <span class="education-date">02/2025 – 04/2025</span>
-                        <p><strong>Computer Operator</strong></p>
+                        <p><strong>IT Operator</strong></p>
                     </div>
                     <div class="education-item">
                         <span class="experience-date">07/2024 – 12/2024</span>
@@ -237,7 +237,7 @@ window.addEventListener('load', function() {
                 <div id="modal-educacao" class="modal-overlay">
                     <div class="modal-content">
                         <span class="close-btn">&times;</span>
-                        <h3 style="color: #084B8A; margin-bottom: 20px;">Training and Certifications</h3>
+                        <h3 style="color: #084B8A; margin-bottom: 20px;">Training & Certifications</h3>
                         <div class="modal-line"></div>
                         
                         <div class="experience-desc" style="text-align: left;">
@@ -251,10 +251,10 @@ window.addEventListener('load', function() {
                                 <span class="open-sub" data-modal="cert-multi-3" style="cursor:pointer; margin-left:8px;">🔍</span>
                             </p>
                             <ul>
-                                <li>Web programming, Photography, Digital Image and 2D Animation.</li>
+                                <li>Web programming, Photography, Digital Imaging and 2D Animation.</li>
                             </ul>
 
-                            <p><strong>Computer Operator (2025)</strong>
+                            <p><strong>IT Operator (2025)</strong>
                                 <span class="open-sub" data-modal="cert-operador" style="cursor:pointer; margin-left:8px;">🔍</span>
                             </p>
                             <ul>
@@ -312,7 +312,7 @@ window.addEventListener('load', function() {
                 <div id="cert-operador" class="modal-overlay sub-modal">
                     <div class="modal-content sub-content">
                         <span class="close-btn">&times;</span>
-                        <img src="fotos/operador de informatica.jpg" alt="Operator Certificate">
+                        <img src="fotos/operador de informatica.jpg" alt="IT Operator Certificate">
                     </div>
                 </div>
 
@@ -343,7 +343,7 @@ window.addEventListener('load', function() {
                         <p><strong>Native:</strong> Portuguese | <strong>English:</strong> A2</p>
                     </div>
                     <div class="skills-item">
-                        <h4>Computer & Digital</h4>
+                        <h4>IT & Digital</h4>
                     </div>
                 </div>
             </section>
@@ -356,15 +356,15 @@ window.addEventListener('load', function() {
                     
                     <div class="projects-grid">
                         <div class="project-card" data-modal="detalhe-cpp" style="cursor: pointer;">
-                            <img src="fotos/logicaec.jpg" alt="C++ Scientific Machine">
+                            <img src="fotos/logicaec.jpg" alt="Scientific Calculator C++">
                             <h4>Logic & C++</h4>
-                            <p>Creation of structured scientific calculation program.</p>
+                            <p>Creation of a structured scientific calculation program.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-sites" style="cursor: pointer;">
                             <img src="fotos/flutuar.png" alt="Google Sites">
                             <h4>Google Sites</h4>
-                            <p>Development of ecosystem for content management.</p>
+                            <p>Development of an ecosystem for content management.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-junta" style="cursor: pointer;">
@@ -373,16 +373,16 @@ window.addEventListener('load', function() {
                             <p>Creation of interactive interfaces for the global gaming community.</p>
                         </div>
 
-                        <div class="project-card" data-modal="detalhe-redes" style="cursor: pointer;">
-                            <img src="fotos/LAN1.png" alt="LAN Project">
-                            <h4>LAN Networks</h4>
-                            <p>Survey and infrastructure planning.</p>
+                        <div class="project-card" data-modal="detalhe-3d" style="cursor: pointer;">
+                            <img src="fotos/exerciciopratico06.png" alt="3D Scene - Lantern">
+                            <h4>3D Expanse</h4>
+                            <p>Modeling, lighting, and rendering in Blender.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-gaming" style="cursor: pointer;">
-                            <img src="fotos/padeirinha.png" alt="Gaming and Animation">
-                            <h4>2D Animation & Storytelling</h4>
-                            <p>Short film "A Padeirinha" – Design and Movement.</p>
+                            <img src="fotos/animacao.png" alt="Animation, Video and Graphic Design">
+                            <h4>Animation, Video & Graphic Design</h4>
+                            <p>Multimedia creation with Adobe Creative Suite and AI.</p>
                         </div>
 
                         <div class="project-card" data-modal="detalhe-empreendedorismo" style="cursor: pointer; border: 1px dashed #58D3F7; background: #f0fbff;">
@@ -395,24 +395,44 @@ window.addEventListener('load', function() {
             </div>
 
             <div id="detalhe-cpp" class="modal-overlay sub-modal">
-                <div class="modal-content sub-content">
-                    <span class="close-btn">&times;</span>
-                    <h3 style="color: #084B8A; margin-bottom: 20px;">Logic & C++ Programming</h3>
+                <div class="modal-content sub-content" style="max-width: 950px; padding: 30px;">
+                    
+                    <!-- Close Button -->
+                    <span class="close-btn" style="position: absolute; top: 15px; right: 20px; z-index: 2001; background: white; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">&times;</span>
+                    
+                    <!-- Title -->
+                    <h3 style="color: #084B8A; margin-bottom: 25px; text-align: center;">Logic & C++ Programming</h3>
                     <div class="modal-line"></div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 20px; text-align: left; align-items: flex-start;">
-                        <div style="flex: 1; min-width: 280px;">
-                            <img src="fotos/B.png" alt="C++ Detail" style="width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                        </div>
-                        <div style="flex: 1; min-width: 280px; font-size: 0.95em; line-height: 1.6;">
-                            <p>Development of a complete <strong>Scientific Calculator</strong> in C++, focused on modularity and efficiency.</p>
-                            <h3 style="color: #084B8A; margin: 15px 0 5px;">Key Points:</h3>
-                            <ul style="margin-left: 20px; list-style-type: square;">
-                                <li>Matrix algebra and advanced trigonometry.</li>
-                                <li>Conversion between Binary, Decimal and Roman systems.</li>
-                                <li>Condominium Management Module with file manipulation (I/O).</li>
-                            </ul>
-                        </div>
+                    
+                    <!-- Project Image -->
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <img src="fotos/B.png" alt="Scientific Calculator C++" style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid #ddd;">
                     </div>
+                    
+                    <!-- Caption -->
+                    <p style="text-align: center; font-size: 0.95em; color: #666; margin-bottom: 20px; font-style: italic;">
+                        Scientific Calculator - User Interface
+                    </p>
+                    
+                    <!-- Descriptive Text -->
+                    <div style="background: #f8f9fa00; padding: 20px; border-radius: 8px; border-left: 4px solid #084b8a00; margin-bottom: 25px;">
+                        <p style="margin: 0 0 10px 0; line-height: 1.6; text-align: justify;">
+                            Development of a complete <strong>Scientific Calculator</strong> in C++, 
+                            focused on modularity and efficiency. The project integrates multiple modules 
+                            for advanced calculation and data management.
+                        </p>
+                    </div>
+                    
+                    <!-- Key Points -->
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #084B8A; margin-bottom: 15px; text-align: center;">Key Points:</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8; font-size: 0.95em;">
+                            <li><strong>Matrix Algebra:</strong> Matrix operations and advanced trigonometry.</li>
+                            <li><strong>System Conversion:</strong> Binary, Decimal, and Roman numeral systems.</li>
+                            <li><strong>Condominium Management:</strong> Module with file handling (I/O).</li>
+                        </ul>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -424,15 +444,15 @@ window.addEventListener('load', function() {
 
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; text-align: left; align-items: flex-start; margin-bottom: 30px;">
                         <div style="flex: 1; min-width: 280px;">
-                            <img src="fotos/flutuar.png" alt="Flutuar em Ideias Interface" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+                            <img src="fotos/flutuar.png" alt="Floating in Ideas Interface" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
                         </div>
                         <div style="flex: 1; min-width: 280px; font-size: 0.95em; line-height: 1.6;">
-                            <h3 style="color: #084B8A; margin-bottom: 8px;">Digital Portfolio "Flutuar em Ideias"</h3>
-                            <p>Author platform created in <strong>Google Sites</strong> to materialize creative projects, uniting digital design with manual construction.</p>
+                            <h3 style="color: #084B8A; margin-bottom: 8px;">Digital Portfolio "Floating in Ideas"</h3>
+                            <p>Author platform created in <strong>Google Sites</strong> to materialize creative projects, uniting digital design with manual craftsmanship.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Project Highlights:</h3>
                             <ul style="margin-left: 20px; list-style-type: square;">
-                                <li><strong>Storytelling:</strong> Narrative about career change and personal overcoming through technology.</li>
-                                <li><strong>Multimedia:</strong> Integration of video and photography of own projects.</li>
+                                <li><strong>Storytelling:</strong> Narrative about career change and personal growth through technology.</li>
+                                <li><strong>Multimedia:</strong> Integration of video and photography from personal projects.</li>
                             </ul>
                             <div style="margin-top: 15px;">
                                 <a href="https://sites.google.com/view/flutuaremideias/home" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visit Site 🌐</a>
@@ -444,14 +464,14 @@ window.addEventListener('load', function() {
 
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; text-align: left; margin-top: 20px;">
                         <div style="flex: 1; min-width: 280px;">
-                            <img src="fotos/web.png" alt="Parish Council Page" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+                            <img src="fotos/web.png" alt="Municipal Council Web Page" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
                         </div>
                         <div style="flex: 1; min-width: 280px;">
                             <h3 style="color: #084B8A; margin-bottom: 15px;">Project: Municipal Web Design</h3>
-                            <p>Complete development of web interface for a local municipality, applying web editing and design skills.</p>
+                            <p>Complete web interface development for a local municipality, applying web editing and design skills.</p>
                             <h3 style="color: #084B8A; margin: 15px 0 5px;">Applied Skills:</h3>
                             <ul style="margin-left: 20px; list-style-type: square; font-size: 0.9em;">
-                                <li><strong>Design and Identity:</strong> Responsive layout with personalized iconography.</li>
+                                <li><strong>Design & Identity:</strong> Responsive layout with custom iconography.</li>
                                 <li><strong>Technologies:</strong> Advanced HTML5 and CSS3.</li>
                             </ul>
                             <div style="text-align: left; margin-top: 20px;">
@@ -484,44 +504,125 @@ window.addEventListener('load', function() {
                 </div>
             </div>
 
-            <div id="detalhe-redes" class="modal-overlay sub-modal">
-                <div class="modal-content sub-content">
+            <!-- MODAL 3D BLENDER -->
+            <div id="detalhe-3d" class="modal-overlay sub-modal">
+                <div class="modal-content sub-content" style="max-width: 950px;">
                     <span class="close-btn">&times;</span>
-                    <h3 style="color: #084B8A; margin-bottom: 10px; text-align: center;">Project: LAN Infrastructure Planning</h3>
+                    <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">3D Expanse - Blender</h3>
                     <div class="modal-line"></div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 25px; text-align: left; align-items: flex-start;">
-                        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 15px;">
-                            <img src="fotos/fol1.png" alt="Network Folder Page 1" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-                            <img src="fotos/fol2.png" alt="Network Folder Page 2" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                    
+                    
+                    <div style="margin-bottom: 30px;">
+                        <video width="90%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin-left: auto; margin-right: auto;">
+                            <source src="videos/lanterna.mp4" type="video/mp4">
+                            Your browser does not support videos.
+                        </video>
+                        <p style="text-align: center; font-style: italic; color: #666;">360° scene rotation - Lantern on rock</p>
+                    </div>
+                    
+                    <div class="modal-line" style="opacity: 0.3;"></div>
+                    
+                    
+                    <div style="margin-top: 30px;">
+                        <h4 style="color: #084B8A; margin-bottom: 15px; text-align: center;">Final Renders</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                            <div>
+                                <img src="fotos/lanterna_cycles.png" alt="Render 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            </div>
+                            <div>
+                                <img src="fotos/lanterna_blender.png" alt="Render 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            </div>
                         </div>
-                        <div style="flex: 1; min-width: 300px; font-size: 0.95em; line-height: 1.6;">
-                            <p>Development of a detailed technical guide on the installation and configuration of Local Area Networks (LAN).</p>
-                            <h3 style="color: #084B8A; margin: 20px 0 10px;">Technical Contents Covered:</h3>
-                            <ul style="margin-left: 20px; list-style-type: square;">
-                                <li><strong>Network Topologies:</strong> Study of Star, Bus, Ring and Mesh architectures.</li>
-                                <li><strong>Hardware:</strong> Switches, Routers and PoE technology.</li>
-                            </ul>
-                            <h3 style="color: #084B8A; margin: 20px 0 10px;">Technical Documentation:</h3>
-                            <p><strong>Needs Assessment</strong> <span class="open-sub" data-modal="pdf-levantamento" style="cursor:pointer; margin-left:8px;">🔍</span></p>
-                            <p><strong>Detailed Budget</strong> <span class="open-sub" data-modal="pdf-orcamento" style="cursor:pointer; margin-left:8px;">🔍</span></p>
-                        </div>
+                    </div>
+                    
+                    
+                    <div style="margin-top: 30px; text-align: left; padding: 0 15px;">
+                        <h4 style="color: #084B8A; margin-bottom: 10px;">Applied Skills:</h4>
+                        <ul style="margin-left: 20px; list-style-type: square; line-height: 1.8;">
+                            <li><strong>3D Modeling:</strong> Creating objects with optimized topology.</li>
+                            <li><strong>PBR Texturing:</strong> Realistic materials with diffuse, roughness, and normal maps.</li>
+                            <li><strong>Lighting:</strong> 3-point system (key light, rim light, fill light).</li>
+                            <li><strong>Rendering:</strong> Cycles/Eevee with high-quality settings.</li>
+                            <li><strong>Composition:</strong> Depth of Field and color correction.</li>
+                        </ul>
+                        <p>Work completed for unit UC02638</p>
                     </div>
                 </div>
             </div>
             
             <div id="detalhe-gaming" class="modal-overlay sub-modal">
-                <div class="modal-content sub-content">
+                <div class="modal-content sub-content" style="max-width: 900px;">
                     <span class="close-btn">&times;</span>
-                    <div style="text-align: center; padding: 10px;">
-                        <h3 style="color: #084B8A; margin-bottom: 10px;">2D Animation: A Padeirinha</h3>
-                        <div class="modal-line"></div>
-                        <video width="80%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                            <source src="videos/0141_08_VeraAntunes.mp4" type="video/mp4">
-                            Your browser does not support videos.
-                        </video>
-                        <div style="text-align: left; padding: 0 15px; line-height: 1.6; font-size: 0.95em; color: #333;">
-                            <p>Integral development of an animated short film, from character creation in <strong>Adobe Illustrator</strong> to finalization and animation in <strong>Adobe Animate.</strong></p>
-                            <p style="font-size: 0.85em; color: #666; margin-top: 10px;">Developed for unit <strong>UFCD 0141</strong>.</p>
+                    <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Animation, Video & Graphic Design</h3>
+                    <div class="modal-line"></div>
+                    
+                    <!-- PROJECT 1: THE LITTLE BAKER -->
+                    <div style="margin-bottom: 40px;">
+                        <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">The Little Baker - 2D Animation</h4>
+                        
+                        <div style="text-align: center;">
+                            <video width="90%" controls style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                <source src="videos/0141_08_VeraAntunes.mp4" type="video/mp4">
+                                Your browser does not support videos.
+                            </video>
+                            
+                            <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
+                                <p>Complete development of an animated short film, from character creation in <strong>Adobe Illustrator</strong> to finalization and animation in <strong>Adobe Animate.</strong></p>
+                                <p style="font-size: 0.85em; color: #666; margin-top: 10px;">Developed for unit <strong>UFCD 0141</strong>.</p>
+                            </div>
+                            
+                            <div style="margin-top: 15px;">
+                                <span class="open-sub" data-modal="pdf-storyboard-padeirinha" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
+                                    🔍 View Storyboard
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-line" style="opacity: 0.3;"></div>
+                    
+                    <!-- PROJECT 2: PROMOTIONAL VIDEO -->
+                    <div style="margin: 40px 0;">
+                        <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Promotional Video - Premiere & After Effects</h4>
+                        
+                        <div style="text-align: center;">
+                            <video width="90%" controls style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                <source src="videos/02633_05_TFVeraAntunes.mp4" type="video/mp4">
+                                Your browser does not support videos.
+                            </video>
+                            
+                            <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
+                                <p>Creation of promotional video with professional editing in <strong>Adobe Premiere</strong> and <strong>After Effects</strong>.</p>
+                                <p style="margin-top: 10px;"><strong>Resources:</strong> AI-generated images and videos, edited and synchronized to create an engaging narrative.</p>
+                            </div>
+                            
+                            <div style="margin-top: 15px;">
+                                <span class="open-sub" data-modal="modal-capa-video" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
+                                    🔍 View Technical Script
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-line" style="opacity: 0.3;"></div>
+                    
+                    <!-- PROJECT 3: MAGAZINE COVER -->
+                    <div style="margin: 40px 0;">
+                        <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Magazine Cover - Illustrator</h4>
+                        
+                        <div style="text-align: center;">
+                            <img src="fotos/atividade_07VA_page-0001.jpg" alt="Magazine Cover - In progress" style="width: 90%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                            
+                            <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
+                                <p>Magazine cover design developed in <strong>Adobe Illustrator</strong>, focusing on visual composition, typography, and information hierarchy.</p>
+                                <p style="margin-top: 10px;"><strong>Techniques:</strong> Vectorization, color treatment, editorial layout, and print preparation.</p>
+                            </div>
+                            
+                            <div style="margin-top: 15px;">
+                                <span class="open-sub" data-modal="img-capa-final" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
+                                    🔍 View Execution
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -541,22 +642,170 @@ window.addEventListener('load', function() {
                 </div>
             </div>
 
-            <div id="detalhe-empreendedorismo" class="modal-overlay sub-modal">
-                <div class="modal-content sub-content">
+
+            <!-- 2. Technical Dossier Modal (Promotional Video) -->
+            <div id="pdf-dossie-tecnico" class="modal-overlay sub-modal">
+                <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
+                    <span class="close-btn" style="position: absolute; top: 12px; right: 20px; z-index: 3000; background: #ffffff; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer;">&times;</span>
+                    <iframe src="documentos/pdf-dossie-tecnico.pdf" width="100%" height="100%" style="border: none;"></iframe>
+                </div>
+            </div>
+
+            <!-- 3. Cover & Storyboard Modal (For Promotional Video) -->
+            <div id="modal-capa-video" class="modal-overlay sub-modal" style="z-index: 7000 !important;">
+                <div class="modal-content sub-content" style="max-width: 900px;">
                     <span class="close-btn">&times;</span>
-                    <div style="text-align: center; padding: 10px; width: 100%;">
-                        <h3 style="color: #084B8A; margin-bottom: 10px;">Alento Paladar & Poente: Tourism</h3>
-                        <div class="modal-line"></div>
-                        <video width="90%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Technical Sheet & Storyboard</h3>
+                    <div class="modal-line"></div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+                        <!-- Left Side: Cover (Image) -->
+                        <div style="flex: 1; min-width: 250px; text-align: center;">
+                            <h4 style="color: #084B8A; margin-bottom: 10px;">Project Cover</h4>
+                            <img src="fotos/1.png" alt="Promotional Video Cover" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid #084B8A;">
+                            <p style="font-size: 0.8em; color: #666; margin-top: 5px;">Cover Design (Canva)</p>
+                        </div>
+
+                        <!-- Right Side: Storyboard (PDF Embed or Link) -->
+                        <div style="flex: 1; min-width: 250px;">
+                            <h4 style="color: #084B8A; margin-bottom: 10px;">Complete Storyboard</h4>
+                            <p style="font-size: 0.9em; margin-bottom: 15px;">View the frame-by-frame production planning.</p>
+                            
+                            <!-- Button to open PDF in full screen -->
+                            <span class="open-sub" data-modal="pdf-dossie-tecnico" style="cursor: pointer; background: #084B8A; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.9em; display: inline-block; width: 100%; text-align: center; margin-bottom: 10px;">
+                                Open Dossier/Storyboard in Full Screen
+                            </span>
+                            
+                            <div style="background: #f0f0f0; padding: 10px; border-radius: 8px; text-align: center;">
+                                <p style="font-size: 0.8em; color: #555;">Tools used:<br><strong>Adobe Premiere & After Effects</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW: Modal for Magazine Cover execution images -->
+            <div id="img-capa-final" class="modal-overlay sub-modal" style="z-index: 7000 !important;">
+                <div class="modal-content sub-content" style="max-width: 900px;">
+                    <span class="close-btn">&times;</span>
+                    <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Execution - Magazine Cover</h3>
+                    <div class="modal-line"></div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        <div style="text-align: center;">
+                            <img src="fotos/capa2.png" alt="Cover Execution - Step 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Vectorization process</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="fotos/capa3.png" alt="Cover Execution - Step 3" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Typography and color application</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: left; padding: 15px; background: #f5f5f500; border-radius: 8px;">
+                        <h4 style="color: #084B8A; margin-bottom: 10px;">Tools Used:</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li><strong>Adobe Illustrator:</strong> Vector creation</li>
+                            <li><strong>Typography:</strong> Visual hierarchy and readability</li>
+                            <li><strong>Color:</strong> CMYK palette for print</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. Storyboard Modal - The Little Baker -->
+            <div id="pdf-storyboard-padeirinha" class="modal-overlay sub-modal">
+                <div class="modal-content sub-content" style="max-width: 950px; padding: 30px;">
+                    
+                    <!-- Close Button -->
+                    <span class="close-btn" style="position: absolute; top: 15px; right: 20px; z-index: 2001; background: white; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">&times;</span>
+                    
+                    <!-- Title -->
+                    <h3 style="color: #084B8A; margin-bottom: 25px; text-align: center;">Storyboard - The Little Baker</h3>
+                    <div class="modal-line"></div>
+                    
+                    <!-- Storyboard Image -->
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <img src="fotos/padeirinha.png" alt="Storyboard The Little Baker" style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid #ddd;">
+                    </div>
+                    
+                    <!-- Caption -->
+                    <p style="text-align: center; font-size: 0.95em; color: #666; margin-bottom: 20px; font-style: italic;">
+                        Frame-by-frame visual planning of the animation
+                    </p>
+                    
+                    <!-- Descriptive Text -->
+                    <div style="background: #f8f9fa00; padding: 20px; border-radius: 8px; border-left: 4px solid #084b8a00;">
+                        <p style="margin: 0 0 10px 0; line-height: 1.6; text-align: justify;">
+                            <strong>The Little Baker</strong> comes to life through 2D animation. 
+                            A tribute to traditional Alentejo music, created with AI, 
+                            vectorized in Illustrator, and animated in Adobe Animate.
+                        </p>
+                        <p style="margin: 0; font-size: 0.9em; color: #084B8A; font-weight: bold;">
+                            UFCD 0141 | 2025/2026
+                        </p>
+                    </div>
+                    
+                    <!-- Tools Used -->
+                    <div style="margin-top: 20px; text-align: center;">
+
+                        <h4 style="color: #084B8A; margin-bottom: 10px;">Tools Used:</h4>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Generative AI</li>
+                            <li>Adobe Illustrator</li>
+                            <li>Adobe Animate</li>
+                            <li>Canva</li>
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- ENTREPRENEURSHIP MODAL UPDATED - WITH TOURISM + LAN -->
+            <div id="detalhe-empreendedorismo" class="modal-overlay sub-modal">
+                <div class="modal-content sub-content" style="max-width: 950px;">
+                    <span class="close-btn">&times;</span>
+                    <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Entrepreneurship & Projects</h3>
+                    <div class="modal-line"></div>
+                    
+                    <!-- SECTION 1: TOURISM -->
+                    <div style="margin-bottom: 40px;">
+                        <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Alento Paladar & Poente: Tourism</h4>
+                        <video width="90%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin-left: auto; margin-right: auto;">
                             <source src="videos/Apresentação final UFCD-9953.mp4" type="video/mp4">
                         </video>
                         <div style="text-align: left; padding: 0 15px; line-height: 1.6; font-size: 0.95em; color: #333;">
                             <p>This project was born from the belief that life is made of moments that fulfill us. We created a concept where each route is a flavor and each sunset a memory.</p>
-                            <h3 style="color: #084B8A; margin: 15px 0 5px;">Project Highlights:</h3>
+                            <h5 style="color: #084B8A; margin: 15px 0 10px;">Project Highlights:</h5>
                             <ul style="margin-left: 20px; list-style-type: square;">
                                 <li><strong>Gastronomic Experience:</strong> Guided routes with wine tastings and typical regional flavors.</li>
                                 <li><strong>Unique Moments:</strong> Strategic stops for cultural visits and sunset contemplation.</li>
                             </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-line" style="opacity: 0.3;"></div>
+                    
+                    <!-- SECTION 2: LAN NETWORKS -->
+                    <div style="margin-top: 40px;">
+                        <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">LAN Infrastructure Planning</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 25px; text-align: left; align-items: flex-start;">
+                            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 15px;">
+                                <img src="fotos/fol1.png" alt="Networks Folder Page 1" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                <img src="fotos/fol2.png" alt="Networks Folder Page 2" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                            </div>
+                            <div style="flex: 1; min-width: 300px; font-size: 0.95em; line-height: 1.6;">
+                                <p>Development of a detailed technical guide on the installation and configuration of Local Area Networks (LAN).</p>
+                                <h5 style="color: #084B8A; margin: 20px 0 10px;">Technical Contents Covered:</h5>
+                                <ul style="margin-left: 20px; list-style-type: square;">
+                                    <li><strong>Network Topologies:</strong> Study of Star, Bus, Ring, and Mesh architectures.</li>
+                                    <li><strong>Hardware:</strong> Switches, Routers, and PoE technology.</li>
+                                </ul>
+                                <h5 style="color: #084B8A; margin: 20px 0 10px;">Technical Documentation:</h5>
+                                <p><strong>Needs Assessment</strong> <span class="open-sub" data-modal="pdf-levantamento" style="cursor:pointer; margin-left:8px;">🔍</span></p>
+                                <p><strong>Detailed Budget</strong> <span class="open-sub" data-modal="pdf-orcamento" style="cursor:pointer; margin-left:8px;">🔍</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -576,43 +825,51 @@ window.addEventListener('load', function() {
             <div class="footer-content">
                 <p>&copy; 2026 | Designed & Developed by <strong>Vera Antunes</strong></p>
                 <p style="font-style: italic; font-size: 0.85em;">Page constantly updated.</p>
-                <!-- LOGO COM MEDIDAS ESPECÍFICAS -->
+                
+                <!-- LOGO WITH SPECIFIC DIMENSIONS -->
                 <img src="logo-VA-maste2.png" 
-                    alt="Logo Vera Antunes" 
+                    alt="Vera Antunes Logo" 
                     class="footer-logo"
                     style="width: 200px; height: auto; display: block; margin: 20px auto 0 auto;">
             </div>
         </footer>
 
         <script>
-        // Logic to open/close modals
+        // Modal open/close logic - EVENT DELEGATION (ensures it always works)
         document.addEventListener('click', function(e) {
+            // OPEN main modals and sub-modals
             const trigger = e.target.closest('[data-modal]');
-            if (trigger) {
+            if (trigger && !trigger.closest('.project-card[style*="cursor: default"]')) {
                 const modalId = trigger.getAttribute('data-modal');
                 const modal = document.getElementById(modalId);
                 if (modal) modal.classList.add('active');
             }
-        });
-
-        document.querySelectorAll('.close-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            
+            // CLOSE modals (X buttons)
+            if (e.target.closest('.close-btn')) {
                 e.stopPropagation();
-                const modal = btn.closest('.modal-overlay');
+                const modal = e.target.closest('.modal-overlay');
                 if (modal) {
                     modal.classList.remove('active');
                     const video = modal.querySelector('video');
-                    if (video) { video.pause(); video.currentTime = 0; }
+                    if (video) { 
+                        video.pause(); 
+                        video.currentTime = 0; 
+                    }
                 }
-            });
+            }
         });
 
+        // Close when clicking outside the modal
         document.querySelectorAll('.modal-overlay').forEach(overlay => {
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) {
                     overlay.classList.remove('active');
                     const video = overlay.querySelector('video');
-                    if (video) { video.pause(); video.currentTime = 0; }
+                    if (video) { 
+                        video.pause(); 
+                        video.currentTime = 0; 
+                    }
                 }
             });
         });
