@@ -111,6 +111,17 @@ body {
     text-decoration: underline;
 }
 
+.linkedin-link {
+   text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.linkedin-link:hover {
+   color: #084B8A;
+    text-decoration: underline;
+}
+
 /* =========================================
     3. ESTRUTURA DAS SECÇÕES (LAYOUT)
    ========================================= */
