@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon padrão -->
+    <title>Vera Antunes | Portfólio</title>
+
+    <!-- Favicon padrão (Navegadores de PC) -->
     <link rel="icon" type="image/png" sizes="32x32" href="logo-barra.png">
     <link rel="icon" type="image/png" sizes="64x64" href="logo-barra.png">
     
     <!-- Dispositivos móveis (iOS e Android) -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="VA-192x192.png">
+
 
     <title>Curriculum Vitae - Vera Antunes</title>
     <link rel="stylesheet" href="curriculum1.css">
@@ -94,8 +97,8 @@ window.addEventListener('load', function() {
         <header class="header">
             <h1 class="header-name">VERA ANTUNES</h1>
         </header>
-        <!-- BANNER INTERATIVO - NOVO -->
-        <div style="
+        <!-- BANNER INTERATIVO - Com classes para ocultar na impressão -->
+        <div class="banner-interativo no-print" style="
             background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%);
             color: white;
             padding: 15px;
@@ -494,10 +497,51 @@ window.addEventListener('load', function() {
                             <div style="text-align: left; margin-top: 20px;">
                                 <h3 style="color: #084B8A; margin-bottom: 8px;">Projeto Evony: UI/UX & Design</h3>
                                 <p>Criação de elementos visuais e prototipagem de interfaces (Auto-Hunting Pass) para a comunidade global de gaming.</p>
-                                <div style="text-align: center; margin-top: 25px;">
-                                    <a href="https://filippaantunes.github.io/gaming/" target="_blank" style="background-color: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85em;">Visitar Site 🌐</a>
+                            </div>
+
+                            <div class="modal-line" style="opacity: 0.3;"></div>
+
+                            <!-- PROJETO passe verde  -->
+                            <div style="margin: 40px 0;">
+                                <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Auto-Hunting</h4>
+                                
+                                <div style="text-align: center;">
+                                    <img src="fotos/passe.png" alt="Auto-Hunting" style="width: 90%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                    
+                                    <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
+                                        <p>Apresentação de passe automático, para a empresa Top games.</p>
+                                        <p style="margin-top: 10px;"><strong>Técnicas:</strong> Vetorização, tratamento de cor, layout editorial e preparação para impressão.</p>
+                                    </div>
+                                    
+                                    <div style="margin-top: 15px;">
+                                        <span class="open-sub" data-modal="Auto-Hunting" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
+                                            🔍 Ver execução
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+
+                            <!-- PROJETO mortos vivos -->
+                            <div style="margin: 40px 0;">
+                                <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Auto-Hunting</h4>
+                                
+                                <div style="text-align: center;">
+                                    <img src="fotos/folha1.png" alt="Auto-Hunting" style="width: 90%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                    
+                                    <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
+                                        <p>Apresentação de passe automático, para a empresa Top games.</p>
+                                        <p style="margin-top: 10px;"><strong>Técnicas:</strong> Vetorização, tratamento de cor, layout editorial e preparação para impressão.</p>
+                                    </div>
+                                    
+                                    <div style="margin-top: 15px;">
+                                        <span class="open-sub" data-modal="Auto-Hunting" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
+                                            🔍 Ver execução
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -846,14 +890,26 @@ window.addEventListener('load', function() {
         
         <footer class="site-footer">
             <div class="footer-content">
-                <p>&copy; 2026 | Designed & Developed by <strong>Vera Antunes</strong></p>
-                <p style="font-style: italic; font-size: 0.85em;">Página em constante atualização.</p>
-                
-                <!-- LOGO COM MEDIDAS ESPECÍFICAS -->
-                <img src="VA-1000x1000.png" 
-                    alt="Logo Vera Antunes" 
-                    class="footer-logo"
-                    style="width: 300px; height: auto; display: block; margin: 20px auto 0 auto;">
+                <!-- Assinatura (visível no ecrã e na impressão) -->
+                <p>&copy; 2026 | Designed & Developed by <strong>Vera F. M. Antunes</strong></p>
+                <p style="font-style: italic; font-size: 0.85em;" class="no-print-footer-text">Página em constante atualização.</p>
+
+                <!-- Linha com QR + Logo lado a lado na impressão -->
+                <div class="footer-print-row">
+                    <!-- QR CODE - só aparece na impressão -->
+                    <div class="print-only qr-rodape">
+                        <p><strong>Explore a versão interativa deste CV:</strong></p>
+                        <img src="QR_code-CVInterativo .png" alt="QR Code para o CV Interativo" class="qr-img">
+                        <p class="qr-url">https://filippaantunes.github.io/CV-Interativo/</p>
+                    </div>
+
+                    <!-- LOGO - visível em ambos, mas lado a lado na impressão -->
+                    <div class="footer-logo-wrapper">
+                        <img src="VA-1000x1000.png" 
+                            alt="Logo Vera Antunes" 
+                            class="footer-logo">
+                    </div>
+                </div>
             </div>
         </footer>
 
