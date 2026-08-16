@@ -466,7 +466,7 @@ li {
 }
 
 /* =========================================
-   8. RODAPÉ (FOOTER) ✅ CORRIGIDO E CENTRADO
+   8. RODAPÉ (FOOTER)  CORRIGIDO E CENTRADO
   ========================================= */
 
 .site-footer {
@@ -717,80 +717,189 @@ li {
 /* =========================================
     13. ESTILOS PARA IMPRESSÃO / PDF
    ========================================= */
+
+/* QR code: invisível no ecrã */
+.print-only {
+    display: none !important;
+}
+
 @media print {
-    /* Esconde elementos interativos desnecessários */
+    /* Configuração da folha A4 */
+    @page {
+        size: A4 portrait;
+        margin: 10mm 15mm;
+    }
+
+    /* 1. Ocultar elementos interativos */
+    .no-print,
+    .banner-interativo,
     .language-switch,
-    #welcome-modal,
-    .modal-overlay,
-    .section-title[data-modal]::after,
     .first-button-hint,
-    .site-footer img.footer-logo {
+    button,
+    .no-print-detail,
+    .competencias-detalhe,
+    .no-print-footer-text {
         display: none !important;
     }
 
-    /* Remove sombras, animações e efeitos visuais pesados */
+    /* 2. Mostrar o conteúdo completo dos detalhes */
+    .modal-content,
+    .printable-content,
+    .accordion-content,
+    .experiencia-detalhe,
+    .educacao-detalhe,
+    .info-adicional-detalhe {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    /* 3. Manter APENAS o resumo visual das Competências */
+    .competencias-resumo {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    /* 4. Limpeza visual e quebras de página */
     * {
         box-shadow: none !important;
         text-shadow: none !important;
         animation: none !important;
         transition: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    /* Ajusta o layout para uma coluna (mais legível em PDF) */
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 10pt;
+    }
+
     .section-container {
-        flex-direction: column !important;
-        margin-right: 0 !important;
+        page-break-inside: avoid;
+        margin-bottom: 12px;
         border-bottom: 1px solid #084B8A;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
     }
 
-    .section-info {
-        width: 100% !important;
-        border-right: none !important;
-        border-bottom: 1px dashed #ddd !important;
-        padding-right: 0 !important;
-        margin-bottom: 10px;
-    }
-
-    .section-content {
-        width: 100% !important;
-        padding-left: 0 !important;
-    }
-
-    /* Títulos de secção em modo "estático" para PDF */
     .section-title[data-modal] {
         background: #084B8A !important;
         color: white !important;
-        padding: 10px 18px !important;
-        border-radius: 25px !important;
-        cursor: default !important;
-        width: auto !important;
-        display: inline-block !important;
+        padding: 6px 12px !important;
+        display: block !important;
+        page-break-after: avoid;
     }
 
-    /* Garante quebras de página limpas entre secções */
-    .section-container {
+        /* ========== CORRIGIR PÁGINA VAZIA ========== */
+    
+    /* 1. Retirar padding e margin do container na impressão */
+    .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. Comprimir o header (tira os 30px de margem em baixo) */
+    .header {
+        margin-bottom: 10px !important;
+        padding-bottom: 5px !important;
+        border-bottom: 2px solid #084B8A !important;
+        page-break-after: avoid !important;  /* CRUCIAL: não deixa o nome ficar sozinho */
+    }
+
+    /* 3. Nome um pouco mais pequeno para poupar espaço */
+    .header-name {
+        font-size: 1.6em !important;
+        margin: 0 !important;
+    }
+
+    /* 4. Primeira secção pode partir se necessário (não salta de página) */
+    .section-container:first-of-type {
+        page-break-inside: auto !important;
+    }
+
+    /* 5. FOOTER NA IMPRESSÃO */
+    .site-footer {
+        display: block !important;
+        border-top: 2px solid #084B8A;
+        margin-top: 30px;
+        padding-top: 15px;
         page-break-inside: avoid;
     }
 
-    /* Otimiza a foto de perfil */
-    .profile-photo {
-        width: 120px !important;
-        float: right;
-        margin-left: 20px;
-        margin-bottom: 10px;
+    /* Assinatura por cima (visível) */
+    .site-footer .footer-content > p:first-of-type {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 10pt;
+        color: #084B8A;
     }
 
-    /* Links mantêm cor mas sem sublinhado excessivo */
-    a {
+    /* Linha flex com QR + Logo lado a lado */
+    .footer-print-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 20px;
+        width: 100%;
+    }
+
+    /* 6. QR Code - à esquerda */
+    .print-only {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        flex: 1;
+    }
+
+    .qr-rodape p {
+        margin: 4px 0;
+        font-size: 9pt;
+        color: #000;
+        text-align: left;
+    }
+
+    .qr-rodape p:first-child {
+        font-size: 10pt;
+        color: #084B8A;
+        margin-bottom: 8px;
+    }
+
+    .qr-img {
+        width: 120px;
+        height: 120px;
+        display: block;
+        margin: 5px 0;
+    }
+
+    .qr-url {
+        font-family: monospace;
+        font-size: 8.5pt !important;
         color: #084B8A !important;
-        text-decoration: none !important;
+        word-break: break-all;
     }
 
-    /* Força cores de fundo a aparecerem no PDF */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+    /* 7. LOGO - à direita */
+    .footer-logo-wrapper {
+        flex: 1;
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center;
+    }
+
+    .footer-logo {
+        width: 180px !important;
+        height: auto !important;
+        margin: 0 !important;
+        display: block !important;
     }
 }
 
