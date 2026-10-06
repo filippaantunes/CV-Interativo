@@ -18,7 +18,7 @@
     <!-- 1.2 Main stylesheet -->
     <link rel="stylesheet" href="curriculum1.css">
 
-    <!-- 1.3 Inline styles for modals -->
+    <!-- 1.3 Inline styles for modals AND SIGNATURE PROTECTION -->
     <style>
         .modal-overlay {
             display: none; 
@@ -43,6 +43,39 @@
             height: auto;
             display: block;
             margin: 0 auto;
+        }
+
+        /* =========================================
+           MODAL SIGNATURE (Protection)
+           ========================================= */
+        .modal-signature {
+            display: block !important;
+            text-align: center !important;
+            font-size: 10px !important;
+            color: #888888 !important;
+            opacity: 0.5 !important;
+            margin-top: 20px !important;
+            padding-top: 10px !important;
+            border-top: 1px solid rgba(136, 136, 136, 0.2) !important;
+            font-style: italic;
+            letter-spacing: 0.3px;
+            user-select: none; /* Prevents easy text selection */
+        }
+
+        /* Even more subtle for sub-modals (PDFs/images) */
+        .sub-content .modal-signature {
+            font-size: 9px !important;
+            opacity: 0.4 !important;
+            margin-top: 15px !important;
+        }
+
+        /* In print, the signature becomes more visible */
+        @media print {
+            .modal-signature {
+                opacity: 0.8 !important;
+                color: #084B8A !important;
+                font-size: 8pt !important;
+            }
         }
     </style>
 </head>
@@ -72,6 +105,9 @@
                 cursor: pointer;
                 margin-top: 20px;
             "> OK </button>
+            
+            <!-- SIGNATURE -->
+            <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
         </div>
     </div>
 
@@ -281,6 +317,8 @@
                     My name is <strong>Vera Filipa De Melo Antunes</strong>. After two decades creating unique pieces in the jewelry sector, I am now focusing my creative energy on the digital field.<br>
                     I am a professional passionate about challenges, collaboration, and building solutions that make a difference.
                 </p>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
@@ -302,6 +340,8 @@
                     <p><strong>Jewelry Workshop | Galeria Reverso (2001 – 2004)</strong><br>
                     Technical execution of high jewelry. Mastery of casting, engraving, and soldering.</p>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
@@ -332,6 +372,8 @@
                         <li>Professional formatting of documents and presentations.</li>
                     </ul>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
@@ -374,6 +416,8 @@
                         <p>Business model structuring and proactivity.</p>
                     </div>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
@@ -384,6 +428,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/cert_12ano_page-0001.jpg" alt="High School Diploma">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -391,6 +437,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/certificado_multi2025_page-0001.jpg" alt="Multimedia Certificate">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -398,6 +446,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/certificado_multimedia_page-0001.jpg" alt="Multimedia Certificate">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -405,6 +455,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/certificado_multi2026_page-0001.jpg" alt="Multimedia Certificate">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -412,6 +464,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/operador de informatica.jpg" alt="Operator Certificate">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -419,6 +473,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/programacao.jpg" alt="Programming Certificate">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -426,6 +482,8 @@
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/proficiencia.jpg" alt="Digital Proficiency Certificate">
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -459,6 +517,8 @@
                         <li><strong>Condominium Management:</strong> Module with file manipulation (I/O).</li>
                     </ul>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -506,6 +566,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -529,6 +591,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -572,6 +636,8 @@
                     </ul>
                     <p>Work carried out for the UC02638 unit</p>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -642,6 +708,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -710,6 +778,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -722,6 +792,8 @@
             <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
                 <span class="close-btn" style="position: absolute; top: 10px; right: 15px; z-index: 2001; background: white; color: black; border-radius: 50%; width: 30px; height: 30px; line-height: 28px; text-align: center; cursor: pointer;">&times;</span>
                 <iframe src="documentos/Tarefa 7 Projecto final VA.pdf#toolbar=0&navpanes=0" width="100%" height="100%" style="border: none;"></iframe>
+                <!-- SIGNATURE (Positioned absolutely to show over the dark iframe) -->
+                <div class="modal-signature" style="position: absolute; bottom: 10px; left: 0; right: 0; color: #aaa !important; border: none !important;">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -730,6 +802,8 @@
             <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
                 <span class="close-btn" style="position: absolute; top: 12px; right: 20px; z-index: 3000; background: #ffffff; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer;">&times;</span>
                 <iframe src="documentos/Orçamento projecto final- Tarefa Final VA.pdf#toolbar=0&navpanes=0" width="100%" height="100%" style="border: none;"></iframe>
+                <!-- SIGNATURE -->
+                <div class="modal-signature" style="position: absolute; bottom: 10px; left: 0; right: 0; color: #aaa !important; border: none !important;">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -738,6 +812,8 @@
             <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
                 <span class="close-btn" style="position: absolute; top: 12px; right: 20px; z-index: 3000; background: #ffffff; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer;">&times;</span>
                 <iframe src="documentos/pdf-dossie-tecnico.pdf" width="100%" height="100%" style="border: none;"></iframe>
+                <!-- SIGNATURE -->
+                <div class="modal-signature" style="position: absolute; bottom: 10px; left: 0; right: 0; color: #aaa !important; border: none !important;">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -765,6 +841,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -794,6 +872,8 @@
                         <li><strong>Color:</strong> CMYK palette for printing</li>
                     </ul>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
@@ -828,6 +908,8 @@
                         <li>Canva</li>
                     </ul>
                 </div>
+                <!-- SIGNATURE -->
+                <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
