@@ -1,53 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt">
-
-<!-- =========================================
-     1. HEAD - METADADOS E ESTILOS
-     ========================================= -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vera Antunes | Portfólio</title>
 
-    <!-- 1.1 Favicons -->
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="logo-barra.png">
     <link rel="icon" type="image/png" sizes="64x64" href="logo-barra.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="VA-192x192.png">
 
-    <!-- 1.2 Folha de estilos principal -->
+    <!-- Folha de estilos principal -->
     <link rel="stylesheet" href="curriculum1.css">
 
-    <!-- 1.3 Estilos inline para modais e ASSINATURA DE PROTEÇÃO -->
+    <!-- Estilos inline para modais, assinatura e CORREÇÃO DE LINKS NO PDF -->
     <style>
         .modal-overlay {
             display: none; 
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(233, 231, 231, 0.7);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
-        .modal-overlay.active {
-            display: flex; 
-        }
+        .modal-overlay.active { display: flex; }
         .sub-modal { z-index: 2000; }
         .section-title { cursor: pointer; }
+        .modal-content img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
         
-        .modal-content img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* =========================================
-           ASSINATURA DENTRO DOS MODAIS (Proteção)
-           ========================================= */
         .modal-signature {
             display: block !important;
             text-align: center !important;
@@ -59,18 +42,30 @@
             border-top: 1px solid rgba(136, 136, 136, 0.2) !important;
             font-style: italic;
             letter-spacing: 0.3px;
-            user-select: none; /* Impede seleção fácil do texto */
+            user-select: none;
         }
-
-        /* Versão ainda mais subtil para sub-modais (PDFs/imagens) */
         .sub-content .modal-signature {
             font-size: 9px !important;
             opacity: 0.4 !important;
             margin-top: 15px !important;
         }
 
-        /* Na impressão, a assinatura fica mais visível */
+        /* =========================================
+           CORREÇÃO ABSOLUTA: LINKS NO PDF SEM SUBLINHADO
+           ========================================= */
         @media print {
+            a, a:link, a:visited, a:hover, a:active {
+                color: #084B8A !important;
+                text-decoration: none !important;
+                -webkit-text-decoration: none !important;
+                text-underline-offset: 0 !important;
+                border-bottom: none !important;
+                pointer-events: auto !important; /* Garante que sejam clicáveis no PDF */
+            }
+            a:not([href]), a[href="#"], a[href=""] {
+                color: inherit !important;
+                cursor: default !important;
+            }
             .modal-signature {
                 opacity: 0.8 !important;
                 color: #084B8A !important;
@@ -82,9 +77,7 @@
 
 <body>
 
-    <!-- =========================================
-         2. WELCOME MODAL - MODAL DE BOAS-VINDAS
-         ========================================= -->
+    <!-- WELCOME MODAL -->
     <div id="welcome-modal" class="modal-overlay active" style="z-index: 9999;">
         <div class="modal-content" style="max-width: 500px; text-align: center;">
             <span class="close-btn" onclick="closeWelcome()" style="position:absolute;top:15px;right:20px;font-size:28px;cursor:pointer;color:#084B8A;font-weight:bold;z-index:5005;">&times;</span>
@@ -92,66 +85,33 @@
             <div class="modal-line"></div>
             <p style="font-size: 1.1em; line-height: 1.6; margin: 20px 0;">
                 Este <strong>não é um PDF</strong> — é uma experiência interativa!<br><br>
-                 <strong>Clique nos botões azuis</strong> para explorar o meu percurso.<br>
-                 <strong>Explore</strong> e descarregue.<br>
+                <strong>Clique nos botões azuis</strong> para explorar o meu percurso.<br>
+                <strong>Explore</strong> e descarregue.<br>
             </p>
-            <button onclick="closeWelcome()" style="
-                background: #084B8A;
-                color: white;
-                border: none;
-                padding: 12px 30px;
-                border-radius: 25px;
-                font-size: 1em;
-                cursor: pointer;
-                margin-top: 20px;
-            "> OK </button>
-            
-            <!-- ASSINATURA -->
+            <button onclick="closeWelcome()" style="background: #084B8A; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 1em; cursor: pointer; margin-top: 20px;">OK</button>
             <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
         </div>
     </div>
 
-    <!-- =========================================
-         3. CONTAINER PRINCIPAL
-         ========================================= -->
+    <!-- CONTAINER PRINCIPAL -->
     <div class="container">
-
-        <!-- =========================================
-             3.1 HEADER - CABEÇALHO E NAVEGAÇÃO
-             ========================================= -->
         
-        <!-- 3.1.1 Botão de idioma -->
+        <!-- HEADER -->
         <nav class="language-switch">
             <a href="index_en.html" class="lang-btn">English Version 🇬🇧</a>
         </nav>
 
-        <!-- 3.1.2 Título principal -->
         <header class="header">
             <h1 class="titulo-impressao-cv" style="display: none;">Curriculum Vitae</h1>
             <h1 class="header-name">Portfólio Profissional</h1>
         </header>
 
-        <!-- =========================================
-             3.2 BANNER INTERATIVO
-             ========================================= -->
-        <div class="banner-interativo no-print" style="
-            background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 0 auto 30px auto;
-            max-width: 900px;
-            box-shadow: 0 4px 12px rgba(8,75,138,0.3);
-            animation: pulse-border 2s infinite;
-        ">
+        <!-- BANNER INTERATIVO -->
+        <div class="banner-interativo no-print" style="background: linear-gradient(135deg, #084B8A 0%, #1a6ba8 100%); color: white; padding: 15px; border-radius: 10px; text-align: center; margin: 0 auto 30px auto; max-width: 900px; box-shadow: 0 4px 12px rgba(8,75,138,0.3); animation: pulse-border 2s infinite;">
             <p style="margin: 0; font-size: 0.95em;">
                 <strong>CV INTERATIVO:</strong> Clica nos botões azuis abaixo para explorar •  
                 <span style="color: #FFD700;">
-                    📥 
-                    <span onclick="window.print()" style="text-decoration: underline; cursor: pointer;">
-                        Guardar como PDF
-                    </span>
+                    📥 <span onclick="window.print()" style="text-decoration: underline; cursor: pointer;">Guardar como PDF</span>
                     <span style="opacity: 0.7; font-size: 0.9em;">
                         <a href="CV_VeraAntunes.pdf" download style="color: #FFD700; text-decoration: none;">(baixar versão estática)</a>
                     </span>
@@ -159,44 +119,36 @@
             </p>
         </div>
 
-        <!-- =========================================
-             3.3 MAIN - SECÇÕES DO CV
-             ========================================= -->
+        <!-- MAIN - SECÇÕES DO CV -->
         <main>
-
-            <!-- =========================================
-                 3.3.1 SECÇÃO: INFORMAÇÃO PESSOAL
-                 ========================================= -->
+            <!-- INFORMAÇÃO PESSOAL -->
             <section class="section-container">
                 <div class="section-info">
                     <h2 class="section-title first-button-hint" data-modal="modal-perfil">INFORMAÇÃO PESSOAL</h2>
                 </div>
-                
                 <div class="section-content personal-info">
                     <img src="fotos/veraA.jpg" alt="Foto de Vera Antunes" class="profile-photo">
-                    
                     <div class="contact-details">
                         <h3>Vera Antunes</h3>
-                        
                         <div class="contact-item">
                             <img src="fotos/lo1.png" alt="Ícone de morada">
                             <p>Alentejo</p>
                         </div>
-                        
                         <div class="contact-item web-only-contact">
                             <img src="fotos/lo3.png" alt="Ícone de telefone">
                             <p>Pedido de informação</p>
                         </div>
-                        
                         <div class="contact-item">
                             <img src="fotos/lo2.png" alt="Ícone de linkedin">
-                            <a href="https://www.linkedin.com/in/vera-filipa-antunes-345b66411" target="_blank" class="linkedin-link">Linkedin</a>
+                            <!-- Link otimizado com estilo inline anti-sublinhado -->
+                            <a href="https://www.linkedin.com/in/vera-filipa-antunes-345b66411" target="_blank" class="linkedin-link" style="text-decoration: none !important; color: inherit;">Linkedin</a>
                         </div>
 
                         <!-- Contactos visíveis apenas na impressão -->
                         <div class="print-only-contact">
                             <div class="contact-item">
-                                <p>https://www.linkedin.com/in/vera-filipa-antunes-345b66411</p>
+                                <!-- Link otimizado com estilo inline anti-sublinhado -->
+                                <a href="https://www.linkedin.com/in/vera-filipa-antunes-345b66411" target="_blank" style="color: #084B8A; text-decoration: none !important;">linkedin.com/in/vera-filipa-antunes-345b66411</a>
                             </div>    
                             <div class="contact-item">
                                 <img src="fotos/lo3.png" alt="Ícone de telefone">
@@ -209,60 +161,39 @@
                         </div>
 
                         <p class="personal-data">
-                            <strong>Sexo:</strong> Feminino | 
-                            <strong>Nacionalidade:</strong> Portuguesa
+                            <strong>Sexo:</strong> Feminino | <strong>Nacionalidade:</strong> Portuguesa
                         </p>
                     </div>
                 </div>
             </section>
 
-            <!-- =========================================
-                 3.3.2 SECÇÃO: EXPERIÊNCIA PROFISSIONAL
-                 ========================================= -->
+            <!-- EXPERIÊNCIA PROFISSIONAL -->
             <section class="section-container">
                 <div class="section-info">
                     <h2 class="section-title" data-modal="modal-experiencia">EXPERIÊNCIA PROFISSIONAL</h2>
                 </div>
                 <div class="section-content experiences">
                     <div class="experience-item">
-                        <span class="experience-date">2024 – 2026</span>
-                        <p><strong>Formações Modulares Certificadas - IEFP</strong></p>
-                    </div>
-                    <div class="experience-item">
                         <span class="experience-date">2007 – 2023</span>
                         <p><strong>Designer de Joalharia de Autor & Artista Independente</strong></p>
                     </div>
                     <div class="experience-item">
                         <span class="experience-date">2001 – 2007</span>
-                        <p><strong>Percurso em Joalharia Técnica e Consultoria</strong></p>
+                        <p><strong>Percurso em Joalharia, Técnica e Consultoria</strong></p>
                     </div>
                 </div>
             </section>
 
-            <!-- =========================================
-                 3.3.3 SECÇÃO: EDUCAÇÃO E FORMAÇÃO
-                 ========================================= -->
+            <!-- EDUCAÇÃO E FORMAÇÃO -->
             <section class="section-container">
                 <div class="section-info">
                     <h2 class="section-title" data-modal="modal-educacao">EDUCAÇÃO E FORMAÇÃO</h2>
                 </div>
-                
                 <div class="section-content education">
                     <div class="education-item">
-                        <span class="experience-date"> 01/2026</span>
-                        <p><strong>Diploma 12º Ano</strong></p>
-                    </div>
-                    <div class="education-item">
-                        <span class="education-date">06/2025 – 05/2026</span>
-                        <p><strong>Técnica de Multimédia</strong></p>
-                    </div>
-                    <div class="education-item">
-                        <span class="education-date">02/2025 – 04/2025</span>
-                        <p><strong>Operador/a informática</strong></p>
-                    </div>
-                    <div class="education-item">
-                        <span class="experience-date">07/2024 – 12/2024</span>
-                        <p><strong>Programador/a de Informática</strong></p>
+                        <span class="experience-date">2024 - 2026</span>
+                        <p><strong>Formações Modulares Certificadas - IEFP</strong></p>
+                        <p>(Programação, Rede, SGBD e Multimédia)</p>
                     </div>
                     <div class="education-item">
                         <span class="experience-date">1996 – 2001</span>
@@ -271,9 +202,7 @@
                 </div>
             </section>
 
-            <!-- =========================================
-                 3.3.4 SECÇÃO: COMPETÊNCIAS
-                 ========================================= -->
+            <!-- COMPETÊNCIAS -->
             <section class="section-container">
                 <div class="section-info">
                     <h2 class="section-title" data-modal="modal-competencias">COMPETÊNCIAS</h2>
@@ -289,9 +218,7 @@
                 </div>
             </section>
 
-            <!-- =========================================
-                 3.3.5 SECÇÃO: ADICIONAL
-                 ========================================= -->
+            <!-- ADICIONAL -->
             <section class="section-container">
                 <div class="section-info">
                     <h2 class="section-title titulo-limpo">ADICIONAL</h2>
@@ -300,90 +227,95 @@
                     <p><strong>Carta de Condução:</strong> Categoria B</p>
                 </div>
             </section>
-
         </main> 
 
-        <!-- =========================================
-             3.4 MODAIS PRINCIPAIS (Perfis e Detalhes)
-             ========================================= -->
-
-        <!-- 3.4.1 Modal: Perfil Profissional -->
+        <!-- MODAIS PRINCIPAIS -->
         <div id="modal-perfil" class="modal-overlay">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px;">Perfil Profissional</h3>
                 <div class="modal-line"></div>
                 <p class="profile-text" style="text-align: justify;">
-                    O meu nome é <strong>Vera Filipa De Melo Antunes</strong>. Após duas décadas a criar peças únicas no setor da joalharia, foco agora a minha energia criativa na área digital.<br>
-                    Sou uma profissional apaixonada por desafios, colaboração e pela construção de soluções que marcam a diferença.
+                    O meu nome é <strong>Vera Filipa De Melo Antunes</strong>. Após duas décadas de empreendedorismo, atendimento direto ao público e criação manual de alta precisão (joalharia e estética), desenvolvi um rigor excecional para o detalhe. Atualmente, direciono essa energia criativa e disciplina para a área digital, focando-me em multimédia, web design e programação. Sou uma profissional proativa, que valoriza a colaboração e a construção de soluções visuais e funcionais que marcam a diferença.
                 </p>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
-        <!-- 3.4.2 Modal: Trajetória Profissional Detalhada -->
         <div id="modal-experiencia" class="modal-overlay">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px;">Trajetória Profissional Detalhada</h3>
                 <div class="modal-line"></div>
                 <div class="experience-desc" style="text-align: justify; font-size: 0.95em;">
-                    <p><strong>Formação à distância (FAD) - IEFP (2024 - 2026)</strong><br>
-                    Formação realizada em modalidade à distância, demonstrando elevada autonomia e organização.</p>
-                    <p><strong>Designer de Joalharia & Artista Independente (2007 – 2023)</strong><br>
-                    Foco na criação e produção artística. Gestão integral do processo criativo e comercial.</p>
-                    <p><strong>Consultoria e Gestão de Stock | Ourivesaria Cesar's (2005 – 2007)</strong><br>
-                    Venda especializada, gestão de inventário e Vitrinismo.</p>
-                    <p><strong>Técnica de Estética | Gragel (2004 – 2005)</strong><br>
-                    Aplicação de técnicas de precisão e atendimento ao público.</p>
-                    <p><strong>Oficina de Joalharia | Galeria Reverso (2001 – 2004)</strong><br>
-                    Execução técnica de alta joalharia. Domínio de fundição, cinzelagem e soldadura.</p>
+                    <p><strong>Designer de joalharia & Artista Independente (2007 - 2023)</strong></p>
+                    <ul>
+                        <li>Criação e produção de peças únicas, desde o conceito até ao produto final;</li>
+                        <li>Gestão integral do processo criativo, comercial e de relacionamento com clientes;</li>
+                        <li>Aplicação de técnicas de precisão manual e design estético.</li>
+                    </ul>
+                    <p><strong>Consultoria e Gestão de Stock | Ourivesaria Cesar's (2005 – 2007)</strong></p>
+                    <ul>
+                        <li>Venda especializada e atendimento ao público;</li>
+                        <li>Gestão de inventário e controlo de stock;</li>
+                        <li>Vitrinismo e apresentação de produto.</li>
+                    </ul>
+                    <p><strong>Técnica de Estética | Gragel (2004 – 2005)</strong></p>
+                    <ul>
+                        <li>Aplicação de técnicas de precisão e detalhe;</li>
+                        <li>Atendimento ao público e gestão de cliente.</li>
+                    </ul>
+                    <p><strong>Oficina de Joalharia | Galeria Reverso (2001 – 2004)</strong></p>
+                    <ul>
+                        <li>Execução técnica de alta joalharia;</li>
+                        <li>Domínio de fundição, cinzelagem e soldadura.</li>
+                    </ul>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
-        <!-- 3.4.3 Modal: Formação e Certificações -->
         <div id="modal-educacao" class="modal-overlay">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
-                <h3 style="color: #084B8A; margin-bottom: 20px;">Formação e Certificações-Pedir informação</h3>
+                <h3 style="color: #084B8A; margin-bottom: 20px;">Formação e Certificações</h3>
                 <div class="modal-line"></div>
-                
                 <div class="experience-desc" style="text-align: left;">
-                    <p><strong>Diploma 12º Ano (2026)</strong></p>
-                    <p><strong>Técnico de Multimédia (2024 - 2026)</strong></p>
-                    <ul>
-                        <li>Programação web, Fotografia, Imagem Digital e Animação 2D.</li>
-                    </ul>
-                    <p><strong>Operador/a informática (2025)</strong></p>
-                    <ul>
-                        <li>SGBD e Administração de redes.</li>
-                    </ul>
-                    <p><strong>Programador/a de Informática (2024)</strong></p>
-                    <ul>
+                    <p><strong>Formações Modulares Certificadas - IEFP (2024 - 2026)</strong></p>
+                    <p>Percurso de requalificação profissional em tecnologias digitais, realizado em modalidade à distância (FAD).</p>
+                    <p><strong>Unidades Formativas: </strong></p>
+                    <p><strong>Programação & Desenvolvimento</strong> (2024 - 2026)</p>
+                    <ul>   
                         <li>Lógica e Programação em C/C++.</li>
-                    </ul>
-                    <p><strong>Proficiência Digital - Intermédio (2024)</strong></p>
-                    <ul>
-                        <li>Criação e estruturação de ecossistemas digitais (Google Sites)</li>
-                        <li>Formatação profissional de documentos e apresentações.</li>
+                        <li>Programação web (HTML5, CSS3, JavaScript).</li>
+                    </ul>     
+                    <p><strong>Multimédia & Design Digital</strong> (2025 - 2026)</p>
+                    <ul>    
+                        <li>Animação 2D - Adobe Animate, Illustrator.</li>
+                        <li>Modelação e Animação 3D - Blender.</li>
+                        <li>Edição de vídeo e Imagem - Adobe Premiere, After Effects.</li>
+                        <li>Fotografia e Imagem Digital.</li>
+                    </ul>    
+                    <p><strong>Infrastruturas & Sistemas</strong> (2025)</p>
+                    <ul>    
+                        <li>Sistemas de Gestão de Bases de Dados (SGBD): Organização e estruturação ágil de dados relacionais em MS Access.</li>
+                        <li>Administração de Redes (Topologias, LAN).</li>
+                    </ul>    
+                    <p><strong>Competências Digitais</strong> (2024)</p>
+                    <ul>     
+                        <li>Criação de ecossistemas digitais (Google Sites).</li>
+                        <li>Formatação profissional de documentos.</li>
                     </ul>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
-        <!-- 3.4.4 Modal: Portfólio & Aplicação Técnica (Competências) -->
         <div id="modal-competencias" class="modal-overlay">
             <div class="modal-content" style="max-width: 850px; max-height: 90vh; overflow-y: auto;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px;">Portfólio & Aplicação Técnica</h3>
                 <div class="modal-line"></div>
-                
                 <div class="projects-grid">
                     <div class="project-card" data-modal="detalhe-cpp" style="cursor: pointer;">
                         <img src="fotos/logicaec.jpg" alt="Máquina Científica C++">
@@ -416,82 +348,62 @@
                         <p>Estruturação de modelo de negócio e proatividade.</p>
                     </div>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes | Concept & Design</div>
             </div>
         </div>
 
-        <!-- =========================================
-             3.5 SUB-MODAIS DE CERTIFICADOS
-             ========================================= -->
+        <!-- SUB-MODAIS DE CERTIFICADOS -->
         <div id="cert_12ano_page-0001" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/cert_12ano_page-0001.jpg" alt="Diploma 12º Ano">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
-
         <div id="cert-multi-1" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/certificado_multi2025_page-0001.jpg" alt="Certificado Multimédia">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
-
         <div id="cert-multi-2" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/certificado_multimedia_page-0001.jpg" alt="Certificado Multimédia">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
-
         <div id="cert-multi-3" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/certificado_multi2026_page-0001.jpg" alt="Certificado Multimédia">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
-
         <div id="cert-operador" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/operador de informatica.jpg" alt="Certificado Operador">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
-
         <div id="cert-programador" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/programacao.jpg" alt="Certificado Programação">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
-
         <div id="Proficiência" class="modal-overlay sub-modal">
             <div class="modal-content sub-content">
                 <span class="close-btn">&times;</span>
                 <img src="fotos/proficiencia.jpg" alt="Certificado Proficiência Digital">
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- =========================================
-             3.6 SUB-MODAIS DE PROJETOS (PORTFÓLIO)
-             ========================================= -->
-
-        <!-- 3.6.1 Projeto: Lógica & C++ -->
+        <!-- SUB-MODAIS DE PROJETOS (PORTFÓLIO) -->
         <div id="detalhe-cpp" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 950px; padding: 30px;">
                 <span class="close-btn" style="position: absolute; top: 15px; right: 20px; z-index: 2001; background: white; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">&times;</span>
@@ -500,15 +412,9 @@
                 <div style="text-align: center; margin-bottom: 25px;">
                     <img src="fotos/B.png" alt="Calculadora Científica C++" style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid #ddd;">
                 </div>
-                <p style="text-align: center; font-size: 0.95em; color: #666; margin-bottom: 20px; font-style: italic;">
-                    Calculadora Científica - Interface de utilizador
-                </p>
+                <p style="text-align: center; font-size: 0.95em; color: #666; margin-bottom: 20px; font-style: italic;">Calculadora Científica - Interface de utilizador</p>
                 <div style="background: #f8f9fa00; padding: 20px; border-radius: 8px; border-left: 4px solid #084b8a00; margin-bottom: 25px;">
-                    <p style="margin: 0 0 10px 0; line-height: 1.6; text-align: justify;">
-                        Desenvolvimento de uma <strong>Calculadora Científica</strong> completa em C++, 
-                        focada na modularidade e eficiência. O projeto integra múltiplos módulos 
-                        de cálculo avançado e gestão de dados.
-                    </p>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6; text-align: justify;">Desenvolvimento de uma <strong>Calculadora Científica</strong> completa em C++, focada na modularidade e eficiência. O projeto integra múltiplos módulos de cálculo avançado e gestão de dados.</p>
                 </div>
                 <div style="margin-bottom: 25px;">
                     <h4 style="color: #084B8A; margin-bottom: 15px; text-align: center;">Pontos Chave:</h4>
@@ -518,18 +424,15 @@
                         <li><strong>Gestão de Condomínio:</strong> Módulo com manipulação de ficheiros (I/O).</li>
                     </ul>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.6.2 Projeto: Google Sites & Web -->
         <div id="detalhe-sites" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 850px;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px;">Google Sites & Projetos Web</h3>
                 <div class="modal-line"></div>
-
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; text-align: left; align-items: flex-start; margin-bottom: 30px;">
                     <div style="flex: 1; min-width: 280px;">
                         <img src="fotos/flutuar.png" alt="Interface Flutuar em Ideias" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
@@ -547,9 +450,7 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="modal-line" style="opacity: 0.3;"></div>
-
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; text-align: left; margin-top: 20px;">
                     <div style="flex: 1; min-width: 280px;">
                         <img src="fotos/web.png" alt="Página da Junta de Freguesia" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
@@ -567,12 +468,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.6.3 Projeto: Game Design & UI/UX -->
         <div id="detalhe-junta" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 850px;">
                 <span class="close-btn">&times;</span>
@@ -592,40 +491,29 @@
                         </div>
                     </div>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.6.4 Projeto: Vastidão 3D (Blender) -->
         <div id="detalhe-3d" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 950px;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Vastidão 3D - Blender</h3>
                 <div class="modal-line"></div>
-                
                 <div style="margin-bottom: 30px;">
                     <video width="90%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin-left: auto; margin-right: auto;">
-                        <source src="videos/lanterna.mp4" type="video/mp4">
-                        O teu navegador não suporta vídeos.
+                        <source src="videos/lanterna.mp4" type="video/mp4">O teu navegador não suporta vídeos.
                     </video>
                     <p style="text-align: center; font-style: italic; color: #666;">Rotação 360° do cenário - Lanterna sobre rocha</p>
                 </div>
-                
                 <div class="modal-line" style="opacity: 0.3;"></div>
-                
                 <div style="margin-top: 30px;">
                     <h4 style="color: #084B8A; margin-bottom: 15px; text-align: center;">Renders Finalizados</h4>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                        <div>
-                            <img src="fotos/lanterna_cycles.png" alt="Render 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        </div>
-                        <div>
-                            <img src="fotos/lanterna_blender.png" alt="Render 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        </div>
+                        <div><img src="fotos/lanterna_cycles.png" alt="Render 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"></div>
+                        <div><img src="fotos/lanterna_blender.png" alt="Render 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"></div>
                     </div>
                 </div>
-                
                 <div style="margin-top: 30px; text-align: left; padding: 0 15px;">
                     <h4 style="color: #084B8A; margin-bottom: 10px;">Competências Aplicadas:</h4>
                     <ul style="margin-left: 20px; list-style-type: square; line-height: 1.8;">
@@ -637,91 +525,69 @@
                     </ul>
                     <p>Trabalho realizado para a unidade de UC02638</p>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.6.5 Projeto: Animação, Vídeo & Design Gráfico -->
         <div id="detalhe-gaming" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 900px;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Animação, Vídeo & Design Gráfico</h3>
                 <div class="modal-line"></div>
-                
-                <!-- Projeto 1: A Padeirinha -->
                 <div style="margin-bottom: 40px;">
                     <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">A Padeirinha - Animação 2D</h4>
                     <div style="text-align: center;">
                         <video width="90%" controls style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
-                            <source src="videos/0141_08_VeraAntunes.mp4" type="video/mp4">
-                            O teu navegador não suporta vídeos.
+                            <source src="videos/0141_08_VeraAntunes.mp4" type="video/mp4">O teu navegador não suporta vídeos.
                         </video>
                         <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
                             <p>Desenvolvimento integral de uma curta-metragem de animação, desde a criação de personagens no <strong>Adobe Illustrator</strong> até à finalização e animação no <strong>Adobe Animate.</strong></p>
                             <p style="font-size: 0.85em; color: #666; margin-top: 10px;">Desenvolvido para a unidade <strong>UFCD 0141</strong>.</p>
                         </div>
                         <div style="margin-top: 15px;">
-                            <span class="open-sub" data-modal="pdf-storyboard-padeirinha" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
-                                🔍 Ver Storyboard
-                            </span>
+                            <span class="open-sub" data-modal="pdf-storyboard-padeirinha" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">🔍 Ver Storyboard</span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="modal-line" style="opacity: 0.3;"></div>
-                
-                <!-- Projeto 2: Vídeo Promocional -->
                 <div style="margin: 40px 0;">
                     <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Vídeo Promocional - Premiere & After Effects</h4>
                     <div style="text-align: center;">
                         <video width="90%" controls style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
-                            <source src="videos/02633_05_TFVeraAntunes.mp4" type="video/mp4">
-                            O teu navegador não suporta vídeos.
+                            <source src="videos/02633_05_TFVeraAntunes.mp4" type="video/mp4">O teu navegador não suporta vídeos.
                         </video>
                         <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
                             <p>Criação de vídeo promocional com edição profissional em <strong>Adobe Premiere</strong> e <strong>After Effects</strong>.</p>
                             <p style="margin-top: 10px;"><strong>Recursos:</strong> Imagens e vídeos gerados com IA, editados e sincronizados para criar narrativa envolvente.</p>
                         </div>
                         <div style="margin-top: 15px;">
-                            <span class="open-sub" data-modal="modal-capa-video" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
-                                 Ver guião técnico
-                            </span>
+                            <span class="open-sub" data-modal="modal-capa-video" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">Ver guião técnico</span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="modal-line" style="opacity: 0.3;"></div>
-                
-                <!-- Projeto 3: Capa de Revista -->
                 <div style="margin: 40px 0;">
                     <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Capa de Revista - Illustrator</h4>
                     <div style="text-align: center;">
-                        <img src="fotos/atividade_07VA_page-0001.jpg" alt="Capa de Revista - Em construção" style="width: 90%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                        <img src="fotos/atividade_07VA_page-0001.jpg" alt="Capa de Revista" style="width: 90%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
                         <div style="text-align: left; font-size: 0.95em; line-height: 1.6; max-width: 700px; margin: 0 auto 15px auto; padding: 0 20px;">
                             <p>Design de capa de revista desenvolvido em <strong>Adobe Illustrator</strong>, com foco em composição visual, tipografia e hierarquia de informação.</p>
                             <p style="margin-top: 10px;"><strong>Técnicas:</strong> Vetorização, tratamento de cor, layout editorial e preparação para impressão.</p>
                         </div>
                         <div style="margin-top: 15px;">
-                            <span class="open-sub" data-modal="img-capa-final" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">
-                                🔍 Ver execução
-                            </span>
+                            <span class="open-sub" data-modal="img-capa-final" style="cursor: pointer; background: #084B8A; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; display: inline-block;">🔍 Ver execução</span>
                         </div>
                     </div>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.6.6 Projeto: Projetos e Iniciativas (Empreendedorismo) -->
         <div id="detalhe-empreendedorismo" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 950px;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Projetos e Iniciativas</h3>
                 <div class="modal-line"></div>
-
-                <!-- Secção 1: Logótipo VA -->
                 <div style="margin-bottom: 40px;">
                     <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Identidade Visual: Logótipo VA</h4>
                     <video width="90%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin-left: auto; margin-right: auto;">
@@ -737,10 +603,7 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="modal-line" style="opacity: 0.3;"></div>
-                
-                <!-- Secção 2: Turismo -->
                 <div style="margin-bottom: 40px;">
                     <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Alento Paladar & Poente: Turismo</h4>
                     <video width="90%" controls style="border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin-left: auto; margin-right: auto;">
@@ -755,10 +618,7 @@
                         </ul>
                     </div>
                 </div>
-                
                 <div class="modal-line" style="opacity: 0.3;"></div>
-                
-                <!-- Secção 3: Redes LAN -->
                 <div style="margin-top: 40px;">
                     <h4 style="color: #084B8A; font-size: 1.2em; margin-bottom: 15px; text-align: center;">Planeamento de Infraestrutura LAN</h4>
                     <div style="display: flex; flex-wrap: wrap; gap: 25px; text-align: left; align-items: flex-start;">
@@ -779,52 +639,40 @@
                         </div>
                     </div>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- =========================================
-             3.7 SUB-MODAIS DE PDFs
-             ========================================= -->
-
-        <!-- 3.7.1 PDF: Levantamento de Necessidades -->
+        <!-- SUB-MODAIS DE PDFs -->
         <div id="pdf-levantamento" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
                 <span class="close-btn" style="position: absolute; top: 10px; right: 15px; z-index: 2001; background: white; color: black; border-radius: 50%; width: 30px; height: 30px; line-height: 28px; text-align: center; cursor: pointer;">&times;</span>
                 <iframe src="documentos/Tarefa 7 Projecto final VA.pdf#toolbar=0&navpanes=0" width="100%" height="100%" style="border: none;"></iframe>
-                <!-- ASSINATURA (Posicionada absolutamente para ficar sobre o iframe escuro) -->
                 <div class="modal-signature" style="position: absolute; bottom: 10px; left: 0; right: 0; color: #aaa !important; border: none !important;">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.7.2 PDF: Orçamento -->
         <div id="pdf-orcamento" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
                 <span class="close-btn" style="position: absolute; top: 12px; right: 20px; z-index: 3000; background: #ffffff; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer;">&times;</span>
                 <iframe src="documentos/Orçamento projecto final- Tarefa Final VA.pdf#toolbar=0&navpanes=0" width="100%" height="100%" style="border: none;"></iframe>
-                <!-- ASSINATURA -->
                 <div class="modal-signature" style="position: absolute; bottom: 10px; left: 0; right: 0; color: #aaa !important; border: none !important;">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.7.3 PDF: Dossiê Técnico -->
         <div id="pdf-dossie-tecnico" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="width: 90%; max-width: 1000px; height: 90vh; padding: 0; background: #333; overflow: hidden; border-radius: 12px; position: relative;">
                 <span class="close-btn" style="position: absolute; top: 12px; right: 20px; z-index: 3000; background: #ffffff; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer;">&times;</span>
                 <iframe src="documentos/pdf-dossie-tecnico.pdf" width="100%" height="100%" style="border: none;"></iframe>
-                <!-- ASSINATURA -->
                 <div class="modal-signature" style="position: absolute; bottom: 10px; left: 0; right: 0; color: #aaa !important; border: none !important;">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.7.4 Modal: Ficha Técnica & Storyboard (Vídeo Promocional) -->
         <div id="modal-capa-video" class="modal-overlay sub-modal" style="z-index: 7000 !important;">
             <div class="modal-content sub-content" style="max-width: 900px;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Ficha Técnica & Storyboard</h3>
                 <div class="modal-line"></div>
-                
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
                     <div style="flex: 1; min-width: 250px; text-align: center;">
                         <h4 style="color: #084B8A; margin-bottom: 10px;">Capa do Projeto</h4>
@@ -834,26 +682,21 @@
                     <div style="flex: 1; min-width: 250px;">
                         <h4 style="color: #084B8A; margin-bottom: 10px;">Storyboard Completo</h4>
                         <p style="font-size: 0.9em; margin-bottom: 15px;">Visualiza o planeamento quadro a quadro da produção.</p>
-                        <span class="open-sub" data-modal="pdf-dossie-tecnico" style="cursor: pointer; background: #084B8A; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.9em; display: inline-block; width: 100%; text-align: center; margin-bottom: 10px;">
-                            Abrir Dossiê/Storyboard em Ecrã Inteiro
-                        </span>
+                        <span class="open-sub" data-modal="pdf-dossie-tecnico" style="cursor: pointer; background: #084B8A; color: white; padding: 10px 20px; border-radius: 25px; font-size: 0.9em; display: inline-block; width: 100%; text-align: center; margin-bottom: 10px;">Abrir Dossiê/Storyboard em Ecrã Inteiro</span>
                         <div style="background: #f0f0f0; padding: 10px; border-radius: 8px; text-align: center;">
                             <p style="font-size: 0.8em; color: #555;">Ferramentas usadas:<br><strong>Adobe Premiere & After Effects</strong></p>
                         </div>
                     </div>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.7.5 Modal: Execução - Capa de Revista -->
         <div id="img-capa-final" class="modal-overlay sub-modal" style="z-index: 7000 !important;">
             <div class="modal-content sub-content" style="max-width: 900px;">
                 <span class="close-btn">&times;</span>
                 <h3 style="color: #084B8A; margin-bottom: 20px; text-align: center;">Execução - Capa de Revista</h3>
                 <div class="modal-line"></div>
-                
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                     <div style="text-align: center;">
                         <img src="fotos/capa2.png" alt="Execução Capa - Passo 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -864,7 +707,6 @@
                         <p style="margin-top: 10px; font-size: 0.9em; color: #666;">Aplicação de tipografia e cor</p>
                     </div>
                 </div>
-                
                 <div style="margin-top: 30px; text-align: left; padding: 15px; background: #f5f5f500; border-radius: 8px;">
                     <h4 style="color: #084B8A; margin-bottom: 10px;">Ferramentas Utilizadas:</h4>
                     <ul style="margin-left: 20px; line-height: 1.8;">
@@ -873,12 +715,10 @@
                         <li><strong>Cor:</strong> Paleta CMYK para impressão</li>
                     </ul>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- 3.7.6 Modal: Storyboard - A Padeirinha -->
         <div id="pdf-storyboard-padeirinha" class="modal-overlay sub-modal">
             <div class="modal-content sub-content" style="max-width: 950px; padding: 30px;">
                 <span class="close-btn" style="position: absolute; top: 15px; right: 20px; z-index: 2001; background: white; color: #084B8A; border-radius: 50%; width: 32px; height: 32px; line-height: 30px; text-align: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">&times;</span>
@@ -887,18 +727,10 @@
                 <div style="text-align: center; margin-bottom: 25px;">
                     <img src="fotos/padeirinha.png" alt="Storyboard A Padeirinha" style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid #ddd;">
                 </div>
-                <p style="text-align: center; font-size: 0.95em; color: #666; margin-bottom: 20px; font-style: italic;">
-                    Planeamento visual quadro a quadro da animação
-                </p>
+                <p style="text-align: center; font-size: 0.95em; color: #666; margin-bottom: 20px; font-style: italic;">Planeamento visual quadro a quadro da animação</p>
                 <div style="background: #f8f9fa00; padding: 20px; border-radius: 8px; border-left: 4px solid #084b8a00;">
-                    <p style="margin: 0 0 10px 0; line-height: 1.6; text-align: justify;">
-                        <strong>A Padeirinha</strong> ganha vida através da animação 2D. 
-                        Uma homenagem à música tradicional alentejana, criada com IA, 
-                        vetorizada em Illustrator e animada no Adobe Animate.
-                    </p>
-                    <p style="margin: 0; font-size: 0.9em; color: #084B8A; font-weight: bold;">
-                        UFCD 0141 | 2025/2026
-                    </p>
+                    <p style="margin: 0 0 10px 0; line-height: 1.6; text-align: justify;"><strong>A Padeirinha</strong> ganha vida através da animação 2D. Uma homenagem à música tradicional alentejana, criada com IA, vetorizada em Illustrator e animada no Adobe Animate.</p>
+                    <p style="margin: 0; font-size: 0.9em; color: #084B8A; font-weight: bold;">UFCD 0141 | 2025/2026</p>
                 </div>
                 <div style="margin-top: 20px; text-align: center;">
                     <h4 style="color: #084B8A; margin-bottom: 10px;">Ferramentas Utilizadas:</h4>
@@ -909,50 +741,39 @@
                         <li>Canva</li>
                     </ul>
                 </div>
-                <!-- ASSINATURA -->
                 <div class="modal-signature">© 2026 Vera F. M. Antunes</div>
             </div>
         </div>
 
-        <!-- =========================================
-             3.8 FOOTER - RODAPÉ
-             ========================================= -->
+        <!-- FOOTER -->
         <footer class="site-footer">
             <div class="footer-content">
-                
-                <!-- 3.8.1 QR Code e Logo (Acima da linha azul na impressão) -->
                 <div class="footer-print-row">
                     <div class="print-only qr-rodape">
                         <p style="font-size: 9pt; color: #084B8A; margin-bottom: 4px;"><strong>Explore a versão interativa deste CV:</strong></p>
                         <img src="QR_code-CVInterativo .png" alt="QR Code para o CV Interativo" class="qr-img">
-                        <p class="qr-url">https://filippaantunes.github.io/CV-Interativo/</p>
+                        <!-- Link otimizado com estilo inline anti-sublinhado -->
+                        <a href="https://filippaantunes.github.io/CV-Interativo/" target="_blank" style="color: #084B8A; text-decoration: none !important;">filippaantunes.github.io/CV-Interativo/</a>
                     </div>
                     <div class="footer-logo-wrapper">
                         <img src="VA-1000x1000.png" alt="Logo Vera Antunes" class="footer-logo">
                     </div>
                 </div>
-
-                <!-- 3.8.2 Copyright (Abaixo da linha azul na impressão) -->
                 <p class="footer-copyright">&copy; 2026 | Designed & Developed by <strong>Vera F. M. Antunes</strong></p>
                 <p style="font-style: italic; font-size: 0.85em;" class="no-print-footer-text">Página em constante atualização.</p>
-                
             </div>
         </footer>
 
-    </div> <!-- Fim do container -->
+    </div>
 
-    <!-- =========================================
-         4. SCRIPTS - JAVASCRIPT
-         ========================================= -->
+    <!-- SCRIPTS -->
     <script>
-        // 4.1 Welcome Modal - Fechar e guardar no localStorage
         function closeWelcome() {
             const modal = document.getElementById('welcome-modal');
             if (modal) modal.classList.remove('active');
             localStorage.setItem('cv-welcome-seen', 'true');
         }
 
-        // 4.2 Welcome Modal - Abrir só na primeira visita
         window.addEventListener('load', function() {
             if (!localStorage.getItem('cv-welcome-seen')) {
                 const welcome = document.getElementById('welcome-modal');
@@ -960,45 +781,77 @@
             }
         });
 
-        // 4.3 Lógica geral de modais - Event Delegation
         document.addEventListener('click', function(e) {
-            // Abrir modais principais e sub-modais
             const trigger = e.target.closest('[data-modal]');
             if (trigger && !trigger.closest('.project-card[style*="cursor: default"]')) {
                 const modalId = trigger.getAttribute('data-modal');
                 const modal = document.getElementById(modalId);
                 if (modal) modal.classList.add('active');
             }
-            
-            // Fechar modais (botões X)
             if (e.target.closest('.close-btn')) {
                 e.stopPropagation();
                 const modal = e.target.closest('.modal-overlay');
                 if (modal) {
                     modal.classList.remove('active');
                     const video = modal.querySelector('video');
-                    if (video) { 
-                        video.pause(); 
-                        video.currentTime = 0; 
-                    }
+                    if (video) { video.pause(); video.currentTime = 0; }
                 }
             }
         });
 
-        // 4.4 Fechar modal ao clicar fora
         document.querySelectorAll('.modal-overlay').forEach(overlay => {
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) {
                     overlay.classList.remove('active');
                     const video = overlay.querySelector('video');
-                    if (video) { 
-                        video.pause(); 
-                        video.currentTime = 0; 
-                    }
+                    if (video) { video.pause(); video.currentTime = 0; }
                 }
             });
         });
-    </script>
 
+        window.addEventListener('beforeprint', function() {
+            const infoDigitalHeader = Array.from(document.querySelectorAll('h3, h4, p, div')).find(el => el.textContent.trim() === 'Informática & Digital');
+            if (infoDigitalHeader) {
+                const topicosCards = document.createElement('div');
+                topicosCards.classList.add('print-detail-content', 'print-portfolio-topics');
+                // Link injetado com estilo inline anti-sublinhado para garantir que não aparece sublinhado no PDF
+                topicosCards.innerHTML = `
+                    <ul style="margin-left: 18px; margin-top: 6px; list-style-type: square; font-size: 9pt; line-height: 1.4; color: #333;">
+                        <li><strong>Lógica & C++:</strong> Criação de programa de cálculo científico estruturado com manipulação de ficheiros.</li>
+                        <li><strong>Google Sites:</strong> Desenvolvimento de ecossistema para gestão de conteúdos e design de interfaces responsivas.</li>
+                        <li><strong>Game Design & Strategy:</strong> Criação de interfaces interativas, UX Strategy e estruturação de mecânicas para a comunidade global de jogos.
+                            (<a href="https://filippaantunes.github.io/gaming/" target="_blank" style="color: #084B8A; text-decoration: none !important;">filippaantunes.github.io/gaming/</a>)
+                        </li>
+                        <li><strong>Vastidão 3D:</strong> Modelação poligonal, texturização PBR, iluminação e renderização em Blender.</li>
+                        <li><strong>Animação, Vídeo & Design Gráfico:</strong> Criação multimédia com Adobe Creative Suite (Illustrator, Animate, Premiere, After Effects) e IA.</li>
+                        <li><strong>Projetos & Iniciativas:</strong> Estruturação de modelo de negócio, planeamento de infraestruturas locais (LAN) e organização ágil de dados (MS Access).</li>
+                    </ul>
+                `;
+                infoDigitalHeader.parentNode.insertBefore(topicosCards, infoDigitalHeader.nextSibling);
+            }
+
+            const experienciaContent = document.querySelector('#modal-experiencia .experience-desc');
+            const experienciaSection = document.querySelector('.section-content.experiences');
+            if (experienciaContent && experienciaSection) {
+                const clone = experienciaContent.cloneNode(true);
+                clone.classList.add('print-detail-content');
+                clone.style.display = 'block';
+                experienciaSection.appendChild(clone);
+            }
+            
+            const educacaoContent = document.querySelector('#modal-educacao .experience-desc');
+            const educacaoSection = document.querySelector('.section-content.education');
+            if (educacaoContent && educacaoSection) {
+                const clone = educacaoContent.cloneNode(true);
+                clone.classList.add('print-detail-content');
+                clone.style.display = 'block';
+                educacaoSection.appendChild(clone);
+            }
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.querySelectorAll('.print-detail-content').forEach(el => el.remove());
+        });
+    </script>
 </body>
 </html>
