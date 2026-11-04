@@ -33,8 +33,6 @@ body {
 /* =========================================
     2. HEADER - CABEÇALHO
    ========================================= */
-
-/* 2.1 Estrutura do Header */
 .header {
     display: flex;
     align-items: center;
@@ -42,7 +40,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* 2.2 Título e Nome no Header */
 .header-name {
     color: #084B8A;
     font-size: 1.8em;
@@ -60,7 +57,6 @@ body {
     margin: 0;
 }
 
-/* 2.3 Botão de Idioma (Language Switch) */
 .language-switch {
     display: flex !important;
     justify-content: flex-end !important;
@@ -101,25 +97,13 @@ body {
     box-shadow: 0 2px 5px rgba(8, 75, 138, 0.2);
 }
 
-/* 2.4 Links (Email e LinkedIn) */
-.email-link {
+.email-link, .linkedin-link {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s ease;
 }
 
-.email-link:hover {
-    color: #084B8A;
-    text-decoration: underline;
-}
-
-.linkedin-link {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.linkedin-link:hover {
+.email-link:hover, .linkedin-link:hover {
     color: #084B8A;
     text-decoration: underline;
 }
@@ -127,8 +111,6 @@ body {
 /* =========================================
     3. MAIN - ESTRUTURA DAS SECÇÕES (LAYOUT 2 COLUNAS)
    ========================================= */
-
-/* 3.1 Container de cada secção */
 .section-container {
     display: flex;
     margin-bottom: 20px;
@@ -137,7 +119,6 @@ body {
     margin-right: 50px; 
 }
 
-/* 3.2 Coluna Esquerda (botões azuis) */
 .section-info {
     width: 25%;
     flex-shrink: 0;
@@ -149,7 +130,6 @@ body {
     border-right: 1px solid #ddd;
 }
 
-/* 3.3 Coluna Direita (conteúdo) */
 .section-content {
     width: 75%;
     padding-left: 20px;
@@ -158,8 +138,6 @@ body {
 /* =========================================
     4. MAIN - BOTÕES DAS SECÇÕES (AZUIS INTERATIVOS)
    ========================================= */
-
-/* 4.1 Botão azul com modal */
 main .section-title[data-modal] {
     color: #ffffff;
     font-size: 0.85em;
@@ -180,7 +158,6 @@ main .section-title[data-modal] {
     padding-right: 40px !important;
 }
 
-/* 4.2 Hover no botão */
 main .section-container:hover .section-title[data-modal] {
     background-color: #ffffff;
     color: #084B8A;
@@ -194,7 +171,6 @@ main .section-title[data-modal]:active {
     box-shadow: 0 2px 5px rgba(8, 75, 138, 0.2);
 }
 
-/* 4.3 Setinha indicadora (▶) nos botões */
 .section-title[data-modal]::after {
     content: "▶";
     position: absolute;
@@ -213,7 +189,6 @@ main .section-title[data-modal]:active {
     color: #084B8A;
 }
 
-/* 4.4 Títulos sem modal (apenas texto) */
 .section-title:not([data-modal]) {
     color: #084B8A !important;
     font-size: 1.1em !important;
@@ -229,15 +204,12 @@ main .section-title[data-modal]:active {
 /* =========================================
     5. MAIN - INFORMAÇÃO PESSOAL (FOTO + CONTACTOS)
    ========================================= */
-
-/* 5.1 Layout foto + contactos lado a lado */
 .personal-info {
     display: flex;
     gap: 10px;
     align-items: flex-start;
 }
 
-/* 5.2 Foto de perfil */
 .profile-photo {
     width: 150px;
     height: auto;
@@ -245,21 +217,18 @@ main .section-title[data-modal]:active {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 5.3 Detalhes de contacto */
 .contact-details h3 {
     font-size: 1.5em;
     color: #084B8A;
     margin: 0 0 15px 0;
 }
 
-/* 5.4 Item de contacto (ícone + texto) */
 .contact-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-/* 5.5 Ícones dos contactos */
 .contact-item img {
     height: 18px !important;
     width: 18px !important;
@@ -269,7 +238,6 @@ main .section-title[data-modal]:active {
     display: block;
 }
 
-/* 5.6 Emojis ou texto no lugar de ícones */
 .contact-item span, 
 .contact-item i {
     font-size: 18px !important;
@@ -300,8 +268,6 @@ li {
 /* =========================================
     7. MAIN - GRELLHA DE PROJETOS / PORTFÓLIO
    ========================================= */
-
-/* 7.1 Grelha de projetos */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -310,7 +276,6 @@ li {
     align-items: stretch;
 }
 
-/* 7.2 Cartão de projeto */
 .project-card {
     background: #fff;
     border: 1px solid #ddd;
@@ -354,7 +319,6 @@ li {
     border-color: #084B8A;
 }
 
-/* 7.3 Cartões especiais */
 .project-card[data-modal="detalhe-empreendedorismo"] {
     border: 1px dashed #084B8A !important;
     box-shadow: 0 5px 20px rgba(124, 122, 109, 0.407) !important;
@@ -368,8 +332,6 @@ li {
 /* =========================================
     8. MODAIS
    ========================================= */
-
-/* 8.1 Linha separadora dentro dos modais */
 .modal-line {
     display: block !important;
     height: 2px !important;
@@ -391,7 +353,6 @@ li {
     background: linear-gradient(to right, transparent, #999, transparent) !important;
 }
 
-/* 8.2 Overlay (fundo do modal) */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -411,7 +372,6 @@ li {
     display: flex !important;
 }
 
-/* 8.3 Conteúdo do modal */
 .modal-content {
     background: #ffffff !important;
     padding: 40px;
@@ -425,7 +385,6 @@ li {
     overflow-y: auto;
 }
 
-/* 8.4 Sub-modais (PDFs, imagens) */
 .sub-modal {
     position: fixed;
     top: 0;
@@ -465,7 +424,6 @@ li {
     border: none;
 }
 
-/* 8.5 Botão de fechar (X) */
 .close-btn {
     position: absolute;
     top: 15px; 
@@ -481,8 +439,6 @@ li {
 /* =========================================
     9. FOOTER - RODAPÉ
    ========================================= */
-
-/* 9.1 Estrutura do rodapé */
 .site-footer {
     text-align: center !important;
     display: flex !important;
@@ -499,7 +455,6 @@ li {
     box-sizing: border-box !important;
 }
 
-/* 9.2 Texto do rodapé */
 .site-footer p {
     color: #084B8A;
     font-size: 0.9em;
@@ -509,7 +464,6 @@ li {
     text-align: center !important;
 }
 
-/* 9.3 Logótipo VA */
 .footer-logo {
     display: block !important;
     margin: 15px auto 0 auto !important;
@@ -529,7 +483,6 @@ li {
 /* =========================================
     10. ANIMAÇÕES
    ========================================= */
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -545,7 +498,6 @@ li {
     50% { box-shadow: 0 4px 20px rgba(8,75,138,0.6); }
 }
 
-/* Animação "bounce" para o primeiro botão */
 .first-button-hint {
     animation: bounce-hint 2s infinite;
 }
@@ -553,20 +505,16 @@ li {
 /* =========================================
     11. RESPONSIVIDADE (MOBILE E TABLETS)
    ========================================= */
-
-/* 11.1 Tablets e ecrãs médios (previne overflow dos botões) */
 @media screen and (max-width: 1024px) {
     .section-title[data-modal] {
         font-size: 0.8em !important;
         padding: 8px 12px !important;
-        white-space: normal !important; /* Permite que o texto quebre em várias linhas */
+        white-space: normal !important;
         line-height: 1.2 !important;
     }
 }
 
-/* 11.2 Telemóveis e ecrãs pequenos */
 @media screen and (max-width: 768px) {
-    /* Header em mobile */
     .header { 
         flex-direction: column !important;
         align-items: center !important; 
@@ -580,7 +528,6 @@ li {
         margin-bottom: 20px !important;
     }
 
-    /* Secções em coluna única */
     .section-container { 
         flex-direction: column !important; 
         margin-right: 0 !important; 
@@ -601,18 +548,16 @@ li {
         padding-left: 0 !important; 
     }
 
-    /* AJUSTE CRÍTICO: Botões das secções em mobile */
     .section-title[data-modal] {
-        font-size: 0.75em !important; /* Fonte menor para caber no ecrã */
+        font-size: 0.75em !important;
         padding: 8px 15px !important;
-        white-space: normal !important; /* PERMITE QUEBRA DE LINHA (ex: PROFESSIONAL \n EXPERIENCE) */
+        white-space: normal !important;
         line-height: 1.3 !important;
         width: 100% !important; 
-        max-width: 250px !important; /* Limita a largura para não ficar esticado demais */
+        max-width: 250px !important;
         text-align: center !important;
     }
 
-    /* Informação pessoal em coluna */
     .personal-info {
         flex-direction: column !important;
         align-items: center !important;
@@ -632,11 +577,9 @@ li {
         justify-content: center !important;
     }
 
-    /* Modais em mobile */
     .sub-content iframe { width: 100% !important; }
     .modal-content { width: 95% !important; padding: 20px !important; }
 
-    /* Setinha dos botões */
     .section-title[data-modal]::after {
         right: 10px !important;
         font-size: 0.7em !important;
@@ -646,7 +589,6 @@ li {
         animation: none !important;
     }
 
-    /* Rodapé em mobile */
     .site-footer {
         max-width: 100% !important;
         width: 100% !important;
@@ -678,7 +620,6 @@ li {
     }
 }
 
-/* 11.3 Ecrãs muito pequenos (telemóveis compactos) */
 @media screen and (max-width: 480px) {
     .section-title[data-modal] {
         font-size: 0.7em !important;
@@ -699,7 +640,6 @@ li {
 /* =========================================
     12. PÁGINA EM INGLÊS
    ========================================= */
-
 .lang-en .sub-content {
     max-height: 85vh;
     overflow-y: auto;
@@ -720,13 +660,14 @@ li {
 }
 
 /* =========================================
-    13. IMPRESSÃO / PDF
+    13. IMPRESSÃO / PDF (OTIMIZADO COM LINKS CLICÁVEIS)
    ========================================= */
 
 /* Elementos invisíveis no ecrã normal */
 .print-only,
 .print-only-contact,
-.titulo-impressao-cv {
+.titulo-impressao-cv,
+.print-detail-content {
     display: none !important;
 }
 
@@ -734,7 +675,7 @@ li {
     /* 13.1 Configuração da folha A4 */
     @page {
         size: A4 portrait;
-        margin: 2mm 4mm 4mm 4mm;
+        margin: 5mm 6mm 5mm 6mm;
     }
 
     /* 13.2 Ocultar elementos interativos */
@@ -746,112 +687,135 @@ li {
     .no-print-detail,
     .competencias-detalhe,
     .no-print-footer-text,
-    .web-only-contact {
+    .web-only-contact,
+    .close-btn,
+    .open-sub,
+    .modal-overlay,
+    .portfolio-grid img, 
+    .card-informacao-pessoal, 
+    #informacao-pessoal .no-print-detail { 
         display: none !important;
     }
 
-    /* 13.3 Proteção das colunas */
+    /* 13.3 Mostrar conteúdo detalhado clonado nas secções */
+    .print-detail-content {
+        display: block !important;
+        margin-top: 10px !important;
+        padding-top: 8px !important;
+        border-top: 1px dashed #084B8A !important;
+        font-size: 9pt !important;
+        line-height: 1.35 !important;
+    }
+
+    .print-detail-content p {
+        font-size: 9pt !important;
+        margin-bottom: 4px !important;
+        color: #333 !important;
+        page-break-inside: avoid !important;
+    }
+
+    .print-detail-content p strong {
+        color: #000 !important;
+        font-size: 9.5pt !important;
+        display: block !important;
+        margin-top: 6px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .print-detail-content ul {
+        margin-left: 18px !important;
+        margin-bottom: 8px !important;
+        list-style-type: square !important;
+    }
+
+    .print-detail-content li {
+        font-size: 9pt !important;
+        line-height: 1.35 !important;
+        margin-bottom: 3px !important;
+        page-break-inside: avoid !important;
+        color: #333 !important;
+    }
+
+    /* 13.4 Reestruturação Absoluta Coluna Única Linear (Otimizado para IA) */
     .section-container {
-        display: flex !important;
-        page-break-inside: avoid;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #084B8A;
-        padding-bottom: 8px;
+        display: block !important; 
+        width: 100% !important;
+        page-break-inside: auto !important;
+        margin-bottom: 10px !important;
+        border-bottom: none solid #084B8A !important;
+        padding-bottom: 0 !important;
     }
 
     .section-info {
-        width: 28% !important;
-        flex-shrink: 0 !important;
-        padding-right: 15px !important;
-        border-right: 1px solid #ddd !important;
+        width: 100% !important; 
+        padding-right: 0 !important;
+        border-right: none !important; 
+        margin-bottom: 6px !important;
     }
 
     .section-content {
-        width: 72% !important;
-        padding-left: 15px !important;
+        width: 100% !important;
+        padding-left: 0 !important;
         overflow: visible !important;
     }
 
     .section-title[data-modal] {
         background: #084B8A !important;
         color: white !important;
-        padding: 6px 10px !important;
-        font-size: 0.85em !important;
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        page-break-after: avoid;
-        word-break: break-word !important;
+        padding: 4px 10px !important;
+        font-size: 10pt !important;
+        display: inline-block !important;
+        width: auto !important;
+        text-align: left !important; 
+        page-break-after: avoid !important;
     }
 
-    /* 13.4 Gestão dos contactos na impressão */
-    .print-only-contact {
-        display: block !important;
+    .print-perfil-summary {
+        border-top: none !important;
         margin-top: 8px !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px dashed #084B8A !important;
     }
 
-    .print-only-contact .contact-item {
-        display: flex !important;
-        align-items: flex-start !important;
-        margin-bottom: 5px !important;
-    }
-
-    .print-only-contact .contact-item img {
-        width: 18px !important;
-        height: 18px !important;
-        margin-right: 8px !important;
-        flex-shrink: 0 !important;
-        margin-top: 2px !important;
-    }
-
-    .print-only-contact .contact-item p {
-        margin: 0 !important;
-        font-size: 9pt !important;
-        line-height: 1.25 !important;
-        color: #333 !important;
-        flex: 1 !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important; 
-    }
-
-    .contact-details .contact-item {
-        margin-bottom: 14px !important; 
-    }
-
-    /* 13.5 Troca dinâmica de título */
+    /* 13.5 Header Compacto e Bloco de Contactos (Leitura de IA) */
     .header-name {
         display: none !important; 
     }
     
     .titulo-impressao-cv {
         display: block !important;
-        font-size: 1.8em !important;
+        font-size: 1.4em !important;
         font-weight: bold !important;
         color: #084B8A !important;
-        margin: 0 0 4px 0 !important;
+        margin: 0 0 2px 0 !important;
         text-transform: uppercase;
         page-break-after: avoid;
     }
 
-    /* 13.6 Mostrar conteúdo completo dos detalhes */
-    .modal-content,
-    .printable-content,
-    .accordion-content,
-    .experiencia-detalhe,
-    .educacao-detalhe,
-    .info-adicional-detalhe,
-    .competencias-resumo {
+    .print-only-contact {
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: static !important;
-        height: auto !important;
-        max-height: none !important;
-        overflow: visible !important;
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
+        page-break-inside: avoid !important;
     }
 
-    /* 13.7 Limpeza visual */
+    .print-only-contact .contact-item {
+        display: inline-block !important; 
+        margin-right: 12px !important; 
+        margin-bottom: 2px !important;
+    }
+
+    .print-only-contact .contact-item p {
+        margin: 0 !important;
+        font-size: 9pt !important;
+        line-height: 1.2 !important;
+        color: #000 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* 13.6 Limpeza visual e Base */
     * {
         box-shadow: none !important;
         text-shadow: none !important;
@@ -865,7 +829,7 @@ li {
         background: #fff !important;
         color: #000 !important;
         font-size: 9.5pt; 
-        line-height: 1.35 !important;
+        line-height: 1.3 !important;
     }
 
     .container {
@@ -876,52 +840,50 @@ li {
     }
 
     .header {
-        margin-bottom: 8px !important;
-        padding-bottom: 4px !important;
-        border-bottom: 2px solid #084B8A !important;
+        margin-bottom: 2px !important;
+        padding-bottom: 2px !important;
+        border-bottom: 1.5px solid #084B8A !important;
         page-break-after: avoid !important;
+        page-break-inside: avoid !important;
     }
 
-    /* 13.8 Footer na impressão - Linha ENTRE o QR/Logo e o Copyright */
+    /* 13.7 Footer INTELIGENTE  */
     .site-footer {
         display: block !important;
-        margin-top: 65px !important; /* Desce o bloco todo na página */
+        margin-top: 8px !important;
         padding: 0 !important;
-        border: none !important; /* Remove qualquer borda do container geral */
-        page-break-inside: avoid !important; 
+        border: none !important;
+        page-break-before: auto !important;
+        page-break-inside: avoid !important;
     }
 
-    /* A linha azul fica no fundo do bloco do QR e Logo */
     .footer-print-row {
         display: flex !important;
-        justify-content: center !important;
+        justify-content: space-between !important; 
         align-items: center !important;
-        gap: 40px !important;
+        gap: 20px !important;
         width: 100%;
-        flex-wrap: wrap !important;
-        
-        /* LINHA AZUL: separa o QR/Logo do copyright */
-        border-bottom: 1px solid #084B8A !important; 
-        padding-bottom: 15px !important; /* Espaço entre o QR/Logo e a linha */
-        margin-bottom: 12px !important; /* Espaço entre a linha e o copyright */
+        flex-wrap: nowrap !important; 
+        border-top: 1px solid #084B8A !important; 
+        border-bottom: none !important;
+        padding-top: 10px !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 4px !important;
     }
 
-    /* Texto de copyright ABAIXO da linha */
     .footer-copyright {
         display: block !important;
         text-align: center;
-        font-size: 9pt;
+        font-size: 8pt;
         color: #084B8A;
-        margin: 0 !important;
-        padding-bottom: 10px !important; /* Espaço final abaixo do copyright */
+        margin-top: 4px !important;
+        padding-bottom: 0px !important;
     }
 
-    /* Esconde o texto "Página em constante atualização" na impressão */
     .no-print-footer-text {
         display: none !important;
     }
 
-    /* Estilos do QR Code e Logo */
     .print-only {
         display: flex !important;
         flex-direction: column !important;
@@ -931,87 +893,25 @@ li {
     }
 
     .qr-rodape p {
-        margin: 2px 0;
-        font-size: 8.5pt;
-        color: #000;
-        text-align: center !important;
-    }
-
-    .qr-img {
-        width: 85px !important;  
-        height: 85px !important;
-        display: block;
-        margin: 4px auto 8px auto !important;
-    }
-
-    .qr-url {
-        font-family: monospace;
-        font-size: 9pt !important; 
-        color: #084B8A !important;
-        white-space: normal !important; 
-        word-wrap: break-word !important;
-        word-break: break-all !important; 
-        max-width: 400px;
-        display: block !important;
-        margin: 0 auto !important;
-        text-align: center !important;
-    }
-
-    .footer-logo-wrapper {
-        flex: 0 0 auto !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    .footer-logo {
-        width: 130px !important; 
-        height: auto !important;
-        margin: 0 auto !important;
-        display: block !important;
-    }
-
-    /* 13.9 QR Code e URL centrados */
-    .footer-print-row {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 40px !important;
-        width: 100%;
-        flex-wrap: wrap !important;
-    }
-
-    .print-only {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        flex: 0 0 auto !important;
-    }
-
-    .qr-rodape p {
-        margin: 2px 0;
-        font-size: 8.5pt;
-        color: #000;
-        text-align: center !important;
+        font-size: 8.5pt !important;
+        line-height: 1.1 !important;
     }
 
     .qr-rodape p:first-child {
-        font-size: 9.5pt;
-        color: #084B8A;
-        margin-bottom: 4px;
+        font-size: 9pt !important;
+        font-weight: bold !important;
     }
 
     .qr-img {
-        width: 85px !important;  
+        width: 85px !important;
         height: 85px !important;
         display: block;
-        margin: 4px auto 8px auto !important;
+        margin: 2px auto 4px auto !important;
     }
 
     .qr-url {
         font-family: monospace;
-        font-size: 9pt !important; 
+        font-size: 8.5pt !important; 
         color: #084B8A !important;
         white-space: normal !important; 
         word-wrap: break-word !important;
@@ -1022,7 +922,6 @@ li {
         text-align: center !important;
     }
 
-    /* 13.10 Logótipo centrado na impressão */
     .footer-logo-wrapper {
         flex: 0 0 auto !important;
         display: flex !important;
@@ -1031,30 +930,62 @@ li {
     }
 
     .footer-logo {
-        width: 130px !important; 
+        width: 100px !important; 
         height: auto !important;
-        margin: 0 auto !important;
+        margin: 0 !important;
         display: block !important;
+    }
+
+    .section-content li, .contact-item {
+        page-break-inside: avoid !important;
+    }
+
+    main .section-container:last-of-type {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        page-break-after: avoid !important;
+    }
+
+    .print-portfolio-topics {
+        display: block !important;
+        margin-top: 4px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* =========================================
+        13.8 GARANTIA DE LINKS CLICÁVEIS NO PDF (NOVO)
+       ========================================= */
+    /* Força a cor da marca e o sublinhado para o utilizador saber que é clicável */
+    a {
+        color: #084B8A !important;
+        text-underline-offset: 2px !important;
+        word-wrap: break-word !important;
+        /* Os navegadores mantêm o atributo href ativo no PDF automaticamente,
+           mas este estilo garante a indicação visual profissional */
+    }
+
+    /* Remove sublinhado de links que são apenas âncoras internas ou sem href real */
+    a[href^="#"], a:not([href]) {
+        text-decoration: none !important;
+        color: inherit !important;
+        cursor: default !important;
     }
 }
 
 /* =========================================
     14. Z-INDEX E MODAIS ESPECÍFICOS
    ========================================= */
-
-/* 14.1 Camada base para modais principais */
 #modal-competencias,
 #detalhe-empreendedorismo {
     z-index: 2000 !important;
 }
 
-/* 14.2 PDFs de orçamento e levantamento */
 #pdf-levantamento,
 #pdf-orcamento {
     z-index: 6000 !important;
 }
 
-/* 14.3 Fundo do modal ignora cliques (só conteúdo e X são clicáveis) */
 .modal-overlay.active,
 .sub-modal.active {
     pointer-events: none;
@@ -1065,7 +996,6 @@ li {
     pointer-events: auto;
 }
 
-/* 14.4 Modais Gaming (sempre no topo) */
 #modal-capa-video.sub-modal.active,
 #img-capa-final.sub-modal.active,
 #pdf-storyboard-padeirinha.sub-modal.active {
@@ -1117,7 +1047,6 @@ li {
     }
 }
 
-/* 14.5 PDF Dossiê (sempre por cima de tudo) */
 #pdf-dossie-tecnico {
     z-index: 8000 !important;
 }
